@@ -145,8 +145,41 @@ treedel.update_traces(marker=dict(colors=colors, line=dict(color='lightgray', wi
 
 #treedel.show()
 ##################################################################################
-
-
+          
+            
+              
+              
+#card3 = dbc.Card(
+#    dbc.CardBody(
+#        [
+#            
+#            html.P([dbc.Button([
+#                html.H3(
+#                    dbc.CardImg(src= "https://github.com/fdealbam/violenciadegenero/blob/main/application/static/fight.svg?raw=true",
+#                                href="https://violenciafamiliar.herokuapp.com/",
+#                                style={"color": "black",
+#                                       "height" :"25px",
+#                                      "background-clor": "light"})),
+#            "  Violencia Familiar"], 
+#                    style={'textAlign': 'left',"color":"#FBC02D",
+#                   "font-size": "30px",
+#                           'margin-bottom':'-30px'
+#                          })]),
+#            
+#     html.A([html.Img(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/fight.svg?raw=true",
+#                        style={'height' : '170px',
+#                    'width' : '120px',
+#                    'float' : 'left' })],
+#                  href="https://violenciafamiliar.herokuapp.com/", 
+#                  ),
+#        ]),
+#    
+#    
+#    style={"width": "50rem", 
+#          "border": "0",
+#          "fill" : "orange"},
+#)
+#
 
 
 ################################################
@@ -825,54 +858,88 @@ app.layout = html.Div([
                        width={'size': 20, "offset":1 },
                       )],justify="start",),
  
-   dbc.Button((["", html.H3(dbc.CardImg(src= "https://raw.githubusercontent.com/fdealbam/nvoleon/main/application/static/laundry.svg?raw=true", 
-                                style={"color": "black",
-                                       "height" :"25px",
-                                      "background-clor": "light"})),            
-            
-                  #   dbc.Button((["", html.H3(className="fal fa-washer", style={"color": "black",
-                  #                                                     "background-color": "light"}),
-                 html.H6(" Con lavadora ",
-                        style={"color":"black",
-                                "font-size":10,
-                                "background-color": "light"}),
-                 html.H4([("algo"),"%"],#"97%",
-                        style={"color":"#FBC02D",
-                                "background-color": "light"}),
-                 html.P("algo",#f"{int("algomas"):,}",
-                     style={"font-size":10}),                      
-        ]),style={ "background-color": "light"}),
-
-
-  dbc.Row(
-           [
-               dbc.Col(html.P(["según acumulado" ],
-                      style={"color": "gray", 
-                               #"font-weight": 'bold',
-                               "font-size": "26px",
-                               "font-family": "Arial",        
-                               "text-shadow": "10px 20px 30px gray",
-                            "background-color": "lightgray"}),
-                       width={'size': 20, "offset":1 },
-                      ),
-                dbc.Col(html.P(["según tasa" ],
-                      style={"color": "gray", 
-                               #"font-weight": 'bold',
-                               "font-size": "26px",
-                               "font-family": "Arial",        
-                               "text-shadow": "10px 20px 30px gray",
-                            "background-color": "lightgray"}),
-                       width={'size': 20, "offset":4 },
-                      ),
-           ],justify="start",),
-    
  
+  #     dbc.Row([
+  #     
+  #
+  #      
+  #      dbc.Col(dbc.Card(card3, color="white", inverse=True, outline =False  ),sm={  "offset": 1, }),
+  #       
+  #   ], no_gutters= True, justify= "start",
+  #   className="blockquote",
+   #  ),
+ 
+    
+#dbc.Row( [
+#    
+#    dbc.Col(
+        dbc.Button(([
+            dbc.Nav([
+                   dbc.NavLink(dbc.NavLink("Violencia Familiar", 
+                        href="https://violenciafamiliar.herokuapp.com/",
+                        active="exact"), 
+                        style={#'size': 2, 
+                               "margin-left": "-30px",  
+                               "font-family": "Sitka", 
+                               "font-size": 35, 
+                               "color": "lightsalmon",
+                              "text-shadow": "10px 20px 30px gray",})]),
+            
+            html.A([
+        html.Img(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/fight.svg?raw=true",
+                        style={'height' : '170px',
+                    'width' : '120px',
+                    'float' : 'left' ,
+                    "margin-left":"100px"
+                              })],
+                  href="https://violenciafamiliar.herokuapp.com/", 
+                  ),
+                    # html.Br(),
+  #   dbc.Col(
+               
+                     #),
+           # ]),
+                      ]),style={ "background-color": "light",
+                  "box-shadow": "10px 20px 30px gray",
+                  'margin-left': '105px',
+                                "width":"280px"
+                 } ,disabled=True),
+               
+  #  dbc.Col(
+  #      html.P([""],
+  #                    style={"color": "gray", 
+  #                             "font-weight": 'bold',
+  #                             "font-size": "46px",
+  #                             "font-family": "Arial",        
+  #                             "text-shadow": "10px 20px 30px gray",
+  #                          "margin-left": "-450px",
+  #                           "margin-bottom": "9920px"
+  #                          }
+  #                       ),
+  #                    # width={'size': 20, "offset":1 },
+  #                    ),
+               
+ #   ]),
+#  dbc.Row( [  
+#  dbc.Col(html.P(["promedio anual" ],
+#                      style={"color": "gray", 
+#                               #"font-weight": 'bold',
+#                               "font-size": "26px",
+#                               "font-family": "Arial",        
+#                               "text-shadow": "10px 20px 30px gray",
+#                            "background-color": "lightgray"}),
+#                       width={'size': 20, "offset":4 },
+#                      ),  ], style={"margin-left":"100px"}),
     #Estilo de fondo
+    html.Br(),
+     html.Br(),
+     html.Br(),
+     html.Br(),
 ],style={
             'margin-top': '0px',
             'margin-left': '10px',
             'width': '1400px',
-            'height': '1413px',
+           # 'height': '1413px',
       'backgroundColor': 'lightgray'
          });
 
