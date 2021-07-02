@@ -1,3 +1,4 @@
+
 # OEntrada violencia de genero
 
 import dash
@@ -898,7 +899,7 @@ app.layout = html.Div([
                       ]),style={ "background-color": "light",
                   "box-shadow": "10px 20px 30px gray",
                   'margin-left': '105px',
-                                "width":"220px", 
+                                "width":"180px", 
                                 "height":"250px"
                  } ,disabled=True),
                
