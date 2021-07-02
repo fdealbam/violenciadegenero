@@ -1,3 +1,5 @@
+# OEntrada violencia de genero
+
 import dash
 import dash_bootstrap_components as dbc
 import dash_core_components as dcc
@@ -186,15 +188,16 @@ treedel.update_traces(marker=dict(colors=colors, line=dict(color='lightgray', wi
 # a p p 
 ################################################
 
-FONT_AWESOMEpro1 = "{% static 'fontawesome_pro/js/all.min.js' %}"
-FONT_AWESOMEpro = "{% static 'fontawesome_pro/css/all.min.css' %}"
-FONT_AWESOME = "https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+#FONT_AWESOMEpro1 = "{% static 'fontawesome_pro/js/all.min.js' %}"
+#FONT_AWESOMEpro = "{% static 'fontawesome_pro/css/all.min.css' %}"
+#FONT_AWESOME = "https://use.fontawesome.com/releases/v5.7.2/css/all.css"
 server = flask.Flask(__name__)    
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes. 
                                                 LUX, 
-                                                FONT_AWESOMEpro1,
-                                                FONT_AWESOME, 
-                                                FONT_AWESOMEpro], server=server)
+                                                #FONT_AWESOMEpro1,
+                                                #FONT_AWESOME, 
+                                                #FONT_AWESOMEpro
+                                               ], server=server)
 
 
 
@@ -879,9 +882,10 @@ app.layout = html.Div([
                         href="https://violenciafamiliar.herokuapp.com/",
                         active="exact"), 
                         style={#'size': 2, 
-                               "margin-left": "-30px",  
-                               "font-family": "Sitka", 
-                               "font-size": 35, 
+                               #"margin-left": "-30px",  
+                               "font-family": "Arial",
+                               'float' : 'center' ,
+                               "font-size": 15, 
                                "color": "lightsalmon",
                               "text-shadow": "10px 20px 30px gray",})]),
             
@@ -889,8 +893,8 @@ app.layout = html.Div([
         html.Img(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/fight.svg?raw=true",
                         style={'height' : '170px',
                     'width' : '120px',
-                    'float' : 'left' ,
-                    "margin-left":"100px"
+                    'float' : 'center' ,
+                    #"margin-left":"100px"
                               })],
                   href="https://violenciafamiliar.herokuapp.com/", 
                   ),
@@ -947,3 +951,4 @@ app.layout = html.Div([
 
 if __name__ == '__main__':
     app.run_server()
+    
