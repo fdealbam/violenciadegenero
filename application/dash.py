@@ -1,5 +1,5 @@
 
-# OEntrada violencia de genero
+ OEntrada violencia de genero
 
 import dash
 import dash_bootstrap_components as dbc
@@ -864,18 +864,17 @@ app.layout = html.Div([
  
  
 
- 
-    
-#dbc.Row( [
-#    
-#    dbc.Col(
+  dbc.Row(
+           [
+               dbc.Col(
+
         dbc.Button(([
             dbc.Nav([
                    dbc.NavLink(dbc.NavLink("Violencia Familiar", 
                         href="https://violenciafamiliar.herokuapp.com/",
                         active="exact"), 
                         style={#'size': 2, 
-                               #"margin-left": "-30px",  
+                               "margin-left": "-30px",  
                                "font-family": "Arial",
                                'float' : 'center' ,
                                "font-size": 15, 
@@ -891,20 +890,137 @@ app.layout = html.Div([
                               })],
                   href="https://violenciafamiliar.herokuapp.com/", 
                   ),
-                    # html.Br(),
-  #   dbc.Col(
-               
-                     #),
-           # ]),
+    
                       ]),style={ "background-color": "light",
                   "box-shadow": "10px 20px 30px gray",
-                  'margin-left': '105px',
+                  'margin-left': '100px',
                                 "width":"180px", 
                                 "height":"250px"
-                 } ,disabled=True),
+                 } ,disabled=True)),
                
-  
+   dbc.Col(
+       dbc.Button(([
+            dbc.Nav([
+                   dbc.NavLink(dbc.NavLink("Incumplir asistencia familiar", 
+                        href="https://delncumplimientoviofam.herokuapp.com/",
+                        active="exact"), 
+                        style={#'size': 2, 
+                             #  "margin-left": "-30px",  
+                               "font-family": "Arial",
+                               'float' : 'center' ,
+                               "font-size": 15, 
+                               "color": "lightsalmon",
+                              "text-shadow": "10px 20px 30px gray",})]),
+            
+        html.A([
+        html.Img(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/incumplir.png?raw=true",
+                        style={#'height' : '150px',
+                    'width' : '185px',
+                    #'float' : 'center' ,
+                  #  "margin-left":"-30px"
+                              })],
+                  href="https://delncumplimientoviofam.herokuapp.com/", 
+                  ),
     
+                      ]),style={ "background-color": "light",
+                  "box-shadow": "10px 20px 30px gray",
+                 # 'margin-left': '105px',
+                                "width":"180px", 
+                                "height":"250px"
+                 } ,disabled=True)),
+     dbc.Col(
+      dbc.Button(([
+            dbc.Nav([
+                   dbc.NavLink(dbc.NavLink("Abuso sexual", 
+                        href="https://abusosexual.herokuapp.com/",
+                        active="exact"), 
+                        style={#'size': 2, 
+                            #   "margin-left": "-30px",  
+                               "font-family": "Arial",
+                               'float' : 'center' ,
+                               "font-size": 15, 
+                               "color": "lightsalmon",
+                              "text-shadow": "10px 20px 30px gray",})]),
+            
+        html.A([
+        html.Img(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/abuso.png?raw=true",
+                        style={#'height' : '150px',
+                    'width' : '120px',
+                    #'float' : 'center' ,
+                  #  "margin-left":"-30px"
+                              })],
+                  href="https://abusosexual.herokuapp.com/", 
+                  ),
+    
+                      ]),style={ "background-color": "light",
+                  "box-shadow": "10px 20px 30px gray",
+               #   'margin-left': '105px',
+                                "width":"180px", 
+                                "height":"250px"
+                 } ,disabled=True)),
+       
+    
+     dbc.Col(
+        dbc.Button(([
+            dbc.Nav([
+                   dbc.NavLink(dbc.NavLink("Contra libertad personal", 
+                        href="https://delitovslibertadpersonal.herokuapp.com/",
+                        active="exact"), 
+                        style={#'size': 2, 
+                            #   "margin-left": "-30px",  
+                               "font-family": "Arial",
+                               'float' : 'center' ,
+                               "font-size": 15, 
+                               "color": "lightsalmon",
+                              "text-shadow": "10px 20px 30px gray",})]),
+            
+        html.A([
+        html.Img(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/vslibertad.png?raw=true",
+                        style={#'height' : '150px',
+                    'width' : '90px',
+                    #'float' : 'center' ,
+                  #  "margin-left":"-30px"
+                              })],
+                  href="https://delitovslibertadpersonal.herokuapp.com/", 
+                  ),
+    
+                      ]),style={ "background-color": "light",
+                  "box-shadow": "10px 20px 30px gray",
+                 # 'margin-left': '105px',
+                                "width":"180px", 
+                                "height":"250px"
+                 } ,disabled=True)),
+     dbc.Col(
+     dbc.Button(([
+            dbc.Nav([
+                   dbc.NavLink(dbc.NavLink("Violaciónes ", 
+                        href="https://violaciones.herokuapp.com/",
+                        active="exact"), 
+                        style={#'size': 2, 
+                          #     "margin-left": "-30px",  
+                               "font-family": "Arial",
+                               'float' : 'center' ,
+                               "font-size": 15, 
+                               "color": "lightsalmon",
+                              "text-shadow": "10px 20px 30px gray",})]),
+            
+        html.A([
+        html.Img(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/violacion.png?raw=true",
+                        style={#'height' : '150px',
+                    'width' : '90px',
+                    #'float' : 'center' ,
+                   # "margin-left":"-30px"
+                              })],
+                  href="https://violaciones.herokuapp.com/", 
+                  ),
+    
+                      ]),style={ "background-color": "light",
+                  "box-shadow": "10px 20px 30px gray",
+                 # 'margin-left': '105px',
+                                "width":"180px", 
+                                "height":"250px"
+                 } ,disabled=True)),
+           ]),
     #Estilo de fondo
     html.Br(),
      html.Br(),
@@ -916,7 +1032,7 @@ app.layout = html.Div([
             'width': '1400px',
            # 'height': '1413px',
       'backgroundColor': 'lightgray'
-         });
+         })
 
 
 
