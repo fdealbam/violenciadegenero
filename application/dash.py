@@ -851,7 +851,7 @@ app.layout = html.Div([
     
   dbc.Row(
            [
-               dbc.Col(html.P(["Ranking de los delitos de género más frecuentes" ],
+               dbc.Col(html.P(["Acceso a los dashboards analíticos de cada delito" ],
                       style={"color": "black", 
                                #"font-weight": 'bold',
                                "font-size": "32px",
@@ -862,15 +862,7 @@ app.layout = html.Div([
                       )],justify="start",),
  
  
-  #     dbc.Row([
-  #     
-  #
-  #      
-  #      dbc.Col(dbc.Card(card3, color="white", inverse=True, outline =False  ),sm={  "offset": 1, }),
-  #       
-  #   ], no_gutters= True, justify= "start",
-  #   className="blockquote",
-   #  ),
+
  
     
 #dbc.Row( [
@@ -889,7 +881,7 @@ app.layout = html.Div([
                                "color": "lightsalmon",
                               "text-shadow": "10px 20px 30px gray",})]),
             
-            html.A([
+        html.A([
         html.Img(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/fight.svg?raw=true",
                         style={'height' : '170px',
                     'width' : '120px',
@@ -906,34 +898,12 @@ app.layout = html.Div([
                       ]),style={ "background-color": "light",
                   "box-shadow": "10px 20px 30px gray",
                   'margin-left': '105px',
-                                "width":"280px"
+                                "width":"220px", 
+                                "height":"250px"
                  } ,disabled=True),
                
-  #  dbc.Col(
-  #      html.P([""],
-  #                    style={"color": "gray", 
-  #                             "font-weight": 'bold',
-  #                             "font-size": "46px",
-  #                             "font-family": "Arial",        
-  #                             "text-shadow": "10px 20px 30px gray",
-  #                          "margin-left": "-450px",
-  #                           "margin-bottom": "9920px"
-  #                          }
-  #                       ),
-  #                    # width={'size': 20, "offset":1 },
-  #                    ),
-               
- #   ]),
-#  dbc.Row( [  
-#  dbc.Col(html.P(["promedio anual" ],
-#                      style={"color": "gray", 
-#                               #"font-weight": 'bold',
-#                               "font-size": "26px",
-#                               "font-family": "Arial",        
-#                               "text-shadow": "10px 20px 30px gray",
-#                            "background-color": "lightgray"}),
-#                       width={'size': 20, "offset":4 },
-#                      ),  ], style={"margin-left":"100px"}),
+  
+    
     #Estilo de fondo
     html.Br(),
      html.Br(),
@@ -951,4 +921,3 @@ app.layout = html.Div([
 
 if __name__ == '__main__':
     app.run_server()
-    
