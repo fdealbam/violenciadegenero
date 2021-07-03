@@ -1,19 +1,19 @@
-,Tipo de delito,GRAND TOTAL,tasa_acumulada,Total2015,Total2020,tasa_tot2015,tasa_tot2020,Variac_ABS2015_2021,Variac_tasa2015_2021
-17,Violencia familiar,1167905,905.5,127424,220031,105,172.2,92607,67.2
-1,Abuso sexual,119285,92.5,11980,22377,9.9,17.5,10397,7.6
-11,Otros delitos que atentan contra la vida y la integridad corporal,43169,33.5,3122,10335,2.6,8.1,7213,5.5
-9,Otros delitos que atentan contra la libertad personal,106394,82.5,11236,18813,9.3,14.7,7577,5.4
-2,Acoso sexual,19617,15.2,1109,5596,0.9,4.4,4487,3.5
-8,Otros delitos contra la familia,71717,55.6,8561,12840,7.1,10,4279,2.9
-10,Otros delitos que atentan contra la libertad y la seguridad sexual,37760,29.3,4899,8002,4,6.3,3103,2.3
+,Tipo de delito,GRAND TOTAL,tasa_acumulada,Total2015,Total2020,tasa_tot2015,tasa_tot2020,Variac_ABS2015_2021,Variac_tasa2015_2021,url
+17,Violencia familiar,1167905,905.5,127424,220031,105,172.2,92607,67.2,https://violenciafamiliar.herokuapp.com/
+1,Abuso sexual,119285,92.5,11980,22377,9.9,17.5,10397,7.6,https://abusosexual.herokuapp.com/
+11,Otros delitos que atentan contra la vida y la integridad corporal,43169,33.5,3122,10335,2.6,8.1,7213,5.5,https://delitootrosatentacontralavida.herokuapp.com/
+9,Otros delitos que atentan contra la libertad personal,106394,82.5,11236,18813,9.3,14.7,7577,5.4,https://delitovslibertadpersonal.herokuapp.com/
+2,Acoso sexual,19617,15.2,1109,5596,0.9,4.4,4487,3.5,	https://acososexual.herokuapp.com/
+8,Otros delitos contra la familia,71717,55.6,8561,12840,7.1,10,4279,2.9,https://delitovslafamilia.herokuapp.com/
+10,Otros delitos que atentan contra la libertad y la seguridad sexual,37760,29.3,4899,8002,4,6.3,3103,2.3,https://delitosseguridadsexual.herokuapp.com/
 16,Violencia de género en todas sus modalidades distinta a la violencia familiar,16883,13.1,1645,4050,1.4,3.2,2405,1.8
-14,Violación equiparada,20594,16,2081,4225,1.7,3.3,2144,1.6
-15,Violación simple,76915,59.6,10538,12319,8.7,9.6,1781,0.9
-5,Hostigamiento sexual,8567,6.6,784,1753,0.6,1.4,969,0.8
-4,Feminicidio,4956,3.8,411,948,0.3,0.7,537,0.4
-3,Corrupción de menores,13181,10.2,1940,2444,1.6,1.9,504,0.3
-12,Trata de personas,2868,2.2,415,551,0.3,0.4,136,0.1
-0,Aborto,3915,3,544,633,0.4,0.5,89,0.1
-6,Incesto,194,0.2,17,42,0,0,25,0
-13,Tráfico de menores,585,0.5,96,21,0.1,0,-75,-0.1
-7,Incumplimiento de obligaciones de asistencia familiar,149771,116.1,27894,17678,23,13.8,-10216,-9.2
+14,Violación equiparada,20594,16,2081,4225,1.7,3.3,2144,1.6,https://violaciones.herokuapp.com/
+15,Violación simple,76915,59.6,10538,12319,8.7,9.6,1781,0.9,https://violaciones.herokuapp.com/
+5,Hostigamiento sexual,8567,6.6,784,1753,0.6,1.4,969,0.8,https://hostigamientosexual.herokuapp.com/
+4,Feminicidio,4956,3.8,411,948,0.3,0.7,537,0.4,https://feminicidios.herokuapp.com/
+3,Corrupción de menores,13181,10.2,1940,2444,1.6,1.9,504,0.3,https://delitocorrupciondemenores.herokuapp.com/
+12,Trata de personas,2868,2.2,415,551,0.3,0.4,136,0.1,https://tratadepersonas.herokuapp.com/
+0,Aborto,3915,3,544,633,0.4,0.5,89,0.1,https://delitodeaborto.herokuapp.com/
+6,Incesto,194,0.2,17,42,0,0,25,0,https://delitoincesto.herokuapp.com/
+13,Tráfico de menores,585,0.5,96,21,0.1,0,-75,-0.1,https://traficodemenores.herokuapp.com/
+7,Incumplimiento de obligaciones de asistencia familiar,149771,116.1,27894,17678,23,13.8,-10216,-9.2,https://delncumplimientoviofam.herokuapp.com/
