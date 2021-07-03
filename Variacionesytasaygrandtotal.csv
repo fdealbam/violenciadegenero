@@ -3,10 +3,10 @@
 1,Abuso sexual,119285,92.5,11980,22377,9.9,17.5,10397,7.6,https://abusosexual.herokuapp.com/
 11,Otros delitos que atentan contra la vida y la integridad corporal,43169,33.5,3122,10335,2.6,8.1,7213,5.5,https://delitootrosatentacontralavida.herokuapp.com/
 9,Otros delitos que atentan contra la libertad personal,106394,82.5,11236,18813,9.3,14.7,7577,5.4,https://delitovslibertadpersonal.herokuapp.com/
-2,Acoso sexual,19617,15.2,1109,5596,0.9,4.4,4487,3.5,	https://acososexual.herokuapp.com/
+2,Acoso sexual,19617,15.2,1109,5596,0.9,4.4,4487,3.5,https://acososexual.herokuapp.com/
 8,Otros delitos contra la familia,71717,55.6,8561,12840,7.1,10,4279,2.9,https://delitovslafamilia.herokuapp.com/
 10,Otros delitos que atentan contra la libertad y la seguridad sexual,37760,29.3,4899,8002,4,6.3,3103,2.3,https://delitosseguridadsexual.herokuapp.com/
-16,Violencia de género en todas sus modalidades distinta a la violencia familiar,16883,13.1,1645,4050,1.4,3.2,2405,1.8
+16,Violencia de género en todas sus modalidades distinta a la violencia familiar,16883,13.1,1645,4050,1.4,3.2,2405,1.8,https://vgdistintavfam.herokuapp.com/
 14,Violación equiparada,20594,16,2081,4225,1.7,3.3,2144,1.6,https://violaciones.herokuapp.com/
 15,Violación simple,76915,59.6,10538,12319,8.7,9.6,1781,0.9,https://violaciones.herokuapp.com/
 5,Hostigamiento sexual,8567,6.6,784,1753,0.6,1.4,969,0.8,https://hostigamientosexual.herokuapp.com/
