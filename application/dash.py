@@ -1040,26 +1040,26 @@ femi15_21["var_may20_21_%"] = (femi15_21["var_may20_21"]*100)/femi15_21.Mayo21
 
 
 #os.chdir(r"C:\Users\PRIME\AnacondaProjects\Project_curso\code\Dash\feminicidios")
-#geo_df=gpd.read_file('México_Estados.shp')
-#
-#geo_df.replace(['Coahuila','Distrito Federal','Michoacán',"Veracruz"],
-#               #por
-#               ['Coahuila de Zaragoza','Ciudad de México','Michoacán de Ocampo','Veracruz de Ignacio de la Llave'],
-#               inplace=True, )
-#
-#concat1 = geo_df.merge(femi15_21,
-#                           left_on= "ESTADO",
-#                           right_on="Entidad", how= "right").sort_values("GRAND TOTAL", ascending=False)
-#
-#fig = concat1.plot("GRAND TOTAL",
-#                 cmap= "Oranges",
-#                 legend=False,
-#                 k=5,
-#                 scheme= 'quantiles',
-#                 linewidth=.6, 
-#                 edgecolor= "white", 
-#                 categorical=False,
-#                 figsize=(5,5),)
+geo_df=gpd.read_file('México_Estados.shp')
+
+geo_df.replace(['Coahuila','Distrito Federal','Michoacán',"Veracruz"],
+               #por
+               ['Coahuila de Zaragoza','Ciudad de México','Michoacán de Ocampo','Veracruz de Ignacio de la Llave'],
+               inplace=True, )
+
+concat1 = geo_df.merge(femi15_21,
+                           left_on= "ESTADO",
+                           right_on="Entidad", how= "right").sort_values("GRAND TOTAL", ascending=False)
+
+fig = concat1.plot("GRAND TOTAL",
+                 cmap= "Oranges",
+                 legend=False,
+                 k=5,
+                 scheme= 'quantiles',
+                 linewidth=.6, 
+                 edgecolor= "white", 
+                 categorical=False,
+                 figsize=(5,5),)
 #plt.axis("off")
 
 # Ruta guardado
@@ -1784,15 +1784,17 @@ app.layout = html.Div([
   dbc.Row(
            [
                dbc.Col(html.P(["Accede al análisis de cada delito" ],
-                      style={"color": "black", 
+                      style={"color": "Purple", 
                                #"font-weight": 'bold',
                                "font-size": "32px",
                                "font-family": "Arial",        
-                               "text-shadow": "10px 20px 30px gray",
+                               "text-shadow": "10px 20px 30px black",
                             "background-color": "lightgray"}),
                        width={'size': 20, "offset":1 },
                       )],justify="start",),
 
+    html.Br(),
+    html.Br(),
    
     
   dbc.Row(
@@ -1818,7 +1820,7 @@ app.layout = html.Div([
                             "font-color": "white",
                               "text-shadow": "10px 20px 30px gray",})]),
         html.A([
-        html.Img(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/fight.svg?raw=true",
+        html.Img(src=iconodel1,
                         style={#'height' : '170px',
                     'width' : '50px',
                     'float' : 'center' ,
@@ -2068,7 +2070,7 @@ app.layout = html.Div([
                   "box-shadow": "10px 20px 30px gray",
                   'margin-left': '100px',
                                 "width":"180px", 
-                                "height":"200px"
+                                "height":"160px"
                  } ,disabled=True)),
 
 
@@ -2107,7 +2109,7 @@ app.layout = html.Div([
                   "box-shadow": "10px 20px 30px gray",
                  # 'margin-left': '105px',
                                 "width":"180px", 
-                                "height":"200px"
+                                "height":"160px"
                  } ,disabled=True)),
 
                
@@ -2147,7 +2149,7 @@ app.layout = html.Div([
                   "box-shadow": "10px 20px 30px gray",
                  # 'margin-left': '105px',
                                 "width":"180px", 
-                                "height":"200px"
+                                "height":"160px"
                  } ,disabled=True)),
 
                
@@ -2192,7 +2194,7 @@ app.layout = html.Div([
                   "box-shadow": "10px 20px 30px gray",
                  # 'margin-left': '105px',
                                 "width":"180px", 
-                                "height":"200px"
+                                "height":"160px"
                  } ,disabled=True)),
 
                
@@ -2238,7 +2240,7 @@ app.layout = html.Div([
                   "box-shadow": "10px 20px 30px gray",
                  # 'margin-left': '105px',
                                 "width":"180px", 
-                                "height":"200px"
+                                "height":"160px"
                  } ,disabled=True)),
                
                
@@ -2252,17 +2254,17 @@ app.layout = html.Div([
                                                   "width": "200px",
                                                   "font-size": 12,  
                                                   "text-align":"center",
-                                                   "margin-left": "-10px",
-                                                   "margin-right": "-10px",  
+                                                  "margin-left": "-50px",
+                                                   "margin-right": "-50px",  
                                                    "margin-top": "-40px"
                                                  },
                                            href=urldel12,
                       # href="https://delitocorrupciondemenores.herokuapp.com/",
-                        active="exact"), 
+                        active="exact"),  
                         style={#'size': 2, 
                           #     "margin-left": "-30px",  
                                "font-family": "Arial",
-                               #'float' : 'center' ,
+                               'float' : 'center' ,
                                "font-size": 15, 
                                "color": "lightsalmon",
                               "text-shadow": "10px 20px 30px gray",})]),
@@ -2270,7 +2272,7 @@ app.layout = html.Div([
         html.A([
         html.Img(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/menores.png?raw=true",
                         style={#'height' : '150px',
-                    'width' : '40px',
+                    'width' : '30px',
                     #'float' : 'center' ,
                    # "margin-left":"-30px"
                               })],
@@ -2282,7 +2284,7 @@ app.layout = html.Div([
                   "box-shadow": "10px 20px 30px gray",
                   'margin-right': '60px',
                                 "width":"180px", 
-                                "height":"200px"
+                                "height":"160px"
                  } ,disabled=True)),
                
                
@@ -2316,8 +2318,8 @@ app.layout = html.Div([
                                                   "width": "200px",
                                                   "font-size": 12,  
                                                   "text-align":"center",
-                                                   "margin-left": "-45px",
-                                                   "margin-right": "-45px",  
+                                                   "margin-left": "-50px",
+                                                   "margin-right": "-50px",  
                                                    "margin-top": "-40px"
                                                  },
                                            href=urldel13,
@@ -2341,7 +2343,7 @@ app.layout = html.Div([
                   "box-shadow": "10px 20px 30px gray",
                   'margin-left': '100px',
                                 "width":"180px", 
-                                "height":"200px"
+                                "height":"140px"
                  } ,disabled=True)),
                
 
@@ -2369,7 +2371,7 @@ app.layout = html.Div([
         html.A([
         html.Img(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/seguridadsecual.PNG?raw=true",
                         style={#'height' : '150px',
-                    'width' : '50px',
+                    'width' : '40px',
                     #'float' : 'center' ,
                    # "margin-left":"-30px"
                               })],
@@ -2381,7 +2383,7 @@ app.layout = html.Div([
                   "box-shadow": "10px 20px 30px gray",
                  # 'margin-left': '105px',
                                 "width":"180px", 
-                                "height":"200px"
+                                "height":"140px"
                  } ,disabled=True)),
 
                
@@ -2409,7 +2411,7 @@ app.layout = html.Div([
         html.A([
         html.Img(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/acooso.PNG?raw=true",
                         style={#'height' : '150px',
-                    'width' : '50px',
+                    'width' : '40px',
                     #'float' : 'center' ,
                    # "margin-left":"-30px"
                               })],
@@ -2421,7 +2423,7 @@ app.layout = html.Div([
                   "box-shadow": "10px 20px 30px gray",
                  # 'margin-left': '105px',
                                 "width":"180px", 
-                                "height":"200px"
+                                "height":"140px"
                  } ,disabled=True)),
 
                
@@ -2454,7 +2456,7 @@ app.layout = html.Div([
         html.A([
         html.Img(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/zombie-attack-to-a-man.svg?raw=true",
                         style={#'height' : '150px',
-                    'width' : '50px',
+                    'width' : '40px',
                     #'float' : 'center' ,
                    # "margin-left":"-30px"
                               })],
@@ -2466,7 +2468,7 @@ app.layout = html.Div([
                   "box-shadow": "10px 20px 30px gray",
                  # 'margin-left': '105px',
                                 "width":"180px", 
-                                "height":"200px"
+                                "height":"140px"
                  } ,disabled=True)),
 
                
@@ -2512,7 +2514,7 @@ app.layout = html.Div([
                   "box-shadow": "10px 20px 30px gray",
                  # 'margin-left': '105px',
                                 "width":"180px", 
-                                "height":"200px"
+                                "height":"140px"
                  } ,disabled=True)),
                
                
@@ -2544,7 +2546,7 @@ app.layout = html.Div([
         html.A([
         html.Img(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/menores.png?raw=true",
                         style={#'height' : '150px',
-                    'width' : '40px',
+                    'width' : '30px',
                     #'float' : 'center' ,
                    # "margin-left":"-30px"
                               })],
@@ -2556,7 +2558,7 @@ app.layout = html.Div([
                   "box-shadow": "10px 20px 30px gray",
                   'margin-right': '60px',
                                 "width":"180px", 
-                                "height":"200px"
+                                "height":"140px"
                  } ,disabled=True)),
                
                
@@ -2569,10 +2571,14 @@ app.layout = html.Div([
 ############################################################## TERCERA SECCION MAPAS     
      html.Br(),
      html.Br(),
+     html.Br(),
+     html.Br(),
+     html.Br(),
+     html.Br(),
 
 dbc.Row(
            [
-               dbc.Col(html.P(["Delitos de génerp por año y por entidad" ],
+               dbc.Col(html.P(["Mapas con sumas anuales por entidad" ],
                       style={"color": "purple", 
                                "font-size": "32px",
                                "font-family": "Arial",        
