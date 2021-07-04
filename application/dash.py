@@ -1,4 +1,3 @@
-
 # OEntrada violencia de genero
 
 import dash
@@ -1858,7 +1857,7 @@ app.layout = html.Div([
                                "color": "lightsalmon",
                               "text-shadow": "10px 20px 30px gray",})]),
         html.A([
-        html.Img(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/incumplir.png?raw=true",
+        html.Img(src=iconodel2,
                         style={#'height' : '150px',
                     'width' : '90px',
                     #'float' : 'center' ,
@@ -1894,7 +1893,7 @@ app.layout = html.Div([
                                "color": "lightsalmon",
                               "text-shadow": "10px 20px 30px gray",})]),
         html.A([
-        html.Img(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/abuso.png?raw=true",
+        html.Img(src=iconodel3,
                         style={#'height' : '150px',
                     'width' : '60px',
                     #'float' : 'center' ,
@@ -1929,7 +1928,7 @@ app.layout = html.Div([
                                "color": "lightsalmon",
                               "text-shadow": "10px 20px 30px gray",})]),
         html.A([
-        html.Img(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/vslibertad.png?raw=true",
+        html.Img(src=iconodel4,
                         style={#'height' : '150px',
                     'width' : '40px',
                     #'float' : 'center' ,
@@ -1967,7 +1966,7 @@ app.layout = html.Div([
                                "color": "lightsalmon",
                               "text-shadow": "10px 20px 30px gray",})]),
        html.A([
-       html.Img(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/violacion.png?raw=true",
+       html.Img(src=iconodel5,
                         style={#'height' : '150px',
                     'width' : '40px',
                     #'float' : 'center' ,
@@ -2004,7 +2003,7 @@ app.layout = html.Div([
                               "text-shadow": "10px 20px 30px gray",})]),
             
         html.A([
-        html.Img(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/discriminacion.svg?raw=true",
+        html.Img(src=iconodel6,
                         style={#'height' : '150px',
                     'width' : '70px',
                     #'float' : 'center' ,
@@ -2056,7 +2055,7 @@ app.layout = html.Div([
                        )]),
             
         html.A([
-        html.Img(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/corporal.png?raw=true",
+        html.Img(src=iconodel7,
                         style={#'height' : '150px',
                     'width' : '50px',
                     #'float' : 'center' ,
@@ -2095,7 +2094,7 @@ app.layout = html.Div([
                         style={#'size': 2, 
                                })]),
         html.A([
-        html.Img(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/seguridadsecual.PNG?raw=true",
+        html.Img(src=iconodel8,
                         style={#'height' : '150px',
                     'width' : '50px',
                     #'float' : 'center' ,
@@ -2135,7 +2134,7 @@ app.layout = html.Div([
 #Aqui cambiar                    href="https://acososexual.herokuapp.com/",
                         ))]),
         html.A([
-        html.Img(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/acooso.PNG?raw=true",
+        html.Img(src=iconodel9,
                         style={#'height' : '150px',
                     'width' : '50px',
                     #'float' : 'center' ,
@@ -2180,7 +2179,7 @@ app.layout = html.Div([
                               "text-shadow": "10px 20px 30px gray",})]),
             
         html.A([
-        html.Img(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/zombie-attack-to-a-man.svg?raw=true",
+        html.Img(src=iconodel10,
                         style={#'height' : '150px',
                     'width' : '50px',
                     #'float' : 'center' ,
@@ -2226,7 +2225,7 @@ app.layout = html.Div([
                               "text-shadow": "10px 20px 30px gray",})]),
             
         html.A([
-        html.Img(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/menores.png?raw=true",
+        html.Img(src=iconodel11,
                         style={#'height' : '150px',
                     'width' : '30px',
                     #'float' : 'center' ,
@@ -2270,7 +2269,7 @@ app.layout = html.Div([
                               "text-shadow": "10px 20px 30px gray",})]),
             
         html.A([
-        html.Img(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/menores.png?raw=true",
+        html.Img(src=iconodel12,
                         style={#'height' : '150px',
                     'width' : '30px',
                     #'float' : 'center' ,
@@ -2329,7 +2328,7 @@ app.layout = html.Div([
                              })]),
             
         html.A([
-        html.Img(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/feminicidio.png?raw=true",
+        html.Img(src=iconodel13,
                         style={#'height' : '150px',
                     'width' : '40px',
                     #'float' : 'center' ,
@@ -2369,7 +2368,7 @@ app.layout = html.Div([
                         style={#'size': 2, 
                                })]),
         html.A([
-        html.Img(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/seguridadsecual.PNG?raw=true",
+        html.Img(src=iconodel14,
                         style={#'height' : '150px',
                     'width' : '40px',
                     #'float' : 'center' ,
@@ -2409,13 +2408,13 @@ app.layout = html.Div([
 #Aqui cambiar                    href="https://acososexual.herokuapp.com/",
                         ))]),
         html.A([
-        html.Img(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/acooso.PNG?raw=true",
+        html.Img(src=iconodel15,
                         style={#'height' : '150px',
                     'width' : '40px',
                     #'float' : 'center' ,
                    # "margin-left":"-30px"
                               })],
-            href=urldel5,
+            href=urldel15,
                  # href="https://violaciones.herokuapp.com/", 
                   ),
     
@@ -2454,7 +2453,7 @@ app.layout = html.Div([
                               "text-shadow": "10px 20px 30px gray",})]),
             
         html.A([
-        html.Img(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/zombie-attack-to-a-man.svg?raw=true",
+        html.Img(src=iconodel16,
                         style={#'height' : '150px',
                     'width' : '40px',
                     #'float' : 'center' ,
@@ -2500,7 +2499,7 @@ app.layout = html.Div([
                               "text-shadow": "10px 20px 30px gray",})]),
             
         html.A([
-        html.Img(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/menores.png?raw=true",
+        html.Img(src=iconodel17,
                         style={#'height' : '150px',
                     'width' : '30px',
                     #'float' : 'center' ,
@@ -2544,7 +2543,7 @@ app.layout = html.Div([
                               "text-shadow": "10px 20px 30px gray",})]),
             
         html.A([
-        html.Img(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/menores.png?raw=true",
+        html.Img(src=iconodel18,
                         style={#'height' : '150px',
                     'width' : '30px',
                     #'float' : 'center' ,
@@ -2877,6 +2876,4 @@ dbc.Row(
 
 
 if __name__ == '__main__':
-    app.run_server()
-    
-    
+    app.run_server()    
