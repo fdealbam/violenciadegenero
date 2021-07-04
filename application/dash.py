@@ -25,180 +25,132 @@ yesterday = datetime.now() - timedelta(1)
 yea = datetime.strftime(yesterday, '%Y%m%d')
 
 
+#Esta parte debe activarse cada mes, con la nueva base de delitos
 
-############################################################### TRATAMIENTO 1
-
-#Tabla ranking delitos VG
-tabla = pd.read_csv("https://raw.githubusercontent.com/fdealbam/violenciadegenero/main/Variacionesytasaygrandtotal.csv")
-tabla1 = tabla.sort_values(by='tasa_acumulada', ascending=False)
-
-# REPLACE
-tabla1["Tipo de delito"].replace("Incumplimiento de obligaciones de asistencia familiar",
-                              "No asistencia familiar", inplace=True)
-
-tabla1["Tipo de delito"].replace("Otros delitos que atentan contra la vida y la integridad corporal",
-                              "Contra integridad corporal", inplace=True)
-
-tabla1["Tipo de delito"].replace("Otros delitos que atentan contra la libertad personal",
-                              "Contra libertad personal", inplace=True)
-
-tabla1["Tipo de delito"].replace("Otros delitos que atentan contra la libertad y la seguridad sexual",
-                              "Contra seguridad sexual", inplace=True)
-
-tabla1["Tipo de delito"].replace("Violencia de género en todas sus modalidades distinta a la violencia familiar",
-                              "Distinta a violencia familiar", inplace=True)
-
-tabla1["Tipo de delito"].replace("Violación simple",
-                              "Violación", inplace=True)
-
-tabla1["Tipo de delito"].replace("Violación equiparada",
-                              "Violación", inplace=True)
-
-tabla1["Tipo de delito"].replace('Otros delitos contra la familia',
-                              "Contra la familia", inplace=True)
-
-
-#Tipo de delito
-tipodel1 = tabla1.iloc[0]["Tipo de delito"]
-tipodel2 = tabla1.iloc[1]["Tipo de delito"]
-tipodel3 = tabla1.iloc[2]["Tipo de delito"]
-tipodel4 = tabla1.iloc[3]["Tipo de delito"]
-tipodel5 = tabla1.iloc[4]["Tipo de delito"]
-tipodel6 = tabla1.iloc[5]["Tipo de delito"]
-tipodel7 = tabla1.iloc[6]["Tipo de delito"]
-tipodel8 = tabla1.iloc[7]["Tipo de delito"]
-tipodel9 = tabla1.iloc[8]["Tipo de delito"]
-tipodel10 = tabla1.iloc[9]["Tipo de delito"]
-tipodel11 = tabla1.iloc[10]["Tipo de delito"]
-tipodel12 = tabla1.iloc[11]["Tipo de delito"]
-tipodel13 = tabla1.iloc[12]["Tipo de delito"]
-tipodel14 = tabla1.iloc[13]["Tipo de delito"]
-tipodel15 = tabla1.iloc[14]["Tipo de delito"]
-tipodel16 = tabla1.iloc[15]["Tipo de delito"]
-tipodel17 = tabla1.iloc[16]["Tipo de delito"]
-tipodel18 = tabla1.iloc[17]["Tipo de delito"]
-
-#abs
-totdel1 =  tabla1.iloc[0]["GRAND TOTAL"]
-totdel2 =  tabla1.iloc[1]["GRAND TOTAL"]
-totdel3 =  tabla1.iloc[2]["GRAND TOTAL"]
-totdel4 =  tabla1.iloc[3]["GRAND TOTAL"]
-totdel5 =  tabla1.iloc[4]["GRAND TOTAL"]
-totdel6 =  tabla1.iloc[5]["GRAND TOTAL"]
-totdel7 =  tabla1.iloc[6]["GRAND TOTAL"]
-totdel8 =  tabla1.iloc[7]["GRAND TOTAL"]
-totdel9 =  tabla1.iloc[8]["GRAND TOTAL"]
-totdel10 = tabla1.iloc[9]["GRAND TOTAL"]
-totdel11 = tabla1.iloc[10]["GRAND TOTAL"]
-totdel12 = tabla1.iloc[11]["GRAND TOTAL"]
-totdel13 = tabla1.iloc[12]["GRAND TOTAL"]
-totdel14 = tabla1.iloc[13]["GRAND TOTAL"]
-totdel15 = tabla1.iloc[14]["GRAND TOTAL"]
-totdel16 = tabla1.iloc[15]["GRAND TOTAL"]
-totdel17 = tabla1.iloc[16]["GRAND TOTAL"]
-totdel18 = tabla1.iloc[17]["GRAND TOTAL"]
-
-#tasa acumulada
-
-tasatotdel1 =  tabla1.iloc[0]["tasa_acumulada"]
-tasatotdel2 =  tabla1.iloc[1]["tasa_acumulada"]
-tasatotdel3 =  tabla1.iloc[2]["tasa_acumulada"]
-tasatotdel4 =  tabla1.iloc[3]["tasa_acumulada"]
-tasatotdel5 =  tabla1.iloc[4]["tasa_acumulada"]
-tasatotdel6 =  tabla1.iloc[5]["tasa_acumulada"]
-tasatotdel7 =  tabla1.iloc[6]["tasa_acumulada"]
-tasatotdel8 =  tabla1.iloc[7]["tasa_acumulada"]
-tasatotdel9 =  tabla1.iloc[8]["tasa_acumulada"]
-tasatotdel10 = tabla1.iloc[9]["tasa_acumulada"]
-tasatotdel11 = tabla1.iloc[10]["tasa_acumulada"]
-tasatotdel12 = tabla1.iloc[11]["tasa_acumulada"]
-tasatotdel13 = tabla1.iloc[12]["tasa_acumulada"]
-tasatotdel14 = tabla1.iloc[13]["tasa_acumulada"]
-tasatotdel15 = tabla1.iloc[14]["tasa_acumulada"]
-tasatotdel16 = tabla1.iloc[15]["tasa_acumulada"]
-tasatotdel17 = tabla1.iloc[16]["tasa_acumulada"]
-tasatotdel18 = tabla1.iloc[17]["tasa_acumulada"]
-
-
-#url
-
-urldel1 =  tabla1.iloc[0] ["url"]
-urldel2 =  tabla1.iloc[1] ["url"]
-urldel3 =  tabla1.iloc[2] ["url"]
-urldel4 =  tabla1.iloc[3] ["url"]
-urldel5 =  tabla1.iloc[4] ["url"]
-urldel6 =  tabla1.iloc[5] ["url"]
-urldel7 =  tabla1.iloc[6] ["url"]
-urldel8 =  tabla1.iloc[7] ["url"]
-urldel9 =  tabla1.iloc[8] ["url"]
-urldel10 = tabla1.iloc[9] ["url"]
-urldel11 = tabla1.iloc[10]["url"]
-urldel12 = tabla1.iloc[11]["url"]
-urldel13 = tabla1.iloc[12]["url"]
-urldel14 = tabla1.iloc[13]["url"]
-urldel15 = tabla1.iloc[14]["url"]
-urldel16 = tabla1.iloc[15]["url"]
-urldel17 = tabla1.iloc[16]["url"]
-urldel18 = tabla1.iloc[17]["url"]
+############################################################### UPDATE MENSUAL
+#
+#columns = ['Año', 'Clave_Ent', 'Entidad', 'Cve. Municipio', 'Municipio',
+#        'Tipo de delito',  'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+#       'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
+#
+#os.chdir(r'C:\Users\win\Downloads')
+##os.chdir(r'C:\Users\IVANOV\Downloads')
+#
+#delitos = pd.read_csv(#"Municipal-Delitos-2015-2021_abr2021.csv",
+#                        "IDM_NM_may21.csv", encoding= "Latin-1", usecols= columns)
+#delitos_otros = delitos
+#
+#
+#os.chdir(r'C:\Users\win\AnacondaProjects\0 0 Projects\Project_12\\')  # Fel 
+##os.chdir(r'C:\Users\IVANOV\AnacondaProjects\0 0 Projects\Project_portadaVG\\') # W-1
+#
+#
+#print("delitosvg2015_2021 guardado ")
+#delitos[#básicos
+#         (delitos["Tipo de delito"]== "Feminicidio")|
+#         (delitos["Tipo de delito"]== "Tráfico de menores")|
+#         (delitos["Tipo de delito"]== "Abuso sexual")|
+#         (delitos["Tipo de delito"]== "Acoso sexual")|
+#         (delitos["Tipo de delito"]== "Hostigamiento sexual")|
+#         (delitos["Tipo de delito"]== "Violación simple")|
+#         (delitos["Tipo de delito"]== "Violación equiparada")|
+#         (delitos["Tipo de delito"]== "Violencia familiar")|
+#         (delitos["Tipo de delito"]== "Otros delitos que atentan contra la libertad y la seguridad sexual")|
+#         (delitos["Tipo de delito"]== "Violencia de género en todas sus modalidades distinta a la violencia familiar")|
+#         (delitos["Tipo de delito"]== "Incumplimiento de obligaciones de asistencia familiar")|
+#         (delitos["Tipo de delito"]== "Otros delitos contra la familia")|
+#         (delitos["Tipo de delito"]== "Incesto")|
+#         (delitos["Tipo de delito"]== "Corrupción de menores")|
+#         (delitos["Tipo de delito"]== "Aborto")|
+#
+#        #complementarios
+#         (delitos["Tipo de delito"]== "Otros delitos que atentan contra la vida y la integridad corporal")|    
+#         (delitos["Tipo de delito"]== "Otros delitos que atentan contra la libertad personal")|
+#         (delitos["Tipo de delito"]== "Trata de personas")|
+#         (delitos["Tipo de delito"]== "Tráfico de menores")
+#         #(delitos["Tipo de delito"]== "Amenazas")|
+#        #dudosos
+#         #(delitos["Tipo de delito"]== "Lesiones")|
+#
+#       ].to_csv("delitosvg2015_2021.csv")#, header=True)
+#
+#print("delitosvg2015_2021 guardado ")
+#
 
 
 
-#icono
-
-iconodel1 =  tabla1.iloc[0] ["icono"]
-iconodel2 =  tabla1.iloc[1] ["icono"]
-iconodel3 =  tabla1.iloc[2] ["icono"]
-iconodel4 =  tabla1.iloc[3] ["icono"]
-iconodel5 =  tabla1.iloc[4] ["icono"]
-iconodel6 =  tabla1.iloc[5] ["icono"]
-iconodel7 =  tabla1.iloc[6] ["icono"]
-iconodel8 =  tabla1.iloc[7] ["icono"]
-iconodel9 =  tabla1.iloc[8] ["icono"]
-iconodel10 = tabla1.iloc[9] ["icono"]
-iconodel11 = tabla1.iloc[10]["icono"]
-iconodel12 = tabla1.iloc[11]["icono"]
-iconodel13 = tabla1.iloc[12]["icono"]
-iconodel14 = tabla1.iloc[13]["icono"]
-iconodel15 = tabla1.iloc[14]["icono"]
-iconodel16 = tabla1.iloc[15]["icono"]
-iconodel17 = tabla1.iloc[16]["icono"]
-iconodel18 = tabla1.iloc[17]["icono"]
-
-
-#######################################################
-# CODIGO DE SEPARACION PARA SUBIR A GITHUB
-
-
-
+################################################################ UPDATE 2
+#
+#
+#d_vg = pd.read_csv("delitosvg2015_2021.csv")#, header=True)
+#
+#d_vg["Tipo de delito"].replace("Incumplimiento de obligaciones de asistencia familiar",
+#                              "No asistencia familiar", inplace=True)
+#
+#d_vg["Tipo de delito"].replace("Otros delitos que atentan contra la vida y la integridad corporal",
+#                              "Contra integridad corporal", inplace=True)
+#
+#d_vg["Tipo de delito"].replace("Otros delitos que atentan contra la libertad personal",
+#                              "Contra libertad personal", inplace=True)
+#
+#d_vg["Tipo de delito"].replace("Otros delitos que atentan contra la libertad y la seguridad sexual",
+#                              "Contra seguridad sexual", inplace=True)
+#
+#d_vg["Tipo de delito"].replace("Violencia de género en todas sus modalidades distinta a la violencia familiar",
+#                              "Distinta a violencia familiar", inplace=True)
+#
+#d_vg["Tipo de delito"].replace("Violación simple",
+#                              "Violación", inplace=True)
+#
+#d_vg["Tipo de delito"].replace("Violación equiparada",
+#                              "Violación", inplace=True)
+#
+#d_vg["Tipo de delito"].replace('Otros delitos contra la familia',
+#                              "Contra la familia", inplace=True)
+#
+#
+#
+#
+#
+## SEPARACION DE ARCHIVOS
+#
 #d_vg1 = d_vg[(d_vg["Tipo de delito"] == "Violencia familiar" )|
-#     (d_vg["Tipo de delito"] == "No cumplir asistencia familiar" )|
+#     (d_vg["Tipo de delito"] == "No asistencia familiar" )|
 #     (d_vg["Tipo de delito"] == "Abuso sexual" )|
-#    (d_vg["Tipo de delito"] == "Contra la libertad personal" )|
+#    (d_vg["Tipo de delito"] == "Contra libertad personal" )|
 #    (d_vg["Tipo de delito"] == "Violación" )|
-#    (d_vg["Tipo de delito"] == "Otros delitos contra la familia" )|
+#    (d_vg["Tipo de delito"] == "Contra la familia" )|
 #    (d_vg["Tipo de delito"] == "Contra integridad corporal" )|
-#    (d_vg["Tipo de delito"] == "Contra la libertad y la seguridad sexual" )]
+#    (d_vg["Tipo de delito"] == "Contra seguridad sexual" )]
 #
 #d_vg1.to_csv("delitosvg2015_2021_a.csv")
 #
 #
 #d_vg2 = d_vg[(d_vg["Tipo de delito"] == "Acoso sexual" )|
-#     (d_vg["Tipo de delito"] == "Distinta a la violencia familiar" )|
+#     (d_vg["Tipo de delito"] == "Distinta a violencia familiar" )|
 #     (d_vg["Tipo de delito"] == "Corrupción de menores" )|
 #    (d_vg["Tipo de delito"] == "Hostigamiento sexual" )|
 #    (d_vg["Tipo de delito"] == "Feminicidio" )|
-#    (d_vg["Tipo de delito"] == "Feminicidio" )|
+#    (d_vg["Tipo de delito"] == "Aborto" )|
 #    (d_vg["Tipo de delito"] == "Trata de personas" )|
 #    (d_vg["Tipo de delito"] == "Tráfico de menores" )|
 #    (d_vg["Tipo de delito"] == "Incesto" )]
 #
 #d_vg2.to_csv("delitosvg2015_2021_b.csv")
+#
+
+
+
+################################################################ inicia tratamiento
 
 
 d_vg1 = pd.read_csv("https://raw.githubusercontent.com/fdealbam/violenciadegenero/main/delitosvg2015_2021_a.csv?raw=true")
 d_vg2 = pd.read_csv("https://raw.githubusercontent.com/fdealbam/violenciadegenero/main/delitosvg2015_2021_b.csv?raw=true")
 
 d_vg = pd.concat([d_vg1,d_vg2])
+
+# REPLACE
+
 
 
 #                                    ____________________________________________________________________________
@@ -617,6 +569,137 @@ femi15_21["var_1819"] = femi15_21.Total2019 - femi15_21.Total2018
 femi15_21["var_1920"] = femi15_21.Total2020 - femi15_21.Total2019
 femi15_21["var_2021"] = femi15_21.Total2021 - femi15_21.Total2020
 
+
+
+#_____ TABLA RESUMEN
+tabla_sorted_vg = femi15_21[["Tipo de delito","GRAND TOTAL",#"Total2015","Total2020","tasa_tot2015","tasa_tot2020","Variac_ABS2015_2021","Variac_tasa2015_2021"
+           "tasa_acumulada"]]
+
+
+
+
+#_____merge con diccionario para get url´s
+dicc = pd.read_csv("https://raw.githubusercontent.com/fdealbam/violenciadegenero/main/diccionariovg.csv", encoding="Latin-1")
+dicc.drop("Unnamed: 0",1, inplace=True)
+
+
+
+tabla1 = tabla_sorted_vg.merge(dicc, on="Tipo de delito").sort_values("tasa_acumulada", ascending=False, ignore_index=True).round(1)
+
+#tabla1.sort_values("tasa_acumulada", ascending=False, ignore_index=True).round(1)
+
+
+
+
+
+
+
+#_____________________________ I D E N T I F I C A D O R E S _____________________________
+#Tipo de delito
+tipodel1 = tabla1.iloc[0]["Tipo de delito"]
+tipodel2 = tabla1.iloc[1]["Tipo de delito"]
+tipodel3 = tabla1.iloc[2]["Tipo de delito"]
+tipodel4 = tabla1.iloc[3]["Tipo de delito"]
+tipodel5 = tabla1.iloc[4]["Tipo de delito"]
+tipodel6 = tabla1.iloc[5]["Tipo de delito"]
+tipodel7 = tabla1.iloc[6]["Tipo de delito"]
+tipodel8 = tabla1.iloc[7]["Tipo de delito"]
+tipodel9 = tabla1.iloc[8]["Tipo de delito"]
+tipodel10 = tabla1.iloc[9]["Tipo de delito"]
+tipodel11 = tabla1.iloc[10]["Tipo de delito"]
+tipodel12 = tabla1.iloc[11]["Tipo de delito"]
+tipodel13 = tabla1.iloc[12]["Tipo de delito"]
+tipodel14 = tabla1.iloc[13]["Tipo de delito"]
+tipodel15 = tabla1.iloc[14]["Tipo de delito"]
+tipodel16 = tabla1.iloc[15]["Tipo de delito"]
+tipodel17 = tabla1.iloc[16]["Tipo de delito"]
+#tipodel18 = tabla1.iloc[17]["Tipo de delito"]
+
+#abs
+totdel1 =  tabla1.iloc[0]["GRAND TOTAL"]
+totdel2 =  tabla1.iloc[1]["GRAND TOTAL"]
+totdel3 =  tabla1.iloc[2]["GRAND TOTAL"]
+totdel4 =  tabla1.iloc[3]["GRAND TOTAL"]
+totdel5 =  tabla1.iloc[4]["GRAND TOTAL"]
+totdel6 =  tabla1.iloc[5]["GRAND TOTAL"]
+totdel7 =  tabla1.iloc[6]["GRAND TOTAL"]
+totdel8 =  tabla1.iloc[7]["GRAND TOTAL"]
+totdel9 =  tabla1.iloc[8]["GRAND TOTAL"]
+totdel10 = tabla1.iloc[9]["GRAND TOTAL"]
+totdel11 = tabla1.iloc[10]["GRAND TOTAL"]
+totdel12 = tabla1.iloc[11]["GRAND TOTAL"]
+totdel13 = tabla1.iloc[12]["GRAND TOTAL"]
+totdel14 = tabla1.iloc[13]["GRAND TOTAL"]
+totdel15 = tabla1.iloc[14]["GRAND TOTAL"]
+totdel16 = tabla1.iloc[15]["GRAND TOTAL"]
+totdel17 = tabla1.iloc[16]["GRAND TOTAL"]
+#totdel18 = tabla1.iloc[17]["GRAND TOTAL"]
+
+#tasa acumulada
+
+tasatotdel1 =  tabla1.iloc[0]["tasa_acumulada"]
+tasatotdel2 =  tabla1.iloc[1]["tasa_acumulada"]
+tasatotdel3 =  tabla1.iloc[2]["tasa_acumulada"]
+tasatotdel4 =  tabla1.iloc[3]["tasa_acumulada"]
+tasatotdel5 =  tabla1.iloc[4]["tasa_acumulada"]
+tasatotdel6 =  tabla1.iloc[5]["tasa_acumulada"]
+tasatotdel7 =  tabla1.iloc[6]["tasa_acumulada"]
+tasatotdel8 =  tabla1.iloc[7]["tasa_acumulada"]
+tasatotdel9 =  tabla1.iloc[8]["tasa_acumulada"]
+tasatotdel10 = tabla1.iloc[9]["tasa_acumulada"]
+tasatotdel11 = tabla1.iloc[10]["tasa_acumulada"]
+tasatotdel12 = tabla1.iloc[11]["tasa_acumulada"]
+tasatotdel13 = tabla1.iloc[12]["tasa_acumulada"]
+tasatotdel14 = tabla1.iloc[13]["tasa_acumulada"]
+tasatotdel15 = tabla1.iloc[14]["tasa_acumulada"]
+tasatotdel16 = tabla1.iloc[15]["tasa_acumulada"]
+tasatotdel17 = tabla1.iloc[16]["tasa_acumulada"]
+#tasatotdel18 = tabla1.iloc[17]["tasa_acumulada"]
+
+
+#url
+
+urldel1 =  tabla1.iloc[0] ["url"]
+urldel2 =  tabla1.iloc[1] ["url"]
+urldel3 =  tabla1.iloc[2] ["url"]
+urldel4 =  tabla1.iloc[3] ["url"]
+urldel5 =  tabla1.iloc[4] ["url"]
+urldel6 =  tabla1.iloc[5] ["url"]
+urldel7 =  tabla1.iloc[6] ["url"]
+urldel8 =  tabla1.iloc[7] ["url"]
+urldel9 =  tabla1.iloc[8] ["url"]
+urldel10 = tabla1.iloc[9] ["url"]
+urldel11 = tabla1.iloc[10]["url"]
+urldel12 = tabla1.iloc[11]["url"]
+urldel13 = tabla1.iloc[12]["url"]
+urldel14 = tabla1.iloc[13]["url"]
+urldel15 = tabla1.iloc[14]["url"]
+urldel16 = tabla1.iloc[15]["url"]
+urldel17 = tabla1.iloc[16]["url"]
+#urldel18 = tabla1.iloc[17]["url"]
+
+
+
+#icono
+
+iconodel1 =  tabla1.iloc[0] ["icono"]
+iconodel2 =  tabla1.iloc[1] ["icono"]
+iconodel3 =  tabla1.iloc[2] ["icono"]
+iconodel4 =  tabla1.iloc[3] ["icono"]
+iconodel5 =  tabla1.iloc[4] ["icono"]
+iconodel6 =  tabla1.iloc[5] ["icono"]
+iconodel7 =  tabla1.iloc[6] ["icono"]
+iconodel8 =  tabla1.iloc[7] ["icono"]
+iconodel9 =  tabla1.iloc[8] ["icono"]
+iconodel10 = tabla1.iloc[9] ["icono"]
+iconodel11 = tabla1.iloc[10]["icono"]
+iconodel12 = tabla1.iloc[11]["icono"]
+iconodel13 = tabla1.iloc[12]["icono"]
+iconodel14 = tabla1.iloc[13]["icono"]
+iconodel15 = tabla1.iloc[14]["icono"]
+iconodel16 = tabla1.iloc[15]["icono"]
+iconodel17 = tabla1.iloc[16]["icono"]
+#iconodel18 = tabla1.iloc[17]["icono"]
 
 
 #                                    ____________________________________________________________________________
@@ -1215,6 +1298,8 @@ app.layout = html.Div([
                       )],justify="start",),
  
     html.Br(),
+    html.Br(),
+    html.Br(),
  
     
     ######## TABLA RANKING
@@ -1368,14 +1453,14 @@ app.layout = html.Div([
                                "text-align": "right",
                             "line-height":"70%"
                         }),
-                 html.P(tipodel18,#f"{int(num_zm):,}",  
-                        style={
-                               "color": "black", 
-                               "font-size": "14px",
-                               "font-family": "Arial",
-                               "text-align": "right",
-                            "line-height":"70%"                            
-                        }),
+ #                html.P(tipodel18,#f"{int(num_zm):,}",  
+ #                       style={
+ #                              "color": "black", 
+ #                              "font-size": "14px",
+ #                              "font-family": "Arial",
+ #                              "text-align": "right",
+ #                           "line-height":"70%"                            
+ #                       }),
                    
        ]),style={ "background-color": "light",
                   "box-shadow": "10px 20px 30px gray",
@@ -1553,15 +1638,15 @@ app.layout = html.Div([
                                "widht":"100px",
                             "line-height":"70%"
                         }),
-                 html.P(f"{int(totdel18):,}",  
-                        style={
-                               "color": "black", 
-                               "font-size": "14px",
-                               "font-family": "Arial",
-                               "text-align": "right",
-                               "widht":"100px",
-                            "line-height":"70%"                            
-                        }),
+  #               html.P(f"{int(totdel18):,}",  
+  #                      style={
+  #                             "color": "black", 
+  #                             "font-size": "14px",
+  #                             "font-family": "Arial",
+  #                             "text-align": "right",
+  #                             "widht":"100px",
+  #                          "line-height":"70%"                            
+  #                      }),
                 
        ]),style={ "background-color": "light",
                   "box-shadow": "10px 20px 30px gray",
@@ -1720,15 +1805,15 @@ app.layout = html.Div([
                                "text-align": "right",
                             "line-height":"70%"                            
                         }),
-                 html.P(f"{int(tasatotdel18):,}",  
-                        style={
-                               "color": "black", 
-                               "font-size": "14px",
-                               "font-family": "Arial",
-                               "text-align": "right",
-                            "line-height":"70%"                            
-                        }),
-                 
+ #                html.P(f"{int(tasatotdel18):,}",  
+ #                       style={
+ #                              "color": "black", 
+ #                              "font-size": "14px",
+ #                              "font-family": "Arial",
+ #                              "text-align": "right",
+ #                           "line-height":"70%"                            
+ #                       }),
+ #                
 
                  
        ]),style={ "background-color": "light",
@@ -2517,49 +2602,49 @@ app.layout = html.Div([
                  } ,disabled=True)),
                
                
-       ################################# POR DEFINIR 4
-                           dbc.Col(
-       dbc.Button(([
-            dbc.Nav([
-                   dbc.NavLink(dbc.NavLink(tipodel18,  style={"font-size": 5, 
-                                                  "line-height":"120%", 
-                                                  "font-family": "Arial",
-                                                  "width": "200px",
-                                                  "font-size": 12,  
-                                                  "text-align":"center",
-                                                   "margin-left": "-10px",
-                                                   "margin-right": "-10px",  
-                                                   "margin-top": "-40px"
-                                                 },
-                                           href=urldel18,
-                      # href="https://delitocorrupciondemenores.herokuapp.com/",
-                        active="exact"), 
-                        style={#'size': 2, 
-                          #     "margin-left": "-30px",  
-                               "font-family": "Arial",
-                               #'float' : 'center' ,
-                               "font-size": 15, 
-                               "color": "lightsalmon",
-                              "text-shadow": "10px 20px 30px gray",})]),
-            
-        html.A([
-        html.Img(src=iconodel18,
-                        style={#'height' : '150px',
-                    'width' : '30px',
-                    #'float' : 'center' ,
-                   # "margin-left":"-30px"
-                              })],
-            href=urldel18,
-                 # href="https://delitocorrupciondemenores.herokuapp.com/", 
-                  ),
-    
-                      ]),style={ "background-color": "light",
-                  "box-shadow": "10px 20px 30px gray",
-                  'margin-right': '60px',
-                                "width":"180px", 
-                                "height":"140px"
-                 } ,disabled=True)),
-               
+#       ################################# POR DEFINIR 4
+#                           dbc.Col(
+#       dbc.Button(([
+#            dbc.Nav([
+#                   dbc.NavLink(dbc.NavLink(tipodel18,  style={"font-size": 5, 
+#                                                  "line-height":"120%", 
+#                                                  "font-family": "Arial",
+#                                                  "width": "200px",
+#                                                  "font-size": 12,  
+#                                                  "text-align":"center",
+#                                                   "margin-left": "-10px",
+#                                                   "margin-right": "-10px",  
+#                                                   "margin-top": "-40px"
+#                                                 },
+#                                           href=urldel18,
+#                      # href="https://delitocorrupciondemenores.herokuapp.com/",
+#                        active="exact"), 
+#                        style={#'size': 2, 
+#                          #     "margin-left": "-30px",  
+#                               "font-family": "Arial",
+#                               #'float' : 'center' ,
+#                               "font-size": 15, 
+#                               "color": "lightsalmon",
+#                              "text-shadow": "10px 20px 30px gray",})]),
+#            
+#        html.A([
+#        html.Img(src=iconodel18,
+#                        style={#'height' : '150px',
+#                    'width' : '30px',
+#                    #'float' : 'center' ,
+#                   # "margin-left":"-30px"
+#                              })],
+#            href=urldel18,
+#                 # href="https://delitocorrupciondemenores.herokuapp.com/", 
+#                  ),
+#    
+#                      ]),style={ "background-color": "light",
+#                  "box-shadow": "10px 20px 30px gray",
+#                  'margin-right': '60px',
+#                                "width":"180px", 
+#                                "height":"140px"
+#                 } ,disabled=True)),
+#               
                
         ]),
     #Estilo de fondo    
@@ -2876,4 +2961,5 @@ dbc.Row(
 
 
 if __name__ == '__main__':
-    app.run_server()    
+    app.run_server()
+    
