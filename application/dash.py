@@ -1039,28 +1039,28 @@ femi15_21["var_may20_21_%"] = (femi15_21["var_may20_21"]*100)/femi15_21.Mayo21
 
 
 
-#os.chdir(r"C:\Users\PRIME\AnacondaProjects\Project_curso\code\Dash\feminicidios")
-geo_df=gpd.read_file('México_Estados.shp')
-
-geo_df.replace(['Coahuila','Distrito Federal','Michoacán',"Veracruz"],
-               #por
-               ['Coahuila de Zaragoza','Ciudad de México','Michoacán de Ocampo','Veracruz de Ignacio de la Llave'],
-               inplace=True, )
-
-concat1 = geo_df.merge(femi15_21,
-                           left_on= "ESTADO",
-                           right_on="Entidad", how= "right").sort_values("GRAND TOTAL", ascending=False)
-
-fig = concat1.plot("GRAND TOTAL",
-                 cmap= "Oranges",
-                 legend=False,
-                 k=5,
-                 scheme= 'quantiles',
-                 linewidth=.6, 
-                 edgecolor= "white", 
-                 categorical=False,
-                 figsize=(5,5),)
-#plt.axis("off")
+##os.chdir(r"C:\Users\PRIME\AnacondaProjects\Project_curso\code\Dash\feminicidios")
+#geo_df=gpd.read_file('México_Estados.shp')
+#
+#geo_df.replace(['Coahuila','Distrito Federal','Michoacán',"Veracruz"],
+#               #por
+#               ['Coahuila de Zaragoza','Ciudad de México','Michoacán de Ocampo','Veracruz de Ignacio de la Llave'],
+#               inplace=True, )
+#
+#concat1 = geo_df.merge(femi15_21,
+#                           left_on= "ESTADO",
+#                           right_on="Entidad", how= "right").sort_values("GRAND TOTAL", ascending=False)
+#
+#fig = concat1.plot("GRAND TOTAL",
+#                 cmap= "Oranges",
+#                 legend=False,
+#                 k=5,
+#                 scheme= 'quantiles',
+#                 linewidth=.6, 
+#                 edgecolor= "white", 
+#                 categorical=False,
+#                 figsize=(5,5),)
+##plt.axis("off")
 
 # Ruta guardado
 #os.chdir(r'C:\Users\win\AnacondaProjects\0 0 Projects\Project_actualizacion\resultados\') #__Ruta Fe
@@ -2878,3 +2878,5 @@ dbc.Row(
 
 if __name__ == '__main__':
     app.run_server()
+    
+    
