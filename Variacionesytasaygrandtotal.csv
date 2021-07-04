@@ -1,5 +1,5 @@
 ,Tipo de delito,GRAND TOTAL,tasa_acumulada,Total2015,Total2020,tasa_tot2015,tasa_tot2020,Variac_ABS2015_2021,Variac_tasa2015_2021,url,icono
-17,Violencia familiar,1167905,905.5,127424,220031,105,172.2,92607,67.2,https://violenciafamiliar.herokuapp.com/,https://github.com/fdealbam/violenciadegenero/blob/main/application/static/acooso.PNG
+17,Violencia familiar,1167905,905.5,127424,220031,105,172.2,92607,67.2,https://violenciafamiliar.herokuapp.com/,https://github.com/fdealbam/violenciadegenero/blob/main/application/static/fight.svg?raw=true
 1,Abuso sexual,119285,92.5,11980,22377,9.9,17.5,10397,7.6,https://abusosexual.herokuapp.com/,https://github.com/fdealbam/violenciadegenero/blob/main/application/static/acooso.PNG
 11,Otros delitos que atentan contra la vida y la integridad corporal,43169,33.5,3122,10335,2.6,8.1,7213,5.5,https://delitootrosatentacontralavida.herokuapp.com/,https://github.com/fdealbam/violenciadegenero/blob/main/application/static/acooso.PNG
 9,Otros delitos que atentan contra la libertad personal,106394,82.5,11236,18813,9.3,14.7,7577,5.4,https://delitovslibertadpersonal.herokuapp.com/,https://github.com/fdealbam/violenciadegenero/blob/main/application/static/acooso.PNG
