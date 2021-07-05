@@ -2968,10 +2968,10 @@ dbc.Row(
     
 ############################################################## Seccion numeralia    
  html.Hr(style={"border-left": "3px solid black",
-  "height": "500px",
+  "height": "1500px",
   "position": "absolute",
   "left": "50%",
-  "margin-left": "-3px",
+  #"margin-left": "-3px",
   "marin-top": "1100px",
                }
                 ),
