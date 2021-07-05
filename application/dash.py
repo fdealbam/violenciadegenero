@@ -1906,8 +1906,8 @@ app.layout = html.Div([
         html.A([
         html.Img(src=iconodel1,
                         style={#'height' : '170px',
-                    'width' : '50px',
-                    'float' : 'center' ,
+                    'width' : '90px',
+                  #  'float' : 'center' ,
                             
                     #"margin-left":"100px"
                               })],
@@ -1944,7 +1944,7 @@ app.layout = html.Div([
         html.A([
         html.Img(src=iconodel2,
                         style={#'height' : '150px',
-                    'width' : '90px',
+                    'width' : '65px',
                     #'float' : 'center' ,
                   #  "margin-left":"-30px"
                               })],
@@ -2015,7 +2015,7 @@ app.layout = html.Div([
         html.A([
         html.Img(src=iconodel4,
                         style={#'height' : '150px',
-                    'width' : '40px',
+                    'width' : '30px',
                     #'float' : 'center' ,
                   #  "margin-left":"-30px"
                               })],
@@ -2053,7 +2053,7 @@ app.layout = html.Div([
        html.A([
        html.Img(src=iconodel5,
                         style={#'height' : '150px',
-                    'width' : '40px',
+                    'width' : '30px',
                     #'float' : 'center' ,
                    # "margin-left":"-30px"
                               })],
@@ -2312,7 +2312,7 @@ app.layout = html.Div([
         html.A([
         html.Img(src=iconodel11,
                         style={#'height' : '150px',
-                    'width' : '30px',
+                    'width' : '50px',
                     #'float' : 'center' ,
                    # "margin-left":"-30px"
                               })],
@@ -2356,7 +2356,7 @@ app.layout = html.Div([
         html.A([
         html.Img(src=iconodel12,
                         style={#'height' : '150px',
-                    'width' : '30px',
+                    'width' : '50px',
                     #'float' : 'center' ,
                    # "margin-left":"-30px"
                               })],
@@ -2415,7 +2415,7 @@ app.layout = html.Div([
         html.A([
         html.Img(src=iconodel13,
                         style={#'height' : '150px',
-                    'width' : '40px',
+                    'width' : '80px',
                     #'float' : 'center' ,
                    # "margin-left":"-30px"
                               })],
@@ -2495,7 +2495,7 @@ app.layout = html.Div([
         html.A([
         html.Img(src=iconodel15,
                         style={#'height' : '150px',
-                    'width' : '40px',
+                    'width' : '50px',
                     #'float' : 'center' ,
                    # "margin-left":"-30px"
                               })],
@@ -2540,7 +2540,7 @@ app.layout = html.Div([
         html.A([
         html.Img(src=iconodel16,
                         style={#'height' : '150px',
-                    'width' : '40px',
+                    'width' : '60px',
                     #'float' : 'center' ,
                    # "margin-left":"-30px"
                               })],
@@ -2586,7 +2586,7 @@ app.layout = html.Div([
         html.A([
         html.Img(src=iconodel17,
                         style={#'height' : '150px',
-                    'width' : '30px',
+                    'width' : '50px',
                     #'float' : 'center' ,
                    # "margin-left":"-30px"
                               })],
@@ -2768,13 +2768,20 @@ dbc.Row(
                          'margin-top': '-800px',
                         'width': '300px'
                          }, disabled=True)),
-         dbc.Col(),
+         dbc.Col( dbc.Button(([ 
+               ]), style={"background-color":"lightgray",
+                        # "box-shadow": "10px 20px 30px black",
+                         # 'margin-top': '-300px',
+                         
+                        'width': '720px'
+                         }, disabled=True)),
           #2019
+           
          dbc.Col(
            dbc.Button(([html.Span("2019",# style={"font-size": 18,"color": "black","background-color": "lightgray"},
                id="tooltip-target-19",
                     style={#"textDecoration": "underline",
-                        "cursor": "pointer", 'margin-right': '-300px',
+                        "cursor": "pointer",#'margin-right': '-300px', 
                           "font-size": 18,"color": "black","background-color": "lightgray"},),
           
         dbc.Tooltip(
@@ -2785,14 +2792,16 @@ dbc.Row(
         ),
                                            
             dbc.CardImg(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/Mapa%20Total2019.png?raw=true",
-               style={'margin-right': '-300px',}             ),
+                                        #style={'margin-right': '-300px',}  
+                       ),
                ]), style={"background-color":"lightgray",
-                        # "box-shadow": "10px 20px 30px black",
                           'margin-top': '-800px',
-                         
-                        'width': '300px'
+                        # "box-shadow": "10px 20px 30px black",
+                      "offset":4,
+                        'width': '300px',
+                        # 'margin-right': '10px',
                          }, disabled=True)),
-     ]),
+             ]), 
     
     dbc.Row([
          
@@ -2816,13 +2825,21 @@ dbc.Row(
                          'margin-top': '-300px',
                         'width': '300px'
                          }, disabled=True)),
-         dbc.Col(),
+        
+        
+        dbc.Col( dbc.Button(([ 
+               ]), style={"background-color":"lightgray",
+                        # "box-shadow": "10px 20px 30px black",
+                         # 'margin-top': '-300px',
+                         
+                        'width': '720px'
+                         }, disabled=True)),
           #2020
          dbc.Col(
             dbc.Button(([html.Span("2020",# style={"font-size": 18,"color": "black","background-color": "lightgray"},
                id="tooltip-target-20",
                     style={#"textDecoration": "underline",
-                        "cursor": "pointer", 'margin-right': '-300px',
+                        "cursor": "pointer",# 'margin-right': '-300px',
                           "font-size": 18,"color": "black","background-color": "lightgray"},),
           
         dbc.Tooltip(
@@ -2834,7 +2851,8 @@ dbc.Row(
         ),
                                         
             dbc.CardImg(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/Mapa%20Total2020.png?raw=true",
-                    style={'margin-right': '-300px',}             ),
+                    #style={#'margin-right': '-300px',}            
+                       ),
                ]), style={"background-color":"lightgray",
                         # "box-shadow": "10px 20px 30px black",
                           'margin-top': '-300px',
@@ -2844,10 +2862,20 @@ dbc.Row(
      ]),###Aqui terminan mapas
          html.Br(),
      dbc.Row([
+         
+           
+        dbc.Col( dbc.Button(([ 
+               ]), style={"background-color":"lightgray",
+                        # "box-shadow": "10px 20px 30px black",
+                         # 'margin-top': '-300px',
+                         
+                        'width': '500px'
+                         }, disabled=True)),
+         
          dbc.Col(
             dbc.Button(([html.Span("2021",# style={"font-size": 18,"color": "black","background-color": "lightgray"},
                id="tooltip-target-21",
-                    style={'margin-right': '-1100px',#"textDecoration": "underline",
+                    style={#'margin-right': '-1100px',#"textDecoration": "underline",
                         "cursor": "pointer",
                           "font-size": 18,"color": "black","background-color": "lightgray"},),
           
@@ -2860,12 +2888,20 @@ dbc.Row(
         ),
                                                
             dbc.CardImg(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/Mapa%20Total2021.png?raw=true",
-                              style={'margin-right': '-1100px',}             ),
+                              #style={#'margin-right': '-1100px',}         
+                                  ),
                ]), style={"background-color":"lightgray",
                         # "box-shadow": "10px 20px 30px black",
-                          'margin-top': '-100px',
+                          'margin-top': '-200px',
                          
                         'width': '300px'
+                         }, disabled=True)),
+          dbc.Col( dbc.Button(([ 
+               ]), style={"background-color":"lightgray",
+                        # "box-shadow": "10px 20px 30px black",
+                         # 'margin-top': '-300px',
+                         
+                        'width': '500px'
                          }, disabled=True)),
      ]),
               ###Aqui terminan mapas
@@ -2962,4 +2998,3 @@ dbc.Row(
 
 if __name__ == '__main__':
     app.run_server()
-    
