@@ -579,7 +579,7 @@ tabla_sorted_vg = femi15_21[["Tipo de delito","GRAND TOTAL",#"Total2015","Total2
 
 
 #_____merge con diccionario para get url´s
-dicc = pd.read_csv("https://raw.githubusercontent.com/fdealbam/violenciadegenero/main/diccionariovg.csv", encoding="Latin-1")
+dicc = pd.read_csv("https://raw.githubusercontent.com/fdealbam/violenciadegenero/main/diccionariovg.csv")#, encoding="Latin-1")
 dicc.drop("Unnamed: 0",1, inplace=True)
 
 
