@@ -24,7 +24,8 @@ import os
 yesterday = datetime.now() - timedelta(1)
 yea = datetime.strftime(yesterday, '%Y%m%d')
 
-
+#Grafica
+grap = pd.read_csv("https://raw.githubusercontent.com/fdealbam/violenciadegenero/main/pagrafica.csv")
 #Esta parte debe activarse cada mes, con la nueva base de delitos
 
 ############################################################### UPDATE MENSUAL
@@ -1224,7 +1225,54 @@ treedel.update_traces(marker=dict(colors=colors, line=dict(color='lightgray', wi
 
 #treedel.show()
 
+#####################################################################################
+#femi15_21_graf = femi15_21[["Tipo de delito", "tasa_acumulada", "Total2015","Total2020",
+#           "tasa_tot2015","tasa_tot2020", 
+#          "Variac_ABS2015_2021", 
+#           "Variac_tasa2015_2021" 
+#          ]].sort_values("Total2015", ascending=False, ignore_index=False).tail(16)
+#
 
+femi15_21_graf= grap
+import plotly.graph_objects as go
+
+comparatot_2015_20 = go.Figure()
+comparatot_2015_20.add_trace(go.Bar(
+    x=femi15_21_graf["Tipo de delito"],
+    y=femi15_21_graf["Total2015"],
+    name='2015',
+    marker_color='purple',
+    orientation='v'
+))
+comparatot_2015_20.add_trace(go.Bar(
+    x=femi15_21_graf["Tipo de delito"],
+    y=femi15_21_graf["Total2020"],
+    name='2020',
+    #fontsize=8,
+    marker_color='orchid',
+    orientation='v'
+))
+
+# Here we modify the tickangle of the xaxis, resulting in rotated labels.
+comparatot_2015_20.update_layout(paper_bgcolor= #"lightgray",
+                      'rgba(0,0,0,0)',
+                  plot_bgcolor= #"lightgray", 
+                  'rgba(0,0,0,0)',
+                  font_color="black",
+                  title_font_family="Arial",
+                  title_font_color="black",
+                  barmode='group', 
+                  xaxis_tickangle=-45, 
+                  font=dict(family="Arial",
+                            size=10,
+                            color="gray"),
+                  legend=dict(yanchor="top",
+                              font_size=15,
+                              y=0.99,
+                              xanchor="left",
+                              x=.7),              
+                  width=800,
+                  height=600)
 
 
 ################################################
@@ -2918,16 +2966,158 @@ dbc.Row(
     html.Br(),
     
     
-############################################################## CONSIDERACIONES GENERALES     
-#    html.P((["CONSIDERACIONES GENERALES",style={'textAlign': 'justify',
-#                            "font-size": "18px",
-#                            "font-family": "Arial",
-#                          "color": "black",
-#                           "line-height":"120%",                            
-#                           "margin-left": "100px",
-#                           "margin-right": "100px",}
-#                         #"text-shadow": "10px 20px 30px black",
-#                     ],justify="start"),
+############################################################## Seccion numeralia    
+ html.Hr(style={"border-left": "3px solid black",
+  "height": "500px",
+  "position": "absolute",
+  "left": "50%",
+  "margin-left": "-3px",
+  "marin-top": "1100px",
+               }
+                ),
+    
+    dbc.Row([
+        dbc.Col(html.P("de 2015 a 2020", 
+                       style={'textAlign': 'right',
+                              "left": "50%",
+                             "font-size": "22px",
+                             "font-family": "Arial",
+                           "color": "black",
+                            "line-height":"120%",                            
+                            
+                          "text-shadow": "10px 20px 30px black",})),
+    
+        dbc.Col(html.P("Otro título", 
+                       style={'textAlign': 'justify',
+                              "left": "50%",
+                             "font-size": "18px",
+                             "font-family": "Arial",
+                           "color": "black",
+                            "line-height":"120%",                            
+                            "margin-left": "100px",
+                            "margin-right": "100px",
+                          "text-shadow": "10px 20px 30px black",})),
+    ]),
+    dbc.Row([
+        dbc.Col(html.P(
+            "En el acumulado de cinco años de delitos de violencia de género,  la inasistencia familiar"
+            " fue el único delito que redujo su incidencia (%)", 
+                       style={'textAlign': 'justify',
+                              "left": "50%",
+                             "font-size": "18px",
+                             "font-family": "Arial",
+                           "font-color": "purple",
+                           "line-height":"120%",
+                               "margin-left": "100px",
+                            "margin-right": "100px",
+                          
+                          },
+            
+        )),
+    
+        dbc.Col(html.P("Del total de la incidencia delictiva acumulada entre 2015 a 2021,"
+                       " los 17 delitos de violencia de género representan   18%", 
+                       style={'textAlign': 'justify',
+                              "left": "50%",
+                             "font-size": "18px",
+                             "font-family": "Arial",
+                           "color": "black",
+                            "line-height":"120%",                            
+                            "margin-left": "100px",
+                            "margin-right": "100px",
+                          }
+                      )),
+    ]),
+    
+    dbc.Row([
+        
+        
+        dbc.Col(dcc.Graph(figure=comparatot_2015_20, style={"left": "50%",
+                                                           }))
+    ]),
+     html.Br(),
+     html.Br(),
+    html.Br(),
+    html.Br(),
+    html.Br(),
+      html.Br(),
+     html.Br(),
+     html.Br(),
+    html.Br(),
+    html.Br(),
+    html.Br(),
+      html.Br(),
+     html.Br(),
+     html.Br(),
+    html.Br(),
+    html.Br(),
+    html.Br(),
+      html.Br(),
+     html.Br(),
+     html.Br(),
+    html.Br(),
+    html.Br(),
+    html.Br(),
+      html.Br(),
+     html.Br(),
+     html.Br(),
+    html.Br(),
+    html.Br(),
+    html.Br(),
+      html.Br(),
+     html.Br(),
+     html.Br(),
+    html.Br(),
+    html.Br(),
+    html.Br(),
+      html.Br(),
+     html.Br(),
+     html.Br(),
+    html.Br(),
+    html.Br(),
+    html.Br(),
+      html.Br(),
+     html.Br(),
+     html.Br(),
+    html.Br(),
+    html.Br(),
+    html.Br(),
+      html.Br(),
+     html.Br(),
+     html.Br(),
+    html.Br(),
+    html.Br(),
+    html.Br(),
+      html.Br(),
+     html.Br(),
+     html.Br(),
+    html.Br(),
+    html.Br(),
+    html.Br(),
+      html.Br(),
+     html.Br(),
+     html.Br(),
+    html.Br(),
+    html.Br(),
+    html.Br(),
+      html.Br(),
+     html.Br(),
+     html.Br(),
+    html.Br(),
+    html.Br(),
+    html.Br(),
+      html.Br(),
+     html.Br(),
+     html.Br(),
+    html.Br(),
+    html.Br(),
+    html.Br(),
+      html.Br(),
+     html.Br(),
+     html.Br(),
+    html.Br(),
+    html.Br(),
+    html.Br(),
 #    html.Br(),
      html.Br(),     
      html.Br(),
@@ -2968,9 +3158,8 @@ dbc.Row(
      html.Br(),
      html.Br(),
      html.Br(),
-     html.Br(),
-     html.Br(),
-     html.Br(),
+   
+    
     #Logo
      dbc.Row([dbc.Col(
          dbc.CardImg(src="https://github.com/fdealbam/0entrada/blob/ce2cda9ccf7732861b8494b36562ebe9c8c642a6/application/static/logo%20cesopycamara.jpeg?raw=true"),
