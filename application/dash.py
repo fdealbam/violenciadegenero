@@ -2971,7 +2971,7 @@ dbc.Row(
   "height": "1500px",
   "position": "absolute",
   "left": "50%",
-  "margin-left": "-200px",
+  "margin-left": "-240px",
   "marin-top": "1100px",
                }
                 ),
