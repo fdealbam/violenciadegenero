@@ -2967,7 +2967,7 @@ dbc.Row(
     
     
 ############################################################## Seccion numeralia    
- html.Hr(style={"border-left": "3px solid black",
+ html.Hr(style={"border-left": "1px solid gray",
   "height": "1500px",
   "position": "absolute",
   "left": "50%",
