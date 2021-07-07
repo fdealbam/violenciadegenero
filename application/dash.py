@@ -3021,15 +3021,15 @@ dbc.Row(
     
 ############################################################## Seccion numeralia    
 ############################################################## Seccion numeralia    
- html.Hr(style={"border-left": "3px solid gray",
-  "height": "500px",
-  "position": "absolute",
-  "left": "50%",
-  "margin-left":  "-240px", #Heroku
-                # "-3px", PC
-  "margin-top": "1100px",
-               }
-                ),
+# html.Hr(style={"border-left": "3px solid gray",
+#  "height": "500px",
+#  "position": "absolute",
+#  "left": "50%",
+#  "margin-left":  "-240px", #Heroku
+#                # "-3px", PC
+#  "margin-top": "1100px",
+#               }
+#                ),
     
     dbc.Row([
         dbc.Col(html.P("De 2015 a 2020", 
