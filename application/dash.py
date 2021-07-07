@@ -812,8 +812,9 @@ comparatot_2015_20.update_layout(paper_bgcolor= #"lightgray",
                               y=0.99,
                               xanchor="left",
                               x=.7),              
-                  width=600,
-                  height=400)
+                 # width=600,
+                  #height=400
+                                )
 
 
 
