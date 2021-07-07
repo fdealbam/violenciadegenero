@@ -703,6 +703,98 @@ iconodel17 = tabla1.iloc[16]["icono"]
 #iconodel18 = tabla1.iloc[17]["icono"]
 
 
+#####################################################################################
+#### _______________________________GRAFICA MESES
+acumulado_meses = femi15_21[[
+    'Enero15','Febrero15','Marzo15','Abril15','Mayo15','Junio15','Julio15','Agosto15','Septiembre15','Octubre15','Noviembre15','Diciembre15',
+    'Enero16','Febrero16','Marzo16','Abril16','Mayo16','Junio16','Julio16','Agosto16','Septiembre16','Octubre16','Noviembre16','Diciembre16',
+    'Enero17','Febrero17','Marzo17','Abril17','Mayo17','Junio17','Julio17','Agosto17','Septiembre17','Octubre17','Noviembre17','Diciembre17',
+    'Enero18','Febrero18','Marzo18','Abril18','Mayo18','Junio18','Julio18','Agosto18','Septiembre18','Octubre18','Noviembre18','Diciembre18',
+    'Enero19','Febrero19','Marzo19','Abril19','Mayo19','Junio19','Julio19','Agosto19','Septiembre19','Octubre19','Noviembre19','Diciembre19',
+    'Enero20','Febrero20','Marzo20','Abril20','Mayo20','Junio20','Julio20','Agosto20','Septiembre20','Octubre20','Noviembre20','Diciembre20',
+    'Enero21','Febrero21','Marzo21','Abril21','Mayo21']].stb.subtotal().tail(1).T.to_csv("0000procesoheadr.csv")
+
+names = ["Meses","Total"]
+acumulado_meses = pd.read_csv("0000procesoheadr.csv", names=names, skiprows=[0])
+
+fig_meses = go.Figure()
+fig_meses.add_trace(go.Bar(x=acumulado_meses.Meses,
+                                 y=acumulado_meses.Total,
+                marker_color='indianred'  # cambiar nuemeritos de rgb
+                ))
+fig_meses.update_layout(
+    paper_bgcolor='rgba(0,0,0,0)',
+    plot_bgcolor='rgba(0,0,0,0)',
+    xaxis_tickangle=-45,
+    template = 'simple_white',
+    title='',
+    xaxis_tickfont_size= 12,
+    yaxis=dict(
+        title='Acumulados mensuales',
+        titlefont_size=14,
+        tickfont_size=12,
+        titlefont_family= "Monserrat"),
+    #autosize=False,
+    #width=1000,
+    #height=400
+    )
+
+
+#####################################################################################
+#### _______________________________GRAFICA MESES
+femi15_21_graf = femi15_21[["Tipo de delito", "tasa_acumulada", "Total2015","Total2020",
+           "tasa_tot2015","tasa_tot2020", 
+          "Variac_ABS2015_2021", 
+           "Variac_tasa2015_2021" 
+          ]].sort_values("Total2015", ascending=False, ignore_index=False).tail(16)
+
+
+femi15_21_graf= grap
+import plotly.graph_objects as go
+
+comparatot_2015_20 = go.Figure()
+comparatot_2015_20.add_trace(go.Bar(
+    x=femi15_21_graf["Tipo de delito"],
+    y=femi15_21_graf["Total2015"],
+    name='2015',
+    marker_color='purple',
+    orientation='v'
+))
+comparatot_2015_20.add_trace(go.Bar(
+    x=femi15_21_graf["Tipo de delito"],
+    y=femi15_21_graf["Total2020"],
+    name='2020',
+    #fontsize=8,
+    marker_color='orchid',
+    orientation='v'
+))
+
+# Here we modify the tickangle of the xaxis, resulting in rotated labels.
+comparatot_2015_20.update_layout(paper_bgcolor= #"lightgray",
+                      'rgba(0,0,0,0)',
+                  plot_bgcolor= #"lightgray", 
+                  'rgba(0,0,0,0)',
+                  font_color="black",
+                  title_font_family="Arial",
+                  title_font_color="black",
+                  barmode='group', 
+                  xaxis_tickangle=-45, 
+                  font=dict(family="Arial",
+                            size=10,
+                            color="gray"),
+                  legend=dict(yanchor="top",
+                              font_size=15,
+                              y=0.99,
+                              xanchor="left",
+                              x=.7),              
+                  width=600,
+                  height=400)
+
+
+
+
+
+
 #                                    ____________________________________________________________________________
 #                                     >>>>>>>>>>>>>>>>>>>>>>>>>>> POR ENTIDAD <<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
@@ -1161,7 +1253,17 @@ femi15_21["var_may20_21_%"] = (femi15_21["var_may20_21"]*100)/femi15_21.Mayo21
 # 3. hacer los 7 mapas tasas anuales (2015-2021) 
 # 4. Hacer 2 mapas uno con GRAND TOTAL y otro con GRAND TASA
 
+################################################VARIACIONES GRALES
 
+#abs
+var_abs15_21 = -(214696 - 342658)
+var_abs15_21_p = ((214696*100)/342658)#.round(1)
+#print("Variación absoluta en el período vg: ",var_abs15_21, "es decir, más ",var_abs15_21_p,"% ")#variación abs delitos vg total anual
+
+#tasa
+var_tasa15_21 = -(176.9 - 268.0)
+var_tasa15_21_p = ((176.9*100)/268.0)#.round(1)
+#print("Variación de la tasa en el período vg: ",var_tasa15_21, "es decir, más", var_tasa15_21_p, "% ")
 
 
 
@@ -1225,69 +1327,20 @@ treedel.update_traces(marker=dict(colors=colors, line=dict(color='lightgray', wi
 
 #treedel.show()
 
-#####################################################################################
-#femi15_21_graf = femi15_21[["Tipo de delito", "tasa_acumulada", "Total2015","Total2020",
-#           "tasa_tot2015","tasa_tot2020", 
-#          "Variac_ABS2015_2021", 
-#           "Variac_tasa2015_2021" 
-#          ]].sort_values("Total2015", ascending=False, ignore_index=False).tail(16)
-#
-
-femi15_21_graf= grap
-import plotly.graph_objects as go
-
-comparatot_2015_20 = go.Figure()
-comparatot_2015_20.add_trace(go.Bar(
-    x=femi15_21_graf["Tipo de delito"],
-    y=femi15_21_graf["Total2015"],
-    name='2015',
-    marker_color='purple',
-    orientation='v'
-))
-comparatot_2015_20.add_trace(go.Bar(
-    x=femi15_21_graf["Tipo de delito"],
-    y=femi15_21_graf["Total2020"],
-    name='2020',
-    #fontsize=8,
-    marker_color='orchid',
-    orientation='v'
-))
-
-# Here we modify the tickangle of the xaxis, resulting in rotated labels.
-comparatot_2015_20.update_layout(paper_bgcolor= #"lightgray",
-                      'rgba(0,0,0,0)',
-                  plot_bgcolor= #"lightgray", 
-                  'rgba(0,0,0,0)',
-                  font_color="black",
-                  title_font_family="Arial",
-                  title_font_color="black",
-                  barmode='group', 
-                  xaxis_tickangle=-45, 
-                  font=dict(family="Arial",
-                            size=10,
-                            color="gray"),
-                  legend=dict(yanchor="top",
-                              font_size=15,
-                              y=0.99,
-                              xanchor="left",
-                              x=.7),              
-                  width=600,
-                  height=400)
-
 
 ################################################
 # A P P 
 ################################################
 
-#FONT_AWESOMEpro1 = "{% static 'fontawesome_pro/js/all.min.js' %}"
-#FONT_AWESOMEpro = "{% static 'fontawesome_pro/css/all.min.css' %}"
-#FONT_AWESOME = "https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+FONT_AWESOMEpro1 = "{% static 'fontawesome_pro/js/all.min.js' %}"
+FONT_AWESOMEpro = "{% static 'fontawesome_pro/css/all.min.css' %}"
+FONT_AWESOME = "https://use.fontawesome.com/releases/v5.7.2/css/all.css"
 server = flask.Flask(__name__)    
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes. 
                                                 LUX, 
-                                                #FONT_AWESOMEpro1,
-                                                #FONT_AWESOME, 
-                                                #FONT_AWESOMEpro
+                                                FONT_AWESOMEpro1,
+                                                FONT_AWESOME, 
+                                                FONT_AWESOMEpro
                                                ], server=server)
 
 
@@ -2967,46 +3020,49 @@ dbc.Row(
     
     
 ############################################################## Seccion numeralia    
- html.Hr(style={"border-left": "1px solid gray",
-  "height": "1500px",
+############################################################## Seccion numeralia    
+ html.Hr(style={"border-left": "3px solid black",
+  "height": "500px",
   "position": "absolute",
   "left": "50%",
-  "margin-left": "-240px",
+  "margin-left": "-3px", #"-240px",
   "marin-top": "1100px",
                }
                 ),
     
     dbc.Row([
-        dbc.Col(html.P("de 2015 a 2020", 
+        dbc.Col(html.P("De 2015 a 2020", 
                        style={'textAlign': 'right',
                               "left": "50%",
                              "font-size": "22px",
                              "font-family": "Arial",
-                           "color": "black",
+                          "font-color": "black",
                             "line-height":"120%",                            
                             
                           "text-shadow": "10px 20px 30px black",})),
     
-        dbc.Col(html.P("Otro título", 
-                       style={'textAlign': 'justify',
+        dbc.Col(html.P("Sobre las variaciones", 
+                       style={'textAlign': 'left',
                               "left": "50%",
-                             "font-size": "18px",
+                             "font-size": "22px",
                              "font-family": "Arial",
-                           "color": "black",
+                           "font-color": "black",
                             "line-height":"120%",                            
-                            "margin-left": "100px",
-                            "margin-right": "100px",
+                            "margin-left": "80px",
+                           # "margin-right": "100px",
                           "text-shadow": "10px 20px 30px black",})),
     ]),
+     html.Br(),
+     html.Br(),
     dbc.Row([
+       
         dbc.Col(html.P(
-            "En el acumulado de cinco años de delitos de violencia de género,  la inasistencia familiar"
-            " fue el único delito que redujo su incidencia (%)", 
+            "Entre 2015 y 2020 solo se redujo la inasistencia familiar. El resto registra ascensos.", 
                        style={'textAlign': 'justify',
                               "left": "50%",
                              "font-size": "18px",
                              "font-family": "Arial",
-                           "font-color": "purple",
+                           "font-color": "black",
                            "line-height":"120%",
                                "margin-left": "100px",
                             "margin-right": "100px",
@@ -3014,109 +3070,102 @@ dbc.Row(
                           },
             
         )),
-    
-        dbc.Col(html.P("Del total de la incidencia delictiva acumulada entre 2015 a 2021,"
-                       " los 17 delitos de violencia de género representan   18%", 
+    html.Br(),
+        html.Br(),
+        dbc.Col(html.P("Los resultados absolutos de 2015 a 2021 mostraron un aumento de "
+                        f"{int(var_abs15_21):,}" " delitos de violencia de género,"
+                       " esto representó +"
+                      f"{int(var_abs15_21_p):,}" " %",
                        style={'textAlign': 'justify',
                               "left": "50%",
                              "font-size": "18px",
                              "font-family": "Arial",
-                           "color": "black",
+                           "font-color": "black",
                             "line-height":"120%",                            
                             "margin-left": "100px",
                             "margin-right": "100px",
                           }
                       )),
+      
     ]),
+   
+        dbc.Row([
+        dbc.Col(dcc.Graph(figure=comparatot_2015_20, style={"left": "50%",
+                                                           })),
+            
+       dbc.Col(dbc.Button(
+                html.Span([    html.H1(className="fas fa-female", style={"color": "purple",'backgroundColor': 'lightgray'}),
+                               html.H1(className="fas fa-female", style={"color": "purple",'backgroundColor': 'lightgray'}),
+                               html.H1(className="fas fa-female", style={"color": "purple",'backgroundColor': 'lightgray'}),
+                               html.H1(className="fas fa-female", style={"color": "purple",'backgroundColor': 'lightgray'}),
+                               html.H1(className="fas fa-female", style={"color": "purple",'backgroundColor': 'lightgray'}),
+                               html.H1(className="fas fa-female", style={"color": "purple",'backgroundColor': 'lightgray'}),
+                               html.H1(className="fas fa-female", style={"color": "white",'backgroundColor': 'lightgray'}),
+                               html.H1(className="fas fa-female", style={"color": "white",'backgroundColor': 'lightgray'}),
+                               html.H1(className="fas fa-female", style={"color": "white",'backgroundColor': 'lightgray'}),
+                               html.H1(className="fas fa-female", style={"color": "white",'backgroundColor': 'lightgray'}),
+                          ]), style={'backgroundColor': 'lightgray', "margin-left": "100px",})),
     
+         
+    ]),
+    #abs
+
+    dbc.Row([
+        
+        dbc.Col(),
+        
+        dbc.Col(html.P("Los resultados de las tasas acumuladas de 2015 a 2021 mostraron un aumento de "
+                        f"{int(var_tasa15_21):,}" " delitos de violencia de género,"
+                       " esto representó +"
+                      f"{int(var_tasa15_21_p):,}" " %",
+                       style={'textAlign': 'justify',
+                              "rigth": "50%",
+                             "font-size": "18px",
+                             "font-family": "Arial",
+                          "font-color": "black",
+                            "line-height":"120%",                            
+                            "margin-left": "100px",
+                            "margin-right": "100px",
+                              "margin-top": "-300px",
+                          }
+                      )),
+        
+      
+    ]),
+    dbc.Row([
+        dbc.Col(html.P("otro hallazgo gral sobre delitos", 
+                       style={'textAlign': 'right',
+                              "left": "50%",
+                             "font-size": "22px",
+                             "font-family": "Arial",
+                          "font-color": "black",
+                            "line-height":"120%",                            
+                            
+                          #"text-shadow": "10px 20px 30px black",
+                             })),
+    
+        dbc.Col(html.P("De 2015 a 2020", 
+                       style={'textAlign': 'left',
+                              "left": "50%",
+                             "font-size": "22px",
+                             "font-family": "Arial",
+                           "font-color": "black",
+                            "line-height":"120%",                            
+                            "margin-left": "80px",
+                            "margin-top": "-100px",
+                          "text-shadow": "10px 20px 30px black",})),
+    ]),
+  
+     
     dbc.Row([
         
         
-        dbc.Col(dcc.Graph(figure=comparatot_2015_20, style={"left": "50%",
+        dbc.Col(dcc.Graph(figure=fig_meses, style={"left": "80%",
                                                            }))
     ]),
-     html.Br(),
-     html.Br(),
-    html.Br(),
-    html.Br(),
-    html.Br(),
-      html.Br(),
-     html.Br(),
-     html.Br(),
-    html.Br(),
-    html.Br(),
-    html.Br(),
-      html.Br(),
-     html.Br(),
-     html.Br(),
-    html.Br(),
-    html.Br(),
-    html.Br(),
-      html.Br(),
-     html.Br(),
-     html.Br(),
-    html.Br(),
-    html.Br(),
-    html.Br(),
-      html.Br(),
-     html.Br(),
-     html.Br(),
-    html.Br(),
-    html.Br(),
-    html.Br(),
-      html.Br(),
-     html.Br(),
-     html.Br(),
-    html.Br(),
-    html.Br(),
-    html.Br(),
-      html.Br(),
-     html.Br(),
-     html.Br(),
-    html.Br(),
-    html.Br(),
-    html.Br(),
-      html.Br(),
-     html.Br(),
-     html.Br(),
-    html.Br(),
-    html.Br(),
-    html.Br(),
-      html.Br(),
-     html.Br(),
-     html.Br(),
-    html.Br(),
-    html.Br(),
-    html.Br(),
-      html.Br(),
-     html.Br(),
-     html.Br(),
-    html.Br(),
-    html.Br(),
-    html.Br(),
-      html.Br(),
-     html.Br(),
-     html.Br(),
-    html.Br(),
-    html.Br(),
-    html.Br(),
-      html.Br(),
-     html.Br(),
-     html.Br(),
-    html.Br(),
-    html.Br(),
-    html.Br(),
-      html.Br(),
-     html.Br(),
-     html.Br(),
-    html.Br(),
-    html.Br(),
-    html.Br(),
-      html.Br(),
-     html.Br(),
-     html.Br(),
-    html.Br(),
-    html.Br(),
+        
+
+   
     html.Br(),
 #    html.Br(),
      html.Br(),     
