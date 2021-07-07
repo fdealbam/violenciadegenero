@@ -3025,8 +3025,9 @@ dbc.Row(
   "height": "500px",
   "position": "absolute",
   "left": "50%",
-  "margin-left": # "-3px", "-240px",
-  "marin-top": "1100px",
+  "margin-left":  "-240px", #Heroku
+                # "-3px", PC
+  "margin-top": "1100px",
                }
                 ),
     
