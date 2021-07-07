@@ -3021,11 +3021,11 @@ dbc.Row(
     
 ############################################################## Seccion numeralia    
 ############################################################## Seccion numeralia    
- html.Hr(style={"border-left": "3px solid black",
+ html.Hr(style={"border-left": "3px solid gray",
   "height": "500px",
   "position": "absolute",
   "left": "50%",
-  "margin-left": "-3px", #"-240px",
+  "margin-left": # "-3px", "-240px",
   "marin-top": "1100px",
                }
                 ),
