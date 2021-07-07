@@ -3072,17 +3072,14 @@ dbc.Row(
                           
                           },
             
-        )),
+        )),]),
+  dbc.Row([
         dbc.Col(dcc.Graph(figure=comparatot_2015_20, ))
     
         
     ]),
     
-    dbc.Row([
-        
-        
-        
-    ]),
+    
      
     dbc.Row([dbc.Col(html.P("Del total de la incidencia delictiva acumulada entre 2015 a 2021,"
                        " los 17 delitos de violencia de género representan   18%", 
@@ -3097,7 +3094,8 @@ dbc.Row(
                           }
                       )),
         
-        
+            ]),
+  dbc.Row([
         dbc.Col(dcc.Graph(figure=fig_meses, ))
     ]),
         
