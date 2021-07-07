@@ -3035,19 +3035,19 @@ dbc.Row(
     
     
 ############################################################## Seccion numeralia    
- html.Hr(style={"border-left": "1px solid gray",
-  "height": "1500px",
-  "position": "absolute",
-  "left": "50%",
-  "margin-left": "-240px",
-  "marin-top": "1100px",
-               }
-                ),
-    
+#html.Hr(style={"border-left": "1px solid gray",
+# "height": "1500px",
+# "position": "absolute",
+# "left": "50%",
+# "margin-left": "-240px",
+# "marin-top": "1100px",
+#              }
+#               ),
+#   
     dbc.Row([
         dbc.Col(html.P("de 2015 a 2020", 
                        style={'textAlign': 'right',
-                              "left": "50%",
+                            ##  "left": "50%",
                              "font-size": "22px",
                              "font-family": "Arial",
                            "color": "black",
@@ -3055,16 +3055,7 @@ dbc.Row(
                             
                           "text-shadow": "10px 20px 30px black",})),
     
-        dbc.Col(html.P("Otro título", 
-                       style={'textAlign': 'justify',
-                              "left": "50%",
-                             "font-size": "18px",
-                             "font-family": "Arial",
-                           "color": "black",
-                            "line-height":"120%",                            
-                            "margin-left": "100px",
-                            "margin-right": "100px",
-                          "text-shadow": "10px 20px 30px black",})),
+        
     ]),
     dbc.Row([
         dbc.Col(html.P(
@@ -3082,11 +3073,21 @@ dbc.Row(
                           },
             
         )),
+        dbc.Col(dcc.Graph(figure=comparatot_2015_20, ))
     
-        dbc.Col(html.P("Del total de la incidencia delictiva acumulada entre 2015 a 2021,"
+        
+    ]),
+    
+    dbc.Row([
+        
+        
+        
+    ]),
+     
+    dbc.Row([dbc.Col(html.P("Del total de la incidencia delictiva acumulada entre 2015 a 2021,"
                        " los 17 delitos de violencia de género representan   18%", 
                        style={'textAlign': 'justify',
-                              "left": "50%",
+                            #  "left": "50%",
                              "font-size": "18px",
                              "font-family": "Arial",
                            "color": "black",
@@ -3095,99 +3096,13 @@ dbc.Row(
                             "margin-right": "100px",
                           }
                       )),
-    ]),
-    
-    dbc.Row([
         
         
-        dbc.Col(dcc.Graph(figure=comparatot_2015_20, style={"left": "50%",
-                                                           }))
-    ]),
-     
-    dbc.Row([
-        
-        
-        dbc.Col(dcc.Graph(figure=fig_meses, style={"left": "80%",
-                                                           }))
+        dbc.Col(dcc.Graph(figure=fig_meses, ))
     ]),
         
 
-    html.Br(),
-     html.Br(),
-    html.Br(),
-    html.Br(),
-    html.Br(),
-      html.Br(),
-     html.Br(),
-     html.Br(),
-    html.Br(),
-    html.Br(),
-    html.Br(),
-      html.Br(),
-     html.Br(),
-     html.Br(),
-    html.Br(),
-    html.Br(),
-    html.Br(),
-      html.Br(),
-     html.Br(),
-     html.Br(),
-    html.Br(),
-    html.Br(),
-    html.Br(),
-      html.Br(),
-     html.Br(),
-     html.Br(),
-    html.Br(),
-    html.Br(),
-    html.Br(),
-      html.Br(),
-     html.Br(),
-     html.Br(),
-    html.Br(),
-    html.Br(),
-    html.Br(),
-      html.Br(),
-     html.Br(),
-     html.Br(),
-    html.Br(),
-    html.Br(),
-    html.Br(),
-      html.Br(),
-     html.Br(),
-     html.Br(),
-    html.Br(),
-    html.Br(),
-    html.Br(),
-      html.Br(),
-     html.Br(),
-     html.Br(),
-    html.Br(),
-    html.Br(),
-    html.Br(),
-      html.Br(),
-     html.Br(),
-     html.Br(),
-    html.Br(),
-    html.Br(),
-    html.Br(),
-      html.Br(),
-     html.Br(),
-     html.Br(),
-    html.Br(),
-    html.Br(),
-    html.Br(),
-      html.Br(),
-     html.Br(),
-     html.Br(),
-    html.Br(),
-    html.Br(),
-    html.Br(),
-      html.Br(),
-     html.Br(),
-     html.Br(),
-    html.Br(),
-    html.Br(),
+   
     html.Br(),
       html.Br(),
      html.Br(),
