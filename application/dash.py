@@ -1994,7 +1994,7 @@ app.layout = html.Div([
                        width={'size': 20, "offset":1 },
                       )],justify="start",),
 dbc.Row([
-  dbc.Col(html.P(["Enseguida se presentan 16 Dashboards analíticos siguiendo un orden de mayor a menor tasa de incidencia por 100 mil habitantes. En el primer línea se encuentran los delitos de género que tienen una tasa de # a #. En la segunda línea se encuentran los delitos de género que tienen una tasa de # a #. Finalmente, en la tercera línea se encuentra en los delitos de género que tiene una tasa de # a #."
+  dbc.Col(html.P(["Enseguida se puede acceder a 16 dashboards analíticos, organizados  de mayor a menor tasa de incidencia por cada 100 mil habitantes. En la primera línea se encuentran los delitos de género que tienen una tasas de # a #. En la segunda línea se encuentran los delitos que tienen tasas de # a #. Finalmente, en la tercera línea se encuentran en los delitos con tasas de # a #."
                  ],style={'textAlign': 'justify',
                              "font-size": "18px",
                              "font-family": "Arial",
@@ -2801,7 +2801,7 @@ dbc.Row(
  
   dbc.Row(
            [
-               dbc.Col(html.P(["A continuación se presentan las sumas anuales de delitos de género entre los años 2015 a 2021, destacando los cinco estados con mayor incidencia. Adicionalmente el mapa central contiene las cifras acumuladas de delitos de género en todo el periodo."
+               dbc.Col(html.P(["A continuación se presentan mapas anuales (2015-2021) destacando los cinco estados con mayor violencia de género. Adicionalmente, el mapa al centro contiene las cifras acumuladas por entidad, en todo el periodo mencionado."
    ],
                               style={'textAlign': 'justify',
                              "font-size": "18px",
@@ -3107,8 +3107,7 @@ dbc.Row(
     
     
      
-    dbc.Row([dbc.Col(html.P("Del total de la incidencia delictiva acumulada entre 2015 a 2021,"
-                       " los 17 delitos de violencia de género representan   18%", 
+    dbc.Row([dbc.Col(html.P("Los delitos de género representan 18%  de la incidencia delictiva acumulada entre 2015 hasta 2021", 
                        style={'textAlign': 'justify',
                             #  "left": "50%",
                              "font-size": "18px",
