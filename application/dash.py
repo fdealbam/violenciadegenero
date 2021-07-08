@@ -1386,7 +1386,7 @@ app.layout = html.Div([
                              "font-family": "Arial",
                            "color": "purple", 
                           "text-shadow": "10px 20px 30px black",}),
-                   html.P("16 delitos seleccionados, en el período seleccionado" ,
+                   html.P("16 delitos seleccionados, en el período 2015-2021" ,
                       style={'textAlign': 'center',
                              "font-size": "20px",
                              "font-family": "Arial",
