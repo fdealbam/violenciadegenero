@@ -2003,7 +2003,8 @@ dbc.Row([
                             "margin-left": "100px",
                             "margin-right": "100px",}
                           #"text-shadow": "10px 20px 30px black",
-                      )],justify="start",),
+                      )),
+]),
     html.Br(),
     html.Br(),
    
@@ -2810,7 +2811,8 @@ dbc.Row(
                             "margin-left": "100px",
                             "margin-right": "100px",}
                           #"text-shadow": "10px 20px 30px black",
-                      )],justify="start",),
+                      )),
+           ]),
      html.Br(),
      html.Br(),
      html.Br(),
