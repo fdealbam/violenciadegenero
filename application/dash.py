@@ -2833,7 +2833,7 @@ dbc.Row(
             target="tooltip-target-acumulado",
         ),
                dbc.CardImg(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/Mapa%20Acumulado.png?raw=true",
-                     ),
+                    , style={"background-color":"lightgray"}, ),
                ]), style={"background-color":"lightgray",
                         # "box-shadow": "10px 20px 30px black",
                          'margin-left': '10px',
