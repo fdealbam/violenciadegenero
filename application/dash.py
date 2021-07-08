@@ -2798,6 +2798,19 @@ dbc.Row(
                        width={'size': 20, "offset":1 },
                       )],justify="start",),
  
+  dbc.Row(
+           [
+               dbc.Col(html.P(["A continuación se presentan las sumas anuales de delitos de género entre los años 2015 a 2021, destacando los cinco estados con mayor incidencia. Adicionalmente el mapa central contiene las cifras acumuladas de delitos de género en todo el periodo."
+   ],
+                              style={'textAlign': 'justify',
+                             "font-size": "18px",
+                             "font-family": "Arial",
+                           "color": "black",
+                            "line-height":"120%",                            
+                            "margin-left": "100px",
+                            "margin-right": "100px",}
+                          #"text-shadow": "10px 20px 30px black",
+                      )],justify="start",),
      html.Br(),
      html.Br(),
      html.Br(),
