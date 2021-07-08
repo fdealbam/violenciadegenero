@@ -1993,7 +1993,17 @@ app.layout = html.Div([
                             "background-color": "lightgray"}),
                        width={'size': 20, "offset":1 },
                       )],justify="start",),
-
+dbc.Row([
+  dbc.Col(html.P(["Enseguida se presentan 16 Dashboards analíticos siguiendo un orden de mayor a menor tasa de incidencia por 100 mil habitantes. En el primer línea se encuentran los delitos de género que tienen una tasa de # a #. En la segunda línea se encuentran los delitos de género que tienen una tasa de # a #. Finalmente, en la tercera línea se encuentra en los delitos de género que tiene una tasa de # a #."
+                 ],style={'textAlign': 'justify',
+                             "font-size": "18px",
+                             "font-family": "Arial",
+                           "color": "black",
+                            "line-height":"120%",                            
+                            "margin-left": "100px",
+                            "margin-right": "100px",}
+                          #"text-shadow": "10px 20px 30px black",
+                      )],justify="start",),
     html.Br(),
     html.Br(),
    
