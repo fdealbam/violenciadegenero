@@ -1994,7 +1994,11 @@ app.layout = html.Div([
                        width={'size': 20, "offset":1 },
                       )],justify="start",),
 dbc.Row([
-  dbc.Col(html.P(["Enseguida se puede acceder a 16 dashboards analíticos, organizados  de mayor a menor tasa de incidencia por cada 100 mil habitantes. En la primera línea se encuentran los delitos de género que tienen una tasas de # a #. En la segunda línea se encuentran los delitos que tienen tasas de # a #. Finalmente, en la tercera línea se encuentran en los delitos con tasas de # a #."
+  dbc.Col(html.P(["Enseguida se puede acceder a 16 dashboards analíticos, organizados  de mayor a menor tasa de incidencia "
+                  "por cada 100 mil habitantes. En la primera línea se encuentran los delitos de género que tienen una tasas de"
+                  (tasatotdel1) a (tasatotdel6). En la segunda línea se encuentran los delitos que tienen tasas de" 
+                  (tasatotdel7) a (tasatotdel12). Finalmente, en la tercera línea se encuentran en los delitos con tasas de "
+                  (tasatotdel3) a (tasatotdel16)"
                  ],style={'textAlign': 'justify',
                              "font-size": "18px",
                              "font-family": "Arial",
@@ -2801,7 +2805,8 @@ dbc.Row(
  
   dbc.Row(
            [
-               dbc.Col(html.P(["A continuación se presentan mapas anuales (2015-2021) destacando los cinco estados con mayor violencia de género. Adicionalmente, el mapa al centro contiene las cifras acumuladas por entidad, en todo el periodo mencionado."
+               dbc.Col(html.P(["A continuación se presentan mapas anuales (2015-2021) destacando los cinco estados con mayor violencia de género."
+                               " Adicionalmente, el mapa al centro contiene las cifras acumuladas por entidad, en todo el periodo mencionado."
    ],
                               style={'textAlign': 'justify',
                              "font-size": "18px",
@@ -3073,7 +3078,7 @@ dbc.Row(
     dbc.Row([
         dbc.Col(html.P("de 2015 a 2020", 
                        style={'textAlign': 'right',
-                            ##  "left": "50%",
+                              "left": "50%",
                              "font-size": "22px",
                              "font-family": "Arial",
                            "color": "black",
