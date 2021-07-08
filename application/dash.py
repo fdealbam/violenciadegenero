@@ -1386,19 +1386,23 @@ app.layout = html.Div([
                              "font-family": "Arial",
                            "color": "purple", 
                           "text-shadow": "10px 20px 30px black",}),
-                   html.P("16 delitos seleccionados, en el período 2015-2021" ,
-                      style={'textAlign': 'center',
-                             "font-size": "20px",
+                  html.P(["17 delitos vinculados con la violencia de género representan 18%  de la incidencia "
+                          "delictiva acumulada entre 2015 hasta 2021. Aquí presentamos un análisis pormenorizado"
+                          "de este fenómeno que requiere de la mayor atención posible.",
+                 ],style={'textAlign': 'justify',
+                             "font-size": "18px",
                              "font-family": "Arial",
-                           "color": "dark"}),
-    html.Br(),
-    html.Br(),
+                           "color": "black",
+                            "line-height":"120%",                            
+                            "margin-left": "100px",
+                            "margin-right": "100px",}
+                          #"text-shadow": "10px 20px 30px black",
+                      )])
          
                             ]),
                        
                        
-           
-           ],justify="start",),
+       
     
    html.Br(),
    html.Br(),
@@ -1984,7 +1988,7 @@ app.layout = html.Div([
     
   dbc.Row(
            [
-               dbc.Col(html.P(["Accede al análisis de cada delito" ],
+               dbc.Col(html.P(["Acceso al análisis de cada delito" ],
                       style={"color": "Purple", 
                                #"font-weight": 'bold',
                                "font-size": "32px",
@@ -1992,16 +1996,22 @@ app.layout = html.Div([
                                "text-shadow": "10px 20px 30px black",
                             "background-color": "lightgray"}),
                        width={'size': 20, "offset":1 },
-                      )],justify="start",),
-dbc.Row([
+                      )]),
+
+    html.Br(),
+    html.Br(),
+   
+    
+ dbc.Row(
+           [
   dbc.Col(html.P(["Enseguida se puede acceder a 16 dashboards analíticos, organizados  de mayor a menor tasa"
-                  "de incidencia por cada 100 mil habitantes. En la primera línea se encuentran los delitos de género "
-                  "que tienen una tasas de: "
-                 + str(tasatotdel1)+ " a " + str (tasatotdel6)+" En la segunda línea se encuentran los delitos que"
-                  "tienen tasas de: " 
-                  +str(tasatotdel7)+ " a " + str (tasatotdel12)+" Finalmente, en la tercera línea se encuentran en "
-                  "los delitos con tasas de "
-                  +str(tasatotdel3)+ " a " + str (tasatotdel16),
+                  " de incidencia por cada 100 mil habitantes. En la primera línea, se encuentra   "
+                  " la incidencia con tasas de "
+                 + str(tasatotdel1)+ " a " + str (tasatotdel6)+" delitos (100k/hab). En la segunda línea,"
+                  " se encuentra la incidencia con tasas de " 
+                  +str(tasatotdel7)+ " a " + str (tasatotdel12)+" delitos (100k/hab). Finalmente, en la"
+                  " tercera línea se encuentra la incidencia con tasas de "
+                  +str(tasatotdel13)+ " a " + str (tasatotdel17)+ " delitos.",
                  ],style={'textAlign': 'justify',
                              "font-size": "18px",
                              "font-family": "Arial",
@@ -2011,8 +2021,11 @@ dbc.Row([
                             "margin-right": "100px",}
                           #"text-shadow": "10px 20px 30px black",
                       )),
-]),
-    html.Br(),
+
+ ]),
+                   
+        ################################# VIOLENCIA FAMILIAR
+html.Br(),
     html.Br(),
    
     
@@ -2783,7 +2796,6 @@ dbc.Row([
                
         ]),
     #Estilo de fondo    
-    
     
     
     
