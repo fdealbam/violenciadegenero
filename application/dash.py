@@ -2832,7 +2832,7 @@ dbc.Row(
             " Baja California con 102,634 casos.",
             target="tooltip-target-acumulado",
         ),
-               dbc.CardImg(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/Mapa%20Acumulado.png?raw=true",
+               dbc.CardImg(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/Mapa%20Acumulado2.png?raw=true",
                      style={"background-color":"lightgray"}, ),
                ]), style={"background-color":"lightgray",
                         # "box-shadow": "10px 20px 30px black",
