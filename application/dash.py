@@ -25,7 +25,7 @@ yesterday = datetime.now() - timedelta(1)
 yea = datetime.strftime(yesterday, '%Y%m%d')
 
 #Grafica
-grap = pd.read_csv("https://raw.githubusercontent.com/fdealbam/violenciadegenero/main/pagrafica.csv")
+#grap = pd.read_csv("https://raw.githubusercontent.com/fdealbam/violenciadegenero/main/pagrafica.csv")
 #Esta parte debe activarse cada mes, con la nueva base de delitos
 
 ############################################################### UPDATE MENSUAL
@@ -2820,8 +2820,7 @@ dbc.Row(
  
   dbc.Row(
            [
-               dbc.Col(html.P(["A continuación se presentan mapas anuales (2015-2021) destacando los cinco estados con mayor violencia de género."
-                               " Adicionalmente, el mapa al centro contiene las cifras acumuladas por entidad, en todo el periodo mencionado."
+               dbc.Col(html.P(["A continuación se presenta un primer mapa que contiene las cifras acumuladas de  delitos de género en el periodo (2015-2021)  por entidad. Enseguida, abajo, hay 7 mapas con los acumulados anuales, destacando los cinco estados con mayor incidencia."
    ],
                               style={'textAlign': 'justify',
                              "font-size": "18px",
@@ -2837,13 +2836,38 @@ dbc.Row(
      html.Br(),
      html.Br(),
      html.Br(),
-     html.Br(),    
-     ####Mapaas
+     html.Br(),  
+    ##New idea
+   
+     #ACUMULADO
+          dbc.Col([
+           dbc.Row( 
+                dbc.Button(([html.Span("Acumulado",# style={"font-size": 18,"color": "black","background-color": "lightgray"},
+               id="tooltip-target-acumulado",
+                    style={#"textDecoration": "underline",
+                        "cursor": "pointer",
+                          "font-size": 18,"color": "black","background-color": "lightgray"},),
+          
+        dbc.Tooltip("En el acumulado de 2015 a 2020, los estados con mayor incidencia son: Ciudad de México con 189,681 casos, "
+            "seguido de Nuevo León con 177,235 casos,  México con 137,266 casos, Chihuahua con 110,304 casos, finalmente,"
+            " Baja California con 102,634 casos.",
+            target="tooltip-target-acumulado",
+        ),
+               dbc.CardImg(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/mapa%20Acumulado.jpg?raw=true",
+                     style={"background-color":"lightgray"}, ),
+               ]), style={"background-color":"lightgray",
+                        # "box-shadow": "10px 20px 30px black",
+                        "margin-left":"300px",
+                        'width': '700px',
+                          
+                           },# disabled=True
+                      ),),
+          ]#,style={"margin-left":"50px"}
+          ),
     
-         
-         #2015
-         dbc.Col([
-             dbc.Row(
+     #2015
+         dbc.Row([
+             dbc.Col(
             dbc.Button(([html.Span("2015",# style={"font-size": 18,"color": "black","background-color": "lightgray"},
                id="tooltip-target-15",
                     style={#"textDecoration": "underline",
@@ -2859,14 +2883,14 @@ dbc.Row(
                                            ),
                ]), style={"background-color":"lightgray",
                         # "box-shadow": "10px 20px 30px black",
-                         # 'margin-top': '-100px',
-                         'margin-left': '10px',
+                        #  'margin-top': '-600px',
+                        # 'margin-left': '800px',
                         'width': '300px'
                        },# disabled=True
                       ),),
     
     #########2016
-        dbc.Row(
+        dbc.Col(
             dbc.Button(([html.Span("2016",# style={"font-size": 18,"color": "black","background-color": "lightgray"},
                id="tooltip-target-16",
                     style={#"textDecoration": "underline",
@@ -2883,13 +2907,13 @@ dbc.Row(
                ]), style={"background-color":"lightgray",
                         # "box-shadow": "10px 20px 30px black",
                         # 'margin-top': '-100px',
-                         'margin-left': '10px',
+                        # 'margin-left': '800px',
                         'width': '300px'
                             },# disabled=True
                       ),),
              
     ############2017
-             dbc.Row(
+             dbc.Col(
            dbc.Button(([html.Span("2017",# style={"font-size": 18,"color": "black","background-color": "lightgray"},
                id="tooltip-target-17",
                     style={#"textDecoration": "underline",
@@ -2906,70 +2930,20 @@ dbc.Row(
                ]), style={"background-color":"lightgray",
                         # "box-shadow": "10px 20px 30px black",
                          # 'margin-top': '-100px',
-                         'margin-left': '10px',
+                        # 'margin-left': '800px',
                         'width': '300px'
                           },# disabled=True
                       ),),
-         ]),
-    
-         #ACUMULADO
-          dbc.Col([
-           dbc.Row( 
-                dbc.Button(([html.Span("Acumulado",# style={"font-size": 18,"color": "black","background-color": "lightgray"},
-               id="tooltip-target-acumulado",
-                    style={#"textDecoration": "underline",
-                        "cursor": "pointer",
-                          "font-size": 18,"color": "black","background-color": "lightgray"},),
-          
-        dbc.Tooltip(
-            "En el acumulado de 2015 a 2020, los estados con mayor incidencia son: Ciudad de México con 189,681 casos, "
-            "seguido de Nuevo León con 177,235 casos,  México con 137,266 casos, Chihuahua con 110,304 casos, finalmente,"
-            " Baja California con 102,634 casos.",
-            target="tooltip-target-acumulado",
-        ),
-               dbc.CardImg(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/mapa%20Acumulado.jpg?raw=true",
-                     style={"background-color":"lightgray"}, ),
-               ]), style={"background-color":"lightgray",
-                        # "box-shadow": "10px 20px 30px black",
-                         'margin-left': '400px',
-                        'width': '700px',
-                          "margin-top":"-1000px",
-                           },# disabled=True
-                      ),),
-    ###########2021
-    dbc.Row(
-            dbc.Button(([html.Span("2021",# style={"font-size": 18,"color": "black","background-color": "lightgray"},
-               id="tooltip-target-21",
-                    style={#'margin-right': '-1100px',#"textDecoration": "underline",
-                        "cursor": "pointer",
-                          "font-size": 18,"color": "black","background-color": "lightgray"},),
-          
-        dbc.Tooltip(
-            "Los cinco estados con mayor incidencia en 2021 son: Ciudad de México con 19,740 casos, seguido de México con 16,928 casos,"
-            "  Nuevo León con 13,994 casos, Veracruz de Ignacio de la Llave con 8,815 casos, finalmente,"
-            " Jalisco con 8,164 casos.",
-
-            target="tooltip-target-21",
-        ),
-                                               
-            dbc.CardImg(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/Mapa%20v-g%20Total2021.png?raw=true",
-                              #style={#'margin-right': '-1100px',}         
-                                  ),
-               ]), style={"background-color":"lightgray",
-                        # "box-shadow": "10px 20px 30px black",
-                          'margin-top': '-200px',
-                         'margin-left': '500px',
-                        'width': '300px'
-                         },# disabled=True
-                      ),),
-          ]),
+         ],#style={"margin-top":"-500px"}
          
-         #2018
+         
+         ),
     
-      
-         #2015
-         dbc.Col([
-             dbc.Row(
+    
+    
+    
+     dbc.Row([
+             dbc.Col(
             dbc.Button(([html.Span("2018",# style={"font-size": 18,"color": "black","background-color": "lightgray"},
                id="tooltip-target-18",
                     style={#"textDecoration": "underline",
@@ -2986,13 +2960,13 @@ dbc.Row(
                ]), style={"background-color":"lightgray",
                         # "box-shadow": "10px 20px 30px black",
                         #  'margin-top': '-1100px',
-                         'margin-left': '1000px',
+                        # 'margin-left': '1200px',
                         'width': '300px'
                        },# disabled=True
                       ),),
     
     #########2016
-        dbc.Row(
+        dbc.Col(
             dbc.Button(([html.Span("2019",# style={"font-size": 18,"color": "black","background-color": "lightgray"},
                id="tooltip-target-19",
                     style={#"textDecoration": "underline",
@@ -3012,13 +2986,13 @@ dbc.Row(
                ]), style={"background-color":"lightgray",
                         # "box-shadow": "10px 20px 30px black",
                         # 'margin-top': '-1000px',
-                         'margin-left': '1000px',
+                       #  'margin-left': '1200px',
                         'width': '300px'
                             },# disabled=True
                       ),),
              
     ############2017
-             dbc.Row(
+             dbc.Col(
            dbc.Button(([html.Span("2020",# style={"font-size": 18,"color": "black","background-color": "lightgray"},
                id="tooltip-target-20",
                     style={#"textDecoration": "underline",
@@ -3034,16 +3008,427 @@ dbc.Row(
       ),
                                       
           dbc.CardImg(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/Mapa%20v-g%20Total2020.png?raw=true",
-                  #style={#'margin-right': '-300px',}            
+                  style={"background-color":"lightgray",}            
                      ),
                ]), style={"background-color":"lightgray",
                         # "box-shadow": "10px 20px 30px black",
                          # 'margin-top': '-100px',
-                         'margin-left': '1000px',
+                        # 'margin-left': '1200px',
                         'width': '300px'
                           },# disabled=True
                       ),),
-         ],style={"margin-top": "-1000px"}),
+         dbc.Col(
+           dbc.Button(([html.Span("2021",# style={"font-size": 18,"color": "black","background-color": "lightgray"},
+              id="tooltip-target-21",
+                   style={#'margin-right': '-1100px',#"textDecoration": "underline",
+                       "cursor": "pointer",
+                         "font-size": 18,"color": "black","background-color": "lightgray"},),
+         
+       dbc.Tooltip(
+           "Los cinco estados con mayor incidencia en 2021 son: Ciudad de México con 19,740 casos, seguido de México con 16,928 casos,"
+           "  Nuevo León con 13,994 casos, Veracruz de Ignacio de la Llave con 8,815 casos, finalmente,"
+           " Jalisco con 8,164 casos.",
+           target="tooltip-target-21",
+       ),
+                                              
+           dbc.CardImg(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/Mapa%20v-g%20Total2021.png?raw=true",
+                             #style={#'margin-right': '-1100px',}         
+                                 ),
+              ]), style={"background-color":"lightgray",
+                       # "box-shadow": "10px 20px 30px black",
+                        # 'margin-top': '-200px',
+                        #'margin-left': '500px',
+                       'width': '300px'
+                        },# disabled=True
+                     ),),
+         ]),
+       
+   ############################## POR DEFINIR MAPAS
+    #IDEA wINIK
+  #  #ACUMULADO
+  #       dbc.Col([
+  #        dbc.Row( 
+  #             dbc.Button(([html.Span("Acumulado",# style={"font-size": 18,"color": "black","background-color": "lightgray"},
+  #            id="tooltip-target-acumulado",
+  #                 style={#"textDecoration": "underline",
+  #                     "cursor": "pointer",
+  #                       "font-size": 18,"color": "black","background-color": "lightgray"},),
+  #       
+  #     dbc.Tooltip("En el acumulado de 2015 a 2020, los estados con mayor incidencia son: Ciudad de México con 189,681 casos, "
+  #         "seguido de Nuevo León con 177,235 casos,  México con 137,266 casos, Chihuahua con 110,304 casos, finalmente,"
+  #         " Baja California con 102,634 casos.",
+  #         target="tooltip-target-acumulado",
+  #     ),
+  #            dbc.CardImg(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/mapa%20Acumulado.jpg?raw=true",
+  #                  style={"background-color":"lightgray"}, ),
+  #            ]), style={"background-color":"lightgray",
+  #                     # "box-shadow": "10px 20px 30px black",
+  #                     "margin-left":"10px",
+  #                     'width': '700px',
+  #                       
+  #                        },# disabled=True
+  #                   ),),
+  #       ]#,style={"margin-left":"50px"}
+  #       ),
+  # 
+  #  #2015
+  #      dbc.Col([
+  #          dbc.Row(
+  #         dbc.Button(([html.Span("2015",# style={"font-size": 18,"color": "black","background-color": "lightgray"},
+  #            id="tooltip-target-15",
+  #                 style={#"textDecoration": "underline",
+  #                     "cursor": "pointer",
+  #                       "font-size": 18,"color": "black","background-color": "lightgray"},),
+  #       
+  #     dbc.Tooltip(
+  #         "Los cinco estados con mayor incidencia en 2015 son: Nuevo León con 25,506 casos, seguido de Ciudad de México"
+  #         " con 21,451 casos,  Chihuahua con 17,616 casos, Baja California con 15,108 casos, finalmente, México con 13,825 casos.",
+  #         target="tooltip-target-15",
+  #     ),
+  #         dbc.CardImg(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/Mapa%20v-g%20Total2015.png?raw=true",
+  #                                        ),
+  #            ]), style={"background-color":"lightgray",
+  #                     # "box-shadow": "10px 20px 30px black",
+  #                     #  'margin-top': '-600px',
+  #                      'margin-left': '800px',
+  #                     'width': '300px'
+  #                    },# disabled=True
+  #                   ),),
+  # 
+  # #########2016
+  #     dbc.Row(
+  #         dbc.Button(([html.Span("2016",# style={"font-size": 18,"color": "black","background-color": "lightgray"},
+  #            id="tooltip-target-16",
+  #                 style={#"textDecoration": "underline",
+  #                     "cursor": "pointer",
+  #                       "font-size": 18,"color": "black","background-color": "lightgray"},),
+  #       
+  #     dbc.Tooltip(
+  #         "Los cinco estados con mayor incidencia en 2016 son: Nuevo León con 26,870 casos, seguido de Ciudad de México"
+  #         " con 24,047 casos,  Jalisco con 17,624 casos, Chihuahua con 16,704 casos, finalmente, México con 16,051 casos.",
+  #         target="tooltip-target-16",
+  #     ),
+  #         dbc.CardImg(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/Mapa%20v-g%20Total2016.png?raw=true",
+  #                                        ),
+  #            ]), style={"background-color":"lightgray",
+  #                     # "box-shadow": "10px 20px 30px black",
+  #                     # 'margin-top': '-100px',
+  #                      'margin-left': '800px',
+  #                     'width': '300px'
+  #                         },# disabled=True
+  #                   ),),
+  #          
+  # ############2017
+  #          dbc.Row(
+  #        dbc.Button(([html.Span("2017",# style={"font-size": 18,"color": "black","background-color": "lightgray"},
+  #            id="tooltip-target-17",
+  #                 style={#"textDecoration": "underline",
+  #                     "cursor": "pointer",
+  #                       "font-size": 18,"color": "black","background-color": "lightgray"},),
+  #       
+  #     dbc.Tooltip(
+  #         "Los cinco estados con mayor incidencia en 2017 son: Nuevo León con 26,721 casos, seguido de Ciudad de"
+  #         " México con 23,112 casos,  México con 17,812 casos, Chihuahua con 16,956 casos, finalmente, Jalisco con 15,170 casos.",
+  #         target="tooltip-target-17",
+  #     ),
+  #         dbc.CardImg(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/Mapa%20v-g%20Total2017.png?raw=true",
+  #                                        ),
+  #            ]), style={"background-color":"lightgray",
+  #                     # "box-shadow": "10px 20px 30px black",
+  #                      # 'margin-top': '-100px',
+  #                      'margin-left': '800px',
+  #                     'width': '300px'
+  #                       },# disabled=True
+  #                   ),),
+  #      ],style={"margin-top":"-500px"}),
+  #  dbc.Col([
+  #          dbc.Row(
+  #         dbc.Button(([html.Span("2018",# style={"font-size": 18,"color": "black","background-color": "lightgray"},
+  #            id="tooltip-target-18",
+  #                 style={#"textDecoration": "underline",
+  #                     "cursor": "pointer",
+  #                       "font-size": 18,"color": "black","background-color": "lightgray"},),
+  #       
+  #     dbc.Tooltip(
+  #       "Los cinco estados con mayor incidencia en 2018 son: Ciudad de México con 27980 casos, seguido de Nuevo León"
+  #       " con 26,800 casos,  México con 17,979 casos, Chihuahua con 17,139 casos, finalmente, Baja California con 15,972 casos.",
+  #       target="tooltip-target-18",
+  #   ),
+  #       dbc.CardImg(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/Mapa%20v-g%20Total2018.png?raw=true",
+  #                                      ),
+  #            ]), style={"background-color":"lightgray",
+  #                     # "box-shadow": "10px 20px 30px black",
+  #                     #  'margin-top': '-1100px',
+  #                      'margin-left': '1200px',
+  #                     'width': '300px'
+  #                    },# disabled=True
+  #                   ),),
+  # 
+  # #########2016
+  #     dbc.Row(
+  #         dbc.Button(([html.Span("2019",# style={"font-size": 18,"color": "black","background-color": "lightgray"},
+  #            id="tooltip-target-19",
+  #                 style={#"textDecoration": "underline",
+  #                     "cursor": "pointer",
+  #                       "font-size": 18,"color": "black","background-color": "lightgray"},),
+  #       
+  #     dbc.Tooltip(
+  #       "Los cinco estados con mayor incidencia en 2019 son: Ciudad de México con 36,134 casos, "
+  #       "seguido de Nuevo León con 27,228 casos,  México con 23,236 casos, Veracruz de Ignacio de la Llave"
+  #       "con 19,125 casos, finalmente, Baja California con 17,117 casos.",
+  #       target="tooltip-target-19",
+  #   ),
+  #                                      
+  #       dbc.CardImg(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/Mapa%20v-g%20Total2019.png?raw=true",
+  #                                   #style={'margin-right': '-300px',}  
+  #                  ),
+  #            ]), style={"background-color":"lightgray",
+  #                     # "box-shadow": "10px 20px 30px black",
+  #                     # 'margin-top': '-1000px',
+  #                      'margin-left': '1200px',
+  #                     'width': '300px'
+  #                         },# disabled=True
+  #                   ),),
+  #          
+  # ############2017
+  #          dbc.Row(
+  #        dbc.Button(([html.Span("2020",# style={"font-size": 18,"color": "black","background-color": "lightgray"},
+  #            id="tooltip-target-20",
+  #                 style={#"textDecoration": "underline",
+  #                     "cursor": "pointer",
+  #                       "font-size": 18,"color": "black","background-color": "lightgray"},),
+  #       
+  #    dbc.Tooltip(
+  #       "Los cinco estados con mayor incidencia en 2020 son: Ciudad de México con 37,217 casos,"
+  #       " seguido de México con 31,435 casos,  Nuevo León con 30,116 casos, Veracruz de Ignacio de la Llave "
+  #       "con 18,152 casos, finalmente, Baja California con 18,044 casos.",
+
+  #       target="tooltip-target-20",
+  #   ),
+  #                                   
+  #       dbc.CardImg(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/Mapa%20v-g%20Total2020.png?raw=true",
+  #               style={"background-color":"lightgray",}            
+  #                  ),
+  #            ]), style={"background-color":"lightgray",
+  #                     # "box-shadow": "10px 20px 30px black",
+  #                      # 'margin-top': '-100px',
+  #                      'margin-left': '1200px',
+  #                     'width': '300px'
+  #                       },# disabled=True
+  #                   ),),
+  #      ],style={"margin-top": "-900px"}),
+    
+    #Aqui termina op 2 
+    
+    ####  DESHABILITAR PARA                               Mapaas OP ESTRELLA op 1
+    
+    
+    
+    
+         
+    #    #2015
+    #    dbc.Col([
+    #        dbc.Row(
+    #       dbc.Button(([html.Span("2015",# style={"font-size": 18,"color": "black","background-color": "lightgray"},
+    #          id="tooltip-target-15",
+    #               style={#"textDecoration": "underline",
+    #                   "cursor": "pointer",
+    #                     "font-size": 18,"color": "black","background-color": "lightgray"},),
+    #     
+    #   dbc.Tooltip(
+    #       "Los cinco estados con mayor incidencia en 2015 son: Nuevo León con 25,506 casos, seguido de Ciudad de México"
+    #       " con 21,451 casos,  Chihuahua con 17,616 casos, Baja California con 15,108 casos, finalmente, México con 13,825 casos.",
+    #       target="tooltip-target-15",
+    #   ),
+    #       dbc.CardImg(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/Mapa%20v-g%20Total2015.png?raw=true",
+    #                                      ),
+    #          ]), style={"background-color":"lightgray",
+    #                   # "box-shadow": "10px 20px 30px black",
+    #                    # 'margin-top': '-100px',
+    #                    'margin-left': '10px',
+    #                   'width': '300px'
+    #                  },# disabled=True
+    #                 ),),
+    
+    #########2016
+    #   dbc.Row(
+    #       dbc.Button(([html.Span("2016",# style={"font-size": 18,"color": "black","background-color": "lightgray"},
+    #          id="tooltip-target-16",
+    #               style={#"textDecoration": "underline",
+    #                   "cursor": "pointer",
+    #                     "font-size": 18,"color": "black","background-color": "lightgray"},),
+    #     
+    #   dbc.Tooltip(
+    #       "Los cinco estados con mayor incidencia en 2016 son: Nuevo León con 26,870 casos, seguido de Ciudad de México"
+    #       " con 24,047 casos,  Jalisco con 17,624 casos, Chihuahua con 16,704 casos, finalmente, México con 16,051 casos.",
+    #       target="tooltip-target-16",
+    #   ),
+    #       dbc.CardImg(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/Mapa%20v-g%20Total2016.png?raw=true",
+    #                                      ),
+    #          ]), style={"background-color":"lightgray",
+    #                   # "box-shadow": "10px 20px 30px black",
+    #                   # 'margin-top': '-100px',
+    #                    'margin-left': '10px',
+    #                   'width': '300px'
+    #                       },# disabled=True
+    #                 ),),
+    #        
+    ############2017
+    #        dbc.Row(
+    #      dbc.Button(([html.Span("2017",# style={"font-size": 18,"color": "black","background-color": "lightgray"},
+    #          id="tooltip-target-17",
+    #               style={#"textDecoration": "underline",
+    #                   "cursor": "pointer",
+    #                     "font-size": 18,"color": "black","background-color": "lightgray"},),
+    #     
+    #   dbc.Tooltip(
+    #       "Los cinco estados con mayor incidencia en 2017 son: Nuevo León con 26,721 casos, seguido de Ciudad de"
+    #       " México con 23,112 casos,  México con 17,812 casos, Chihuahua con 16,956 casos, finalmente, Jalisco con 15,170 casos.",
+    #       target="tooltip-target-17",
+    #   ),
+    #       dbc.CardImg(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/Mapa%20v-g%20Total2017.png?raw=true",
+    #                                      ),
+    #          ]), style={"background-color":"lightgray",
+    #                   # "box-shadow": "10px 20px 30px black",
+    #                    # 'margin-top': '-100px',
+    #                    'margin-left': '10px',
+    #                   'width': '300px'
+    #                     },# disabled=True
+    #                 ),),
+    #    ]),
+    
+    #    #ACUMULADO
+    #     dbc.Col([
+    #      dbc.Row( 
+    #           dbc.Button(([html.Span("Acumulado",# style={"font-size": 18,"color": "black","background-color": "lightgray"},
+    #          id="tooltip-target-acumulado",
+    #               style={#"textDecoration": "underline",
+    #                   "cursor": "pointer",
+    #                     "font-size": 18,"color": "black","background-color": "lightgray"},),
+    #     
+    #   dbc.Tooltip(
+    #       "En el acumulado de 2015 a 2020, los estados con mayor incidencia son: Ciudad de México con 189,681 casos, "
+    #       "seguido de Nuevo León con 177,235 casos,  México con 137,266 casos, Chihuahua con 110,304 casos, finalmente,"
+    #       " Baja California con 102,634 casos.",
+    #       target="tooltip-target-acumulado",
+    #   ),
+    #          dbc.CardImg(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/mapa%20Acumulado.jpg?raw=true",
+    #                style={"background-color":"lightgray"}, ),
+    #          ]), style={"background-color":"lightgray",
+    #                   # "box-shadow": "10px 20px 30px black",
+    #                    'margin-left': '400px',
+    #                   'width': '700px',
+    #                     "margin-top":"-1000px",
+    #                      },# disabled=True
+    #                 ),),
+    ###########2021
+    #dbc.Row(
+    #       dbc.Button(([html.Span("2021",# style={"font-size": 18,"color": "black","background-color": "lightgray"},
+    #          id="tooltip-target-21",
+    #               style={#'margin-right': '-1100px',#"textDecoration": "underline",
+    #                   "cursor": "pointer",
+    #                     "font-size": 18,"color": "black","background-color": "lightgray"},),
+    #     
+    #   dbc.Tooltip(
+    #       "Los cinco estados con mayor incidencia en 2021 son: Ciudad de México con 19,740 casos, seguido de México con 16,928 casos,"
+    #       "  Nuevo León con 13,994 casos, Veracruz de Ignacio de la Llave con 8,815 casos, finalmente,"
+    #       " Jalisco con 8,164 casos.",
+
+    #       target="tooltip-target-21",
+    #   ),
+    #                                          
+    #       dbc.CardImg(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/Mapa%20v-g%20Total2021.png?raw=true",
+    #                         #style={#'margin-right': '-1100px',}         
+    #                             ),
+    #          ]), style={"background-color":"lightgray",
+    #                   # "box-shadow": "10px 20px 30px black",
+    #                     'margin-top': '-200px',
+    #                    'margin-left': '500px',
+    #                   'width': '300px'
+    #                    },# disabled=True
+    #                 ),),
+    #     ]),
+    #    
+    #    #2018
+    
+    # 
+    #    #2015
+    #    dbc.Col([
+    #        dbc.Row(
+    #       dbc.Button(([html.Span("2018",# style={"font-size": 18,"color": "black","background-color": "lightgray"},
+    #          id="tooltip-target-18",
+    #               style={#"textDecoration": "underline",
+    #                   "cursor": "pointer",
+    #                     "font-size": 18,"color": "black","background-color": "lightgray"},),
+    #     
+    #   dbc.Tooltip(
+    #     "Los cinco estados con mayor incidencia en 2018 son: Ciudad de México con 27980 casos, seguido de Nuevo León"
+    #     " con 26,800 casos,  México con 17,979 casos, Chihuahua con 17,139 casos, finalmente, Baja California con 15,972 casos.",
+    #     target="tooltip-target-18",
+    # ),
+    #     dbc.CardImg(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/Mapa%20v-g%20Total2018.png?raw=true",
+    #                                    ),
+    #          ]), style={"background-color":"lightgray",
+    #                   # "box-shadow": "10px 20px 30px black",
+    #                   #  'margin-top': '-1100px',
+    #                    'margin-left': '1000px',
+    #                   'width': '300px'
+    #                  },# disabled=True
+    #                 ),),
+    
+    #########2016
+    #   dbc.Row(
+    #       dbc.Button(([html.Span("2019",# style={"font-size": 18,"color": "black","background-color": "lightgray"},
+    #          id="tooltip-target-19",
+    #               style={#"textDecoration": "underline",
+    #                   "cursor": "pointer",
+    #                     "font-size": 18,"color": "black","background-color": "lightgray"},),
+    #     
+    #   dbc.Tooltip(
+    #     "Los cinco estados con mayor incidencia en 2019 son: Ciudad de México con 36,134 casos, "
+    #     "seguido de Nuevo León con 27,228 casos,  México con 23,236 casos, Veracruz de Ignacio de la Llave"
+    #     "con 19,125 casos, finalmente, Baja California con 17,117 casos.",
+    #     target="tooltip-target-19",
+    # ),
+    #                                    
+    #     dbc.CardImg(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/Mapa%20v-g%20Total2019.png?raw=true",
+    #                                 #style={'margin-right': '-300px',}  
+    #                ),
+    #          ]), style={"background-color":"lightgray",
+    #                   # "box-shadow": "10px 20px 30px black",
+    #                   # 'margin-top': '-1000px',
+    #                    'margin-left': '1000px',
+    #                   'width': '300px'
+    #                       },# disabled=True
+    #                 ),),
+    #        
+    ############2017
+    #        dbc.Row(
+    #      dbc.Button(([html.Span("2020",# style={"font-size": 18,"color": "black","background-color": "lightgray"},
+    #          id="tooltip-target-20",
+    #               style={#"textDecoration": "underline",
+    #                   "cursor": "pointer",
+    #                     "font-size": 18,"color": "black","background-color": "lightgray"},),
+    #     
+    #  dbc.Tooltip(
+    #     "Los cinco estados con mayor incidencia en 2020 son: Ciudad de México con 37,217 casos,"
+    #     " seguido de México con 31,435 casos,  Nuevo León con 30,116 casos, Veracruz de Ignacio de la Llave "
+    #     "con 18,152 casos, finalmente, Baja California con 18,044 casos.",
+
+    #     target="tooltip-target-20",
+    # ),
+    #                                 
+    #     dbc.CardImg(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/Mapa%20v-g%20Total2020.png?raw=true",
+    #             style={"background-color":"lightgray",}            
+    #                ),
+    #          ]), style={"background-color":"lightgray",
+    #                   # "box-shadow": "10px 20px 30px black",
+    #                    # 'margin-top': '-100px',
+    #                    'margin-left': '1000px',
+    #                   'width': '300px'
+    #                     },# disabled=True
+    #                 ),),
+    #    ],style={"margin-top": "-1000px"}),
           
 
  
@@ -3074,8 +3459,7 @@ dbc.Row(
     ]),
     dbc.Row([
         dbc.Col(html.P(
-            "El delito de inasistencia familiar  fue el único que se redujo, si se comparan las "
-            "sumas anuales de 2015 respecto a 2020", 
+            "El delito de inasistencia familiar es el único que muestra disminución, si se comparan las sumas anuales de 2015 respecto a las de 2020. En cambio, los delitos de abuso sexual y contra la seguridad corporal registraron los mayores incremento (cifra 1 y cifra 2, respectivamente).", 
                        style={'textAlign': 'justify',
                               "left": "50%",
                              "font-size": "18px",
@@ -3128,23 +3512,13 @@ dbc.Row(
     html.Br(),
      dbc.Row(
            [
-                   html.P("En este dashboard presentamos 12 delitos que reflejan la "
-                          "gravedad que tiene la violencia de "
-                          "género en el páís, analizados del año 2015 "
-                          "hasta los datos más recientes, mayo de 2021. "
-                          "Con el objeto de proporcionar a las diputadas y diputados información "
-                          "basada en la evidencia, aquí presentamos análisis de cifras de un fenómeno con "
-                          "alcance nacional. Estas cifras evocan la "
-                          "necesidad insoslayable de profundizar las políticas "
-                          "de equidad de género, de acciones sustantivas de equidad; acciones que nos hagan más "
-                          "conscientes, más vigilantes respecto a sus multiples manifestiaciones; se requieren "
-                          "también crear conciencia colectiva e intervención institucional para que nuestras "
-                          "politicas y acciones sean "
-                          "inclusivas e incluyentes, respetuosas del otro, sin importar condicíón o género "
-                          "Los 12 delitos que se analizan son : "
-                          "LISTAR LOS DELITOS." 
-                          "Este trabajo tiene una actualización mensual automática, para disponer de cifras más "
-                          " recientes.",
+                   html.P("En este dashboard presentamos 17 delitos que reflejan la gravedad de la violencia de género en el país,"
+                          " analizando las cifras desde el año 2015 hasta los datos más recientes, mayo de 2021. Con este instrumento"
+                          " proporcionamos a las diputadas y diputados información basada en la evidencia,  de un fenómeno con alcance "
+                          " nacional. Este análisis evoca la necesidad insoslayable de profundizar las políticas de equidad de género," 
+                          " de acciones sustantivas de equidad; acciones que nos hagan más conscientes, más vigilantes respecto a sus"
+                          " multiples manifestaciones. Se requiere también crear conciencia colectiva e intervención institucional para "
+                          " que las políticas y acciones sean inclusivas e incluyentes.",
                           style={'textAlign': 'justify',
                              "font-size": "18px",
                              "font-family": "Arial",
