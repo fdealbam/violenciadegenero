@@ -2855,7 +2855,7 @@ dbc.Row(
             " con 21,451 casos,  Chihuahua con 17,616 casos, Baja California con 15,108 casos, finalmente, México con 13,825 casos.",
             target="tooltip-target-15",
         ),
-            dbc.CardImg(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/Mapa%20vg%20Total2015.png?raw=true",
+            dbc.CardImg(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/Mapa%20v-g%20Total2015.png?raw=true",
                                            ),
                ]), style={"background-color":"lightgray",
                         # "box-shadow": "10px 20px 30px black",
@@ -2878,7 +2878,7 @@ dbc.Row(
             " con 24,047 casos,  Jalisco con 17,624 casos, Chihuahua con 16,704 casos, finalmente, México con 16,051 casos.",
             target="tooltip-target-16",
         ),
-            dbc.CardImg(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/Mapa%20vg%20Total2016.png?raw=true",
+            dbc.CardImg(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/Mapa%20v-g%20Total2016.png?raw=true",
                                            ),
                ]), style={"background-color":"lightgray",
                         # "box-shadow": "10px 20px 30px black",
@@ -2901,7 +2901,7 @@ dbc.Row(
             " México con 23,112 casos,  México con 17,812 casos, Chihuahua con 16,956 casos, finalmente, Jalisco con 15,170 casos.",
             target="tooltip-target-17",
         ),
-            dbc.CardImg(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/Mapa%20vg%20Total2017.png?raw=true",
+            dbc.CardImg(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/Mapa%20v-g%20Total2017.png?raw=true",
                                            ),
                ]), style={"background-color":"lightgray",
                         # "box-shadow": "10px 20px 30px black",
@@ -2952,7 +2952,7 @@ dbc.Row(
             target="tooltip-target-21",
         ),
                                                
-            dbc.CardImg(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/Mapa%20vg%20Total2021.png?raw=true",
+            dbc.CardImg(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/Mapa%20v-g%20Total2021.png?raw=true",
                               #style={#'margin-right': '-1100px',}         
                                   ),
                ]), style={"background-color":"lightgray",
@@ -2981,7 +2981,7 @@ dbc.Row(
           " con 26,800 casos,  México con 17,979 casos, Chihuahua con 17,139 casos, finalmente, Baja California con 15,972 casos.",
           target="tooltip-target-18",
       ),
-          dbc.CardImg(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/Mapa%20vg%20Total2018.png?raw=true",
+          dbc.CardImg(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/Mapa%20v-g%20Total2018.png?raw=true",
                                          ),
                ]), style={"background-color":"lightgray",
                         # "box-shadow": "10px 20px 30px black",
@@ -3006,7 +3006,7 @@ dbc.Row(
           target="tooltip-target-19",
       ),
                                          
-          dbc.CardImg(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/Mapa%20vg%20Total2019.png?raw=true",
+          dbc.CardImg(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/Mapa%20v-g%20Total2019.png?raw=true",
                                       #style={'margin-right': '-300px',}  
                      ),
                ]), style={"background-color":"lightgray",
@@ -3033,7 +3033,7 @@ dbc.Row(
           target="tooltip-target-20",
       ),
                                       
-          dbc.CardImg(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/Mapa%20vg%20Total2020.png?raw=true",
+          dbc.CardImg(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/Mapa%20v-g%20Total2020.png?raw=true",
                   #style={#'margin-right': '-300px',}            
                      ),
                ]), style={"background-color":"lightgray",
