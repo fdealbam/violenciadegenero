@@ -1,0 +1,18 @@
+,Tipo de delito,GRAND TOTAL,tasa_acumulada,url,icono
+0,Violencia familiar,1167905.0,905.5,https://violenciafamiliar.herokuapp.com/,https://github.com/fdealbam/violenciadegenero/blob/main/application/static/incumplir.png?raw=true
+1,No asistencia familiar,149771.0,116.1,https://delncumplimientoviofam.herokuapp.com/,https://github.com/fdealbam/violenciadegenero/blob/main/application/static/fight.svg?raw=true
+2,Abuso sexual,119285.0,92.5,https://abusosexual.herokuapp.com/,https://github.com/fdealbam/violenciadegenero/blob/main/application/static/abuso.png?raw=true
+3,Contra libertad personal,106394.0,82.5,https://delitovslibertadpersonal.herokuapp.com/,https://github.com/fdealbam/violenciadegenero/blob/main/application/static/vslibertad.png?raw=true
+4,Violación,97509.0,75.6,https://violaciones.herokuapp.com/,https://github.com/fdealbam/violenciadegenero/blob/main/application/static/violacion.png?raw=true
+5,Contra la familia,71717.0,55.6,https://delitovslafamilia.herokuapp.com/,https://github.com/fdealbam/violenciadegenero/blob/main/application/static/unomas.png?raw=true
+6,Contra integridad corporal,43169.0,33.5,https://delitootrosatentacontralavida.herokuapp.com/,https://github.com/fdealbam/violenciadegenero/blob/main/application/static/corporal.png?raw=true
+7,Contra seguridad sexual,37760.0,29.3,https://delitosseguridadsexual.herokuapp.com/,https://github.com/fdealbam/violenciadegenero/blob/main/application/static/seguridadsecual.PNG?raw=true
+8,Acoso sexual,19617.0,15.2,https://acososexual.herokuapp.com/,https://github.com/fdealbam/violenciadegenero/blob/main/application/static/acooso.PNG?raw=true
+9,Distinta a violencia familiar,16883.0,13.1,https://vgdistintavfam.herokuapp.com/,https://github.com/fdealbam/violenciadegenero/blob/main/application/static/otraaa.png?raw=true
+10,Corrupción de menores,13181.0,10.2,https://delitocorrupciondemenores.herokuapp.com/,https://github.com/fdealbam/violenciadegenero/blob/main/application/static/ventamenor.PNG?raw=true
+11,Hostigamiento sexual,8567.0,6.6,https://hostigamientosexual.herokuapp.com/,https://github.com/fdealbam/violenciadegenero/blob/main/application/static/sexual-harassment.svg?raw=true
+12,Feminicidio,4956.0,3.8,https://feminicidios.herokuapp.com/,https://github.com/fdealbam/violenciadegenero/blob/main/application/static/feminicidio.png?raw=true
+13,Aborto,3915.0,3.0,https://delitodeaborto.herokuapp.com/,https://github.com/fdealbam/violenciadegenero/blob/main/application/static/aborto.png?raw=true
+14,Trata de personas,2868.0,2.2,https://tratadepersonas.herokuapp.com/,https://github.com/fdealbam/violenciadegenero/blob/main/application/static/trata.PNG?raw=true
+15,Tráfico de menores,585.0,0.5,https://traficodemenores.herokuapp.com/,https://github.com/fdealbam/violenciadegenero/blob/main/application/static/traficp.PNG?raw=true
+16,Incesto,194.0,0.2,https://delitoincesto.herokuapp.com/,https://github.com/fdealbam/violenciadegenero/blob/main/application/static/incesto.PNG?raw=true
