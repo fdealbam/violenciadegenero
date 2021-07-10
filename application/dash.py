@@ -3457,26 +3457,7 @@ dbc.Row(
     
         
     ]),
-    dbc.Row([
-        dbc.Col(html.P(
-            "El delito de inasistencia familiar es el único que muestra disminución, si se comparan las sumas anuales de 2015 respecto a las de 2020. En cambio, los delitos de abuso sexual y contra la seguridad corporal registraron los mayores incremento (cifra 1 y cifra 2, respectivamente).", 
-                       style={'textAlign': 'justify',
-                              "left": "50%",
-                             "font-size": "18px",
-                             "font-family": "Arial",
-                           "font-color": "purple",
-                           "line-height":"120%",
-                               "margin-left": "100px",
-                            "margin-right": "100px",
-                          
-                          },
-            
-        )),]),
-  dbc.Row([
-        dbc.Col(dcc.Graph(figure=comparatot_2015_20, ))
-    
-        
-    ]),
+   
     
     
      
@@ -3497,7 +3478,26 @@ dbc.Row(
         dbc.Col(dcc.Graph(figure=fig_meses, ))
     ]),
         
-
+ dbc.Row([
+        dbc.Col(html.P(
+            "El delito de inasistencia familiar es el único que muestra disminución, si se comparan las sumas anuales de 2015 respecto a las de 2020. En cambio, los delitos de abuso sexual y contra la seguridad corporal registraron los mayores incremento (cifra 1 y cifra 2, respectivamente).", 
+                       style={'textAlign': 'justify',
+                              "left": "50%",
+                             "font-size": "18px",
+                             "font-family": "Arial",
+                           "font-color": "purple",
+                           "line-height":"120%",
+                               "margin-left": "100px",
+                            "margin-right": "100px",
+                          
+                          },
+            
+        )),]),
+  dbc.Row([
+        dbc.Col(dcc.Graph(figure=comparatot_2015_20, ))
+    
+        
+    ]),
    
     html.Br(),
       html.Br(),
