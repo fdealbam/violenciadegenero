@@ -3512,7 +3512,16 @@ dbc.Row(
 #    html.Br(),
      html.Br(),     
      html.Br(),
-    html.Br(),
+    html.Br(), 
+  dbc.Row([
+        dbc.Col(html.P("Consideraciones generales", 
+                        style={"color": "purple", 
+                               "font-size": "32px",
+                               "font-family": "Arial",        
+                               "text-shadow": "10px 20px 30px gray",
+                            "background-color": "lightgray"}),
+                       width={'size': 20, "offset":1 },
+                      )],justify="start",),
      dbc.Row(
            [
                    html.P("En este dashboard presentamos 17 delitos que reflejan la gravedad de la violencia de género en el país,"
