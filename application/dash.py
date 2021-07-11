@@ -1988,7 +1988,7 @@ app.layout = html.Div([
     
   dbc.Row(
            [
-               dbc.Col(html.P(["Acceso al análisis de cada delito" ],
+               dbc.Col(html.P(["17 dashboard analíticos" ],
                       style={"color": "Purple", 
                                #"font-weight": 'bold',
                                "font-size": "32px",
@@ -3445,7 +3445,7 @@ dbc.Row(
 
 #   
     dbc.Row([
-        dbc.Col(html.P("De 2015 a 2020", 
+        dbc.Col(html.P("Cifras mensuales de delitos de genero", 
                        style={'textAlign': 'left',
                               "margin-left": "100px",
                              "font-size": "22px",
@@ -3477,7 +3477,19 @@ dbc.Row(
   dbc.Row([
         dbc.Col(dcc.Graph(figure=fig_meses, ))
     ]),
+         dbc.Row([
+        dbc.Col(html.P("Comparativo de variación de cada delito", 
+                       style={'textAlign': 'left',
+                              "margin-left": "100px",
+                             "font-size": "22px",
+                             "font-family": "Arial",
+                           "color": "black",
+                            "line-height":"120%",                            
+                            
+                          "text-shadow": "10px 20px 30px black",})),
+    
         
+    ]),   
  dbc.Row([
         dbc.Col(html.P(
             "El delito de inasistencia familiar es el único que muestra disminución, si se comparan las sumas anuales de 2015 respecto a las de 2020. En cambio, los delitos de abuso sexual y contra la seguridad corporal registraron los mayores incremento (cifra 1 y cifra 2, respectivamente).", 
