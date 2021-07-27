@@ -1389,7 +1389,9 @@ app.layout = html.Div([
                           "text-shadow": "10px 20px 30px black",}),
                   html.P(["17 delitos vinculados con la violencia de género representan 18%  de la incidencia "
                           "delictiva acumulada entre 2015 hasta 2021. Aquí presentamos un análisis pormenorizado"
-                          "de este fenómeno que requiere de la mayor atención posible.",
+                          "de este fenómeno que requiere de la mayor atención posible. Esta información se actualiza "
+                          "mensualmente, igualmente que nuestra fuente, el Secretariado Ejecutivo del Sistema Naconal de "
+                          "Seguridad Pública",
                  ],style={'textAlign': 'justify',
                              "font-size": "18px",
                              "font-family": "Arial",
