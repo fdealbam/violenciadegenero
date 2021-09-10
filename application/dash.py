@@ -25,122 +25,6 @@ import os
 yesterday = datetime.now() - timedelta(1)
 yea = datetime.strftime(yesterday, '%Y%m%d')
 
-#Grafica
-#grap = pd.read_csv("https://raw.githubusercontent.com/fdealbam/violenciadegenero/main/pagrafica.csv")
-#Esta parte debe activarse cada mes, con la nueva base de delitos
-
-############################################################### UPDATE MENSUAL
-#
-#columns = ['Año', 'Clave_Ent', 'Entidad', 'Cve. Municipio', 'Municipio',
-#        'Tipo de delito',  'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
-#       'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
-#
-#os.chdir(r'C:\Users\win\Downloads')
-##os.chdir(r'C:\Users\IVANOV\Downloads')
-#
-#delitos = pd.read_csv(#"Municipal-Delitos-2015-2021_abr2021.csv",
-#                        "IDM_NM_may21.csv", encoding= "Latin-1", usecols= columns)
-#delitos_otros = delitos
-#
-#
-#os.chdir(r'C:\Users\win\AnacondaProjects\0 0 Projects\Project_12\\')  # Fel 
-##os.chdir(r'C:\Users\IVANOV\AnacondaProjects\0 0 Projects\Project_portadaVG\\') # W-1
-#
-#
-#print("delitosvg2015_2021 guardado ")
-#delitos[#básicos
-#         (delitos["Tipo de delito"]== "Feminicidio")|
-#         (delitos["Tipo de delito"]== "Tráfico de menores")|
-#         (delitos["Tipo de delito"]== "Abuso sexual")|
-#         (delitos["Tipo de delito"]== "Acoso sexual")|
-#         (delitos["Tipo de delito"]== "Hostigamiento sexual")|
-#         (delitos["Tipo de delito"]== "Violación simple")|
-#         (delitos["Tipo de delito"]== "Violación equiparada")|
-#         (delitos["Tipo de delito"]== "Violencia familiar")|
-#         (delitos["Tipo de delito"]== "Otros delitos que atentan contra la libertad y la seguridad sexual")|
-#         (delitos["Tipo de delito"]== "Violencia de género en todas sus modalidades distinta a la violencia familiar")|
-#         (delitos["Tipo de delito"]== "Incumplimiento de obligaciones de asistencia familiar")|
-#         (delitos["Tipo de delito"]== "Otros delitos contra la familia")|
-#         (delitos["Tipo de delito"]== "Incesto")|
-#         (delitos["Tipo de delito"]== "Corrupción de menores")|
-#         (delitos["Tipo de delito"]== "Aborto")|
-#
-#        #complementarios
-#         (delitos["Tipo de delito"]== "Otros delitos que atentan contra la vida y la integridad corporal")|    
-#         (delitos["Tipo de delito"]== "Otros delitos que atentan contra la libertad personal")|
-#         (delitos["Tipo de delito"]== "Trata de personas")|
-#         (delitos["Tipo de delito"]== "Tráfico de menores")
-#         #(delitos["Tipo de delito"]== "Amenazas")|
-#        #dudosos
-#         #(delitos["Tipo de delito"]== "Lesiones")|
-#
-#       ].to_csv("delitosvg2015_2021.csv")#, header=True)
-#
-#print("delitosvg2015_2021 guardado ")
-#
-
-
-
-################################################################ UPDATE 2
-#
-#
-#d_vg = pd.read_csv("delitosvg2015_2021.csv")#, header=True)
-#
-#d_vg["Tipo de delito"].replace("Incumplimiento de obligaciones de asistencia familiar",
-#                              "No asistencia familiar", inplace=True)
-#
-#d_vg["Tipo de delito"].replace("Otros delitos que atentan contra la vida y la integridad corporal",
-#                              "Contra integridad corporal", inplace=True)
-#
-#d_vg["Tipo de delito"].replace("Otros delitos que atentan contra la libertad personal",
-#                              "Contra libertad personal", inplace=True)
-#
-#d_vg["Tipo de delito"].replace("Otros delitos que atentan contra la libertad y la seguridad sexual",
-#                              "Contra seguridad sexual", inplace=True)
-#
-#d_vg["Tipo de delito"].replace("Violencia de género en todas sus modalidades distinta a la violencia familiar",
-#                              "Distinta a violencia familiar", inplace=True)
-#
-#d_vg["Tipo de delito"].replace("Violación simple",
-#                              "Violación", inplace=True)
-#
-#d_vg["Tipo de delito"].replace("Violación equiparada",
-#                              "Violación", inplace=True)
-#
-#d_vg["Tipo de delito"].replace('Otros delitos contra la familia',
-#                              "Contra la familia", inplace=True)
-#
-#
-#
-#
-#
-## SEPARACION DE ARCHIVOS
-#
-#d_vg1 = d_vg[(d_vg["Tipo de delito"] == "Violencia familiar" )|
-#     (d_vg["Tipo de delito"] == "No asistencia familiar" )|
-#     (d_vg["Tipo de delito"] == "Abuso sexual" )|
-#    (d_vg["Tipo de delito"] == "Contra libertad personal" )|
-#    (d_vg["Tipo de delito"] == "Violación" )|
-#    (d_vg["Tipo de delito"] == "Contra la familia" )|
-#    (d_vg["Tipo de delito"] == "Contra integridad corporal" )|
-#    (d_vg["Tipo de delito"] == "Contra seguridad sexual" )]
-#
-#d_vg1.to_csv("delitosvg2015_2021_a.csv")
-#
-#
-#d_vg2 = d_vg[(d_vg["Tipo de delito"] == "Acoso sexual" )|
-#     (d_vg["Tipo de delito"] == "Distinta a violencia familiar" )|
-#     (d_vg["Tipo de delito"] == "Corrupción de menores" )|
-#    (d_vg["Tipo de delito"] == "Hostigamiento sexual" )|
-#    (d_vg["Tipo de delito"] == "Feminicidio" )|
-#    (d_vg["Tipo de delito"] == "Aborto" )|
-#    (d_vg["Tipo de delito"] == "Trata de personas" )|
-#    (d_vg["Tipo de delito"] == "Tráfico de menores" )|
-#    (d_vg["Tipo de delito"] == "Incesto" )]
-#
-#d_vg2.to_csv("delitosvg2015_2021_b.csv")
-#
-
 
 
 ################################################################ inicia tratamiento
@@ -231,7 +115,7 @@ femi15_21 = ff[[
  'Enero20','Febrero20','Marzo20','Abril20','Mayo20','Junio20','Julio20',
  'Agosto20','Septiembre20','Octubre20','Noviembre20','Diciembre20',
 
- 'Enero21','Febrero21','Marzo21','Abril21','Mayo21','Junio21',#'Julio21',
+ 'Enero21','Febrero21','Marzo21','Abril21','Mayo21','Junio21','Julio21',
  #'Agosto21','Septiembre21','Octubre21','Noviembre21','Diciembre21'
         ]]
 
@@ -262,13 +146,17 @@ femi15_21['Total2020']= femi15_21[[ 'Enero20', 'Febrero20', 'Marzo20', 'Abril20'
                                'Junio20', 'Julio20', 'Agosto20', 'Septiembre20', 'Octubre20',
                                'Noviembre20', 'Diciembre20',]].sum(axis=1)
 femi15_21['Total2021']= femi15_21[[ 'Enero21', 'Febrero21', 'Marzo21', 'Abril21', 'Mayo21',
-                               'Junio21',# 'Julio21',# 'Agosto21',# 'Septiembre21',# 'Octubre21',
+                               'Junio21', 'Julio21',# 'Agosto21',# 'Septiembre21',# 'Octubre21',
                                #'Noviembre20', 'Diciembre20',
                                   ]].sum(axis=1)
 femi15_21["GRAND TOTAL"]= femi15_21[["Total2015","Total2016","Total2017","Total2018","Total2019","Total2020",
                                     "Total2021",]].sum(axis=1)
 
 
+
+
+
+#_____________________________________________________________________________________________
 femi15_21["pob_GRAND_TOTAL"] = 128972439  #pob total sumada de 2015 al 2021, NOOOO, es solo pob 21, entiendes o no entiendes?
 femi15_21["tasa_acumulada"] = (femi15_21["GRAND TOTAL"] / femi15_21.pob_GRAND_TOTAL)*100000
 
@@ -363,7 +251,7 @@ femi15_21["var_mrz20_21"] = femi15_21.Marzo21 - femi15_21.Marzo20
 femi15_21["var_abr20_21"] = femi15_21.Abril21 - femi15_21.Abril20
 femi15_21["var_may20_21"] = femi15_21.Mayo21 - femi15_21.Mayo20
 femi15_21["var_jun20_21"] = femi15_21.Junio21 - femi15_21.Junio20
-#femi15_21["var_jul20_21"] = femi15_21.Julio21 - femi15_21.Julio20
+femi15_21["var_jul20_21"] = femi15_21.Julio21 - femi15_21.Julio20
 #femi15_21["var_ago20_21"] = femi15_21.Agosto21 - femi15_21.Agosto20
 #femi15_21["var_sep20_21"] = femi15_21.Septiembre21 - femi15_21.Septiembre20
 #femi15_21["var_oct20_21"] = femi15_21.Octubre21 - femi15_21.Octubre20
@@ -468,7 +356,7 @@ femi15_21["v_feb_mar_21"] = femi15_21.Marzo21 - femi15_21.Febrero21
 femi15_21["v_mar_abr_21"] = femi15_21.Abril21 - femi15_21.Marzo21
 femi15_21["v_abr_may_21"] = femi15_21.Mayo21 - femi15_21.Abril21
 femi15_21["v_may_jun_21"] = femi15_21.Junio21 - femi15_21.Mayo21
-#femi15_21["v_jun_jul_21"] = femi15_21.Julio21 - femi15_21.Junio21
+femi15_21["v_jun_jul_21"] = femi15_21.Julio21 - femi15_21.Junio21
 #femi15_21["v_jul_ago_21"] = femi15_21.Agosto21 - femi15_21.Julio21
 #femi15_21["v_ago_sep_21"] = femi15_21.Septiembre21 - femi15_21.Agosto21
 #femi15_21["v_sep_oct_21"] = femi15_21.Octubre21 - femi15_21.Septiembre21
@@ -556,7 +444,7 @@ femi15_21["var_mrz20_21_%"] = (femi15_21["var_mrz20_21"]*100)/femi15_21.Marzo21
 femi15_21["var_abr20_21_%"] = (femi15_21["var_abr20_21"]*100)/femi15_21.Abril21
 femi15_21["var_may20_21_%"] = (femi15_21["var_may20_21"]*100)/femi15_21.Mayo21
 femi15_21["var_jun20_21_%"] = (femi15_21["var_jun20_21"]*100)/femi15_21.Junio21
-#femi15_21["var_jul20_21_%"] = (femi15_21["var_jul20_21"]*100)/femi15_21.Julio21
+femi15_21["var_jul20_21_%"] = (femi15_21["var_jul20_21"]*100)/femi15_21.Julio21
 #femi15_21["var_ago20_21_%"] = (femi15_21["var_ago20_21"]*100)/femi15_21.Agosto21
 #femi15_21["var_sep20_21_%"] = (femi15_21["var_sep20_21"]*100)/femi15_21.Septiembre21
 #femi15_21["var_oct20_21_%"] = (femi15_21["var_oct20_21"]*100)/femi15_21.Octubre21
@@ -713,7 +601,7 @@ acumulado_meses = femi15_21[[
     'Enero18','Febrero18','Marzo18','Abril18','Mayo18','Junio18','Julio18','Agosto18','Septiembre18','Octubre18','Noviembre18','Diciembre18',
     'Enero19','Febrero19','Marzo19','Abril19','Mayo19','Junio19','Julio19','Agosto19','Septiembre19','Octubre19','Noviembre19','Diciembre19',
     'Enero20','Febrero20','Marzo20','Abril20','Mayo20','Junio20','Julio20','Agosto20','Septiembre20','Octubre20','Noviembre20','Diciembre20',
-    'Enero21','Febrero21','Marzo21','Abril21','Mayo21','Junio21']].stb.subtotal().tail(1).T.to_csv("0000procesoheadr.csv")
+    'Enero21','Febrero21','Marzo21','Abril21','Mayo21','Junio21','Julio21']].stb.subtotal().tail(1).T.to_csv("0000procesoheadr.csv")
 
 names = ["Meses","Total"]
 acumulado_meses = pd.read_csv("0000procesoheadr.csv", names=names, skiprows=[0])
@@ -1387,8 +1275,10 @@ app.layout = html.Div([
                              "font-family": "Arial",
                            "color": "purple", 
                           "text-shadow": "10px 20px 30px black",}),
-                  html.P(["17 delitos vinculados con la violencia de género representan 18%  de la incidencia "
-                          "delictiva acumulada entre 2015 hasta 2021. Aquí presentamos un análisis pormenorizado"
+                  html.P(["17 delitos vinculados con la violencia de género reunieron 1,929,677 incidencias " 
+                          " entre 2015 hasta 2021."
+                          "Es decir, un retrato que representa 15.5 %  del total de la incidencia"
+                          " nacional. Aquí presentamos un análisis pormenorizado"
                           "de este fenómeno que requiere de la mayor atención posible. Esta información se actualiza "
                           "mensualmente, igualmente que nuestra fuente, el Secretariado Ejecutivo del Sistema Naconal de "
                           "Seguridad Pública",
@@ -2007,7 +1897,7 @@ app.layout = html.Div([
     
  dbc.Row(
            [
-  dbc.Col(html.P(["Enseguida se puede acceder a 16 dashboards analíticos, organizados  de mayor a menor tasa"
+  dbc.Col(html.P(["Enseguida se puede acceder a 17 dashboards analíticos, organizados  de mayor a menor tasa"
                   " de incidencia por cada 100 mil habitantes. En la primera línea, se encuentra   "
                   " la incidencia con tasas de "
                  + str(tasatotdel1)+ " a " + str (tasatotdel6)+" delitos (100k/hab). En la segunda línea,"
