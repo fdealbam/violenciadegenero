@@ -152,7 +152,8 @@ femi15_21['Total2021']= femi15_21[[ 'Enero21', 'Febrero21', 'Marzo21', 'Abril21'
 femi15_21["GRAND TOTAL"]= femi15_21[["Total2015","Total2016","Total2017","Total2018","Total2019","Total2020",
                                     "Total2021",]].sum(axis=1)
 
-
+totald = int(femi15_21["GRAND TOTAL"].sum())
+totaldvg = f"{totald:,}"
 
 
 
@@ -1275,7 +1276,7 @@ app.layout = html.Div([
                              "font-family": "Arial",
                            "color": "purple", 
                           "text-shadow": "10px 20px 30px black",}),
-                  html.P(["17 delitos vinculados con la violencia de género reunieron 1,929,677 incidencias " 
+                  html.P(["17 delitos vinculados con la violencia de género reunieron "+ totaldvg +" incidencias " 
                           " entre 2015 hasta 2021."
                           "Es decir, un retrato que representa 15.5 %  del total de la incidencia"
                           " nacional. Aquí presentamos un análisis pormenorizado"
