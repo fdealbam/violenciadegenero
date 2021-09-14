@@ -1254,7 +1254,7 @@ app = dash.Dash(__name__, external_stylesheets=[dbc.themes.
 app.layout = html.Div([
     #Logo
      dbc.Row([dbc.Col(
-         dbc.CardImg(src="https://github.com/fdealbam/0entrada/blob/ce2cda9ccf7732861b8494b36562ebe9c8c642a6/application/static/logo%20cesopycamara.jpeg?raw=true"),
+         dbc.CardImg(src="https://github.com/fdealbam/0entrada/blob/main/application/static/logo%20cesopycamara1.PNG?raw=true"),
                         width=5, md={'size': 2,  "offset": 6, }),
          dbc.Col(html.H6(" Centro de Estudios Sociales y de Opinión Pública," 
                            " Cámara de Diputados"
@@ -3076,7 +3076,7 @@ dbc.Row(
     
     #Logo
      dbc.Row([dbc.Col(
-         dbc.CardImg(src="https://github.com/fdealbam/0entrada/blob/main/application/static/logo%20cesopycamara.PNG?raw=true"),
+         dbc.CardImg(src="https://github.com/fdealbam/0entrada/blob/main/application/static/logo%20cesopycamara1.PNG?raw=true"),
                         width=4, md={'size': 1,  "offset": 6, }),
          dbc.Col(html.H6(" Centro de Estudios Sociales y de Opinión Pública," 
                            " Cámara de Diputados"
