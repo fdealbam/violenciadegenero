@@ -1281,7 +1281,7 @@ app.layout = html.Div([
                           " Es decir, un retrato que representa 15.5%  del total de la incidencia"
                           " nacional. Aquí presentamos un análisis pormenorizado"
                           " de este fenómeno, que requiere de la mayor atención posible. Esta información se actualiza "
-                          "mensual, de igual forma que nuestra fuente, el Secretariado Ejecutivo del Sistema Nacional de "
+                          "mensualmente, de igual forma que nuestra fuente, el Secretariado Ejecutivo del Sistema Nacional de "
                           "Seguridad Pública.",
                  ],style={'textAlign': 'justify',
                              "font-size": "18px",
