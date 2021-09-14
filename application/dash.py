@@ -1255,7 +1255,7 @@ app.layout = html.Div([
     #Logo
      dbc.Row([dbc.Col(
          dbc.CardImg(src="https://github.com/fdealbam/0entrada/blob/main/application/static/logo%20cesopycamara1.PNG?raw=true"),
-                        width=5, md={'size': 2,  "offset": 6, }),
+                        width=5, md={'size': 3,  "offset": 6, }),
          dbc.Col(html.H6(" Centro de Estudios Sociales y de Opinión Pública," 
                            " Cámara de Diputados"
                            " México, 2021 "),
@@ -3077,7 +3077,7 @@ dbc.Row(
     #Logo
      dbc.Row([dbc.Col(
          dbc.CardImg(src="https://github.com/fdealbam/0entrada/blob/main/application/static/logo%20cesopycamara1.PNG?raw=true"),
-                        width=5, md={'size': 2,  "offset": 6, }),
+                        width=5, md={'size': 3,  "offset": 6, }),
          dbc.Col(html.H6(" Centro de Estudios Sociales y de Opinión Pública," 
                            " Cámara de Diputados"
                            " México, 2021 "),
