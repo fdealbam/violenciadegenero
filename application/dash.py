@@ -127,7 +127,7 @@ femi15_21['Total2015']= femi15_21[[ 'Enero15', 'Febrero15', 'Marzo15', 'Abril15'
                                'Noviembre15', 'Diciembre15',]].sum(axis=1)
 
 #femi15_21['Total2015-21']= femi15_21[[ 'Enero15', 'Febrero15', 'Marzo15', 'Abril15', 'Mayo15',
-                               'Junio15', 'Julio15', 'Agosto15', 'Septiembre15', #'Octubre15',
+                              # 'Junio15', 'Julio15', 'Agosto15', 'Septiembre15', #'Octubre15',
                               # 'Noviembre15', 'Diciembre15',#
 #                                     ]].sum(axis=1)
 
