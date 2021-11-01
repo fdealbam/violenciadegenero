@@ -117,7 +117,7 @@ femi15_21 = ff[[
 
  'Enero21','Febrero21','Marzo21','Abril21','Mayo21','Junio21','Julio21',
  'Agosto21',
-    #'Septiembre21','Octubre21','Noviembre21','Diciembre21'
+    'Septiembre21',#'Octubre21','Noviembre21','Diciembre21'
         ]]
 
 
@@ -127,8 +127,8 @@ femi15_21['Total2015']= femi15_21[[ 'Enero15', 'Febrero15', 'Marzo15', 'Abril15'
                                'Noviembre15', 'Diciembre15',]].sum(axis=1)
 
 #femi15_21['Total2015-21']= femi15_21[[ 'Enero15', 'Febrero15', 'Marzo15', 'Abril15', 'Mayo15',
-                               #'Junio15'#, 'Julio15', 'Agosto15', 'Septiembre15', 'Octubre15',
-                               #'Noviembre15', 'Diciembre15',#
+                               'Junio15', 'Julio15', 'Agosto15', 'Septiembre15', #'Octubre15',
+                              # 'Noviembre15', 'Diciembre15',#
 #                                     ]].sum(axis=1)
 
 femi15_21['Total2016']= femi15_21[[ 'Enero16', 'Febrero16', 'Marzo16', 'Abril16', 'Mayo16',
@@ -147,7 +147,7 @@ femi15_21['Total2020']= femi15_21[[ 'Enero20', 'Febrero20', 'Marzo20', 'Abril20'
                                'Junio20', 'Julio20', 'Agosto20', 'Septiembre20', 'Octubre20',
                                'Noviembre20', 'Diciembre20',]].sum(axis=1)
 femi15_21['Total2021']= femi15_21[[ 'Enero21', 'Febrero21', 'Marzo21', 'Abril21', 'Mayo21',
-                               'Junio21', 'Julio21', 'Agosto21',# 'Septiembre21',# 'Octubre21',
+                               'Junio21', 'Julio21', 'Agosto21', 'Septiembre21',# 'Octubre21',
                                #'Noviembre20', 'Diciembre20',
                                   ]].sum(axis=1)
 femi15_21["GRAND TOTAL"]= femi15_21[["Total2015","Total2016","Total2017","Total2018","Total2019","Total2020",
@@ -255,7 +255,7 @@ femi15_21["var_may20_21"] = femi15_21.Mayo21 - femi15_21.Mayo20
 femi15_21["var_jun20_21"] = femi15_21.Junio21 - femi15_21.Junio20
 femi15_21["var_jul20_21"] = femi15_21.Julio21 - femi15_21.Julio20
 femi15_21["var_ago20_21"] = femi15_21.Agosto21 - femi15_21.Agosto20
-#femi15_21["var_sep20_21"] = femi15_21.Septiembre21 - femi15_21.Septiembre20
+femi15_21["var_sep20_21"] = femi15_21.Septiembre21 - femi15_21.Septiembre20
 #femi15_21["var_oct20_21"] = femi15_21.Octubre21 - femi15_21.Octubre20
 #femi15_21["var_nov20_21"] = femi15_21.Noviembre21 - femi15_21.Noviembre20
 #femi15_21["var_dic20_21"] = femi15_21.Diciembre21 - femi15_21.Diciembre20
@@ -360,7 +360,7 @@ femi15_21["v_abr_may_21"] = femi15_21.Mayo21 - femi15_21.Abril21
 femi15_21["v_may_jun_21"] = femi15_21.Junio21 - femi15_21.Mayo21
 femi15_21["v_jun_jul_21"] = femi15_21.Julio21 - femi15_21.Junio21
 femi15_21["v_jul_ago_21"] = femi15_21.Agosto21 - femi15_21.Julio21
-#femi15_21["v_ago_sep_21"] = femi15_21.Septiembre21 - femi15_21.Agosto21
+femi15_21["v_ago_sep_21"] = femi15_21.Septiembre21 - femi15_21.Agosto21
 #femi15_21["v_sep_oct_21"] = femi15_21.Octubre21 - femi15_21.Septiembre21
 #femi15_21["v_oct_nov_21"] = femi15_21.Noviembre21 - femi15_21.Octubre21
 #femi15_21["v_nov_dic_21"] = femi15_21.Diciembre21 - femi15_21.Noviembre21
@@ -448,7 +448,7 @@ femi15_21["var_may20_21_%"] = (femi15_21["var_may20_21"]*100)/femi15_21.Mayo21
 femi15_21["var_jun20_21_%"] = (femi15_21["var_jun20_21"]*100)/femi15_21.Junio21
 femi15_21["var_jul20_21_%"] = (femi15_21["var_jul20_21"]*100)/femi15_21.Julio21
 femi15_21["var_ago20_21_%"] = (femi15_21["var_ago20_21"]*100)/femi15_21.Agosto21
-#femi15_21["var_sep20_21_%"] = (femi15_21["var_sep20_21"]*100)/femi15_21.Septiembre21
+femi15_21["var_sep20_21_%"] = (femi15_21["var_sep20_21"]*100)/femi15_21.Septiembre21
 #femi15_21["var_oct20_21_%"] = (femi15_21["var_oct20_21"]*100)/femi15_21.Octubre21
 #femi15_21["var_nov20_21_%"] = (femi15_21["var_nov20_21"]*100)/femi15_21.Noviembre21
 #femi15_21["var_dic20_21_%"] = (femi15_21["var_dic20_21"]*100)/femi15_21.Diciembre21
@@ -603,7 +603,7 @@ acumulado_meses = femi15_21[[
     'Enero18','Febrero18','Marzo18','Abril18','Mayo18','Junio18','Julio18','Agosto18','Septiembre18','Octubre18','Noviembre18','Diciembre18',
     'Enero19','Febrero19','Marzo19','Abril19','Mayo19','Junio19','Julio19','Agosto19','Septiembre19','Octubre19','Noviembre19','Diciembre19',
     'Enero20','Febrero20','Marzo20','Abril20','Mayo20','Junio20','Julio20','Agosto20','Septiembre20','Octubre20','Noviembre20','Diciembre20',
-    'Enero21','Febrero21','Marzo21','Abril21','Mayo21','Junio21', 'Julio21', 'Agosto21',]].stb.subtotal().tail(1).T.to_csv("0000procesoheadr.csv")
+    'Enero21','Febrero21','Marzo21','Abril21','Mayo21','Junio21', 'Julio21', 'Agosto21','Septiembre21']].stb.subtotal().tail(1).T.to_csv("0000procesoheadr.csv")
 
 names = ["Meses","Total"]
 acumulado_meses = pd.read_csv("0000procesoheadr.csv", names=names, skiprows=[0])
@@ -792,7 +792,7 @@ femi15_21 = ff[[
 
  'Enero21','Febrero21','Marzo21','Abril21','Mayo21','Junio21','Julio21',
  'Agosto21',
-    #'Septiembre21','Octubre21','Noviembre21','Diciembre21'
+    'Septiembre21',#'Octubre21','Noviembre21','Diciembre21'
         ]]
 
 
@@ -822,9 +822,8 @@ femi15_21['Total2020']= femi15_21[[ 'Enero20', 'Febrero20', 'Marzo20', 'Abril20'
                                'Junio20', 'Julio20', 'Agosto20', 'Septiembre20', 'Octubre20',
                                'Noviembre20', 'Diciembre20',]].sum(axis=1)
 femi15_21['Total2021']= femi15_21[[ 'Enero21', 'Febrero21', 'Marzo21', 'Abril21', 'Mayo21',
-                               'Junio21', 'Julio21', 'Agosto20',
-                                   #'Septiembre20', 'Octubre20',
-                               #'Noviembre20', 'Diciembre20',
+                               'Junio21', 'Julio21', 'Agosto21','Septiembre21',# 'Octubre21',
+                               #'Noviembre21', 'Diciembre21',
                                   ]].sum(axis=1)
 femi15_21["GRAND TOTAL"]= femi15_21[["Total2015","Total2016","Total2017","Total2018","Total2019","Total2020",
                                     "Total2021",]].sum(axis=1)
@@ -921,7 +920,7 @@ femi15_21["var_may20_21"] = femi15_21.Mayo21 - femi15_21.Mayo20
 femi15_21["var_jun20_21"] = femi15_21.Junio21 - femi15_21.Junio20
 femi15_21["var_jul20_21"] = femi15_21.Julio21 - femi15_21.Julio20
 femi15_21["var_ago20_21"] = femi15_21.Agosto21 - femi15_21.Agosto20
-#femi15_21["var_sep20_21"] = femi15_21.Septiembre21 - femi15_21.Septiembre20
+femi15_21["var_sep20_21"] = femi15_21.Septiembre21 - femi15_21.Septiembre20
 #femi15_21["var_oct20_21"] = femi15_21.Octubre21 - femi15_21.Octubre20
 #femi15_21["var_nov20_21"] = femi15_21.Noviembre21 - femi15_21.Noviembre20
 #femi15_21["var_dic20_21"] = femi15_21.Diciembre21 - femi15_21.Diciembre20
@@ -1026,7 +1025,7 @@ femi15_21["v_abr_may_21"] = femi15_21.Mayo21 - femi15_21.Abril21
 femi15_21["v_may_jun_21"] = femi15_21.Junio21 - femi15_21.Mayo21
 femi15_21["v_jun_jul_21"] = femi15_21.Julio21 - femi15_21.Junio21
 femi15_21["v_jul_ago_21"] = femi15_21.Agosto21 - femi15_21.Julio21
-#femi15_21["v_ago_sep_21"] = femi15_21.Septiembre21 - femi15_21.Agosto21
+femi15_21["v_ago_sep_21"] = femi15_21.Septiembre21 - femi15_21.Agosto21
 #femi15_21["v_sep_oct_21"] = femi15_21.Octubre21 - femi15_21.Septiembre21
 #femi15_21["v_oct_nov_21"] = femi15_21.Noviembre21 - femi15_21.Octubre21
 #femi15_21["v_nov_dic_21"] = femi15_21.Diciembre21 - femi15_21.Noviembre21
@@ -1123,7 +1122,7 @@ femi15_21["var_may20_21_%"] = (femi15_21["var_may20_21"]*100)/femi15_21.Mayo21
 femi15_21["var_jun20_21_%"] = (femi15_21["var_jun20_21"]*100)/femi15_21.Junio21
 femi15_21["var_jul20_21_%"] = (femi15_21["var_jul20_21"]*100)/femi15_21.Julio21
 femi15_21["var_ago20_21_%"] = (femi15_21["var_ago20_21"]*100)/femi15_21.Agosto21
-#femi15_21["var_sep20_21_%"] = (femi15_21["var_sep20_21"]*100)/femi15_21.Septiembre21
+femi15_21["var_sep20_21_%"] = (femi15_21["var_sep20_21"]*100)/femi15_21.Septiembre21
 #femi15_21["var_oct20_21_%"] = (femi15_21["var_oct20_21"]*100)/femi15_21.Octubre21
 #femi15_21["var_nov20_21_%"] = (femi15_21["var_nov20_21"]*100)/femi15_21.Noviembre21
 #femi15_21["var_dic20_21_%"] = (femi15_21["var_dic20_21"]*100)/femi15_21.Diciembre21
@@ -1132,45 +1131,6 @@ femi15_21["var_ago20_21_%"] = (femi15_21["var_ago20_21"]*100)/femi15_21.Agosto21
 
 
 
-
-##os.chdir(r"C:\Users\PRIME\AnacondaProjects\Project_curso\code\Dash\feminicidios")
-#geo_df=gpd.read_file('México_Estados.shp')
-#
-#geo_df.replace(['Coahuila','Distrito Federal','Michoacán',"Veracruz"],
-#               #por
-#               ['Coahuila de Zaragoza','Ciudad de México','Michoacán de Ocampo','Veracruz de Ignacio de la Llave'],
-#               inplace=True, )
-#
-#concat1 = geo_df.merge(femi15_21,
-#                           left_on= "ESTADO",
-#                           right_on="Entidad", how= "right").sort_values("GRAND TOTAL", ascending=False)
-#
-#fig = concat1.plot("GRAND TOTAL",
-#                 cmap= "Oranges",
-#                 legend=False,
-#                 k=5,
-#                 scheme= 'quantiles',
-#                 linewidth=.6, 
-#                 edgecolor= "white", 
-#                 categorical=False,
-#                 figsize=(5,5),)
-##plt.axis("off")
-
-# Ruta guardado
-#os.chdir(r'C:\Users\win\AnacondaProjects\0 0 Projects\Project_actualizacion\resultados\') #__Ruta Fe
-#os.chdir(r'C:\Users\IVANOV\AnacondaProjects\0 0 Projects\Project_portadaVG\resultados') #____Ruta Wi
-#os.chdir(r'C:\Users\win\AnacondaProjects\0 0 Projects\Project_11\bases')      #______________Ruta Ae
-
-#plt.savefig("Mapa GRAND TOTAL.png", dpi= 300)
-#print("Guardado GRAND TOTAL")
-#plt.show()
-
-
-
-# 1. separar los dos filtros y subirlos a GITHUB
-# 2. hacer los 7 mapas sumas anuales (2015-2021)
-# 3. hacer los 7 mapas tasas anuales (2015-2021) 
-# 4. Hacer 2 mapas uno con GRAND TOTAL y otro con GRAND TASA
 
 
 
