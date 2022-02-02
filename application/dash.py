@@ -117,7 +117,7 @@ femi15_21 = ff[[
 
  'Enero21','Febrero21','Marzo21','Abril21','Mayo21','Junio21','Julio21',
  'Agosto21',
-    'Septiembre21',#'Octubre21','Noviembre21','Diciembre21'
+    'Septiembre21','Octubre21','Noviembre21','Diciembre21'
         ]]
 
 
@@ -147,8 +147,8 @@ femi15_21['Total2020']= femi15_21[[ 'Enero20', 'Febrero20', 'Marzo20', 'Abril20'
                                'Junio20', 'Julio20', 'Agosto20', 'Septiembre20', 'Octubre20',
                                'Noviembre20', 'Diciembre20',]].sum(axis=1)
 femi15_21['Total2021']= femi15_21[[ 'Enero21', 'Febrero21', 'Marzo21', 'Abril21', 'Mayo21',
-                               'Junio21', 'Julio21', 'Agosto21', 'Septiembre21',# 'Octubre21',
-                               #'Noviembre20', 'Diciembre20',
+                               'Junio21', 'Julio21', 'Agosto21', 'Septiembre21', 'Octubre21',
+                               'Noviembre21', 'Diciembre21',
                                   ]].sum(axis=1)
 femi15_21["GRAND TOTAL"]= femi15_21[["Total2015","Total2016","Total2017","Total2018","Total2019","Total2020",
                                     "Total2021",]].sum(axis=1)
@@ -256,9 +256,23 @@ femi15_21["var_jun20_21"] = femi15_21.Junio21 - femi15_21.Junio20
 femi15_21["var_jul20_21"] = femi15_21.Julio21 - femi15_21.Julio20
 femi15_21["var_ago20_21"] = femi15_21.Agosto21 - femi15_21.Agosto20
 femi15_21["var_sep20_21"] = femi15_21.Septiembre21 - femi15_21.Septiembre20
-#femi15_21["var_oct20_21"] = femi15_21.Octubre21 - femi15_21.Octubre20
-#femi15_21["var_nov20_21"] = femi15_21.Noviembre21 - femi15_21.Noviembre20
-#femi15_21["var_dic20_21"] = femi15_21.Diciembre21 - femi15_21.Diciembre20
+femi15_21["var_oct20_21"] = femi15_21.Octubre21 - femi15_21.Octubre20
+femi15_21["var_nov20_21"] = femi15_21.Noviembre21 - femi15_21.Noviembre20
+femi15_21["var_dic20_21"] = femi15_21.Diciembre21 - femi15_21.Diciembre20
+
+# Variaciones 2021-2022
+#femi15_21["var_ene21_22"] = femi15_21.Enero22 - femi15_21.Enero22
+#femi15_21["var_feb21_22"] = femi15_21.Febrero22 - femi15_21.Febrero22
+#femi15_21["var_mrz21_22"] = femi15_21.Marzo22 - femi15_21.Marzo22
+#femi15_21["var_abr21_22"] = femi15_21.Abril22 - femi15_21.Abril22
+#femi15_21["var_may21_22"] = femi15_21.Mayo22 - femi15_21.Mayo22
+#femi15_21["var_jun21_22"] = femi15_21.Junio22 - femi15_21.Junio22
+#femi15_21["var_jul21_22"] = femi15_21.Julio22 - femi15_21.Julio22
+#femi15_21["var_ago21_22"] = femi15_21.Agosto22 - femi15_21.Agosto22
+#femi15_21["var_sep21_22"] = femi15_21.Septiembre22 - femi15_21.Septiembre22
+#femi15_21["var_oct21_22"] = femi15_21.Octubre22 - femi15_21.Octubre22
+#femi15_21["var_nov21_22"] = femi15_21.Noviembre22 - femi15_21.Noviembre22
+#femi15_21["var_dic21_22"] = femi15_21.Diciembre22 - femi15_21.Diciembre22
 
 
 #                variaciones mensuales seriadas (mismo año) by tipo de delito
@@ -361,9 +375,10 @@ femi15_21["v_may_jun_21"] = femi15_21.Junio21 - femi15_21.Mayo21
 femi15_21["v_jun_jul_21"] = femi15_21.Julio21 - femi15_21.Junio21
 femi15_21["v_jul_ago_21"] = femi15_21.Agosto21 - femi15_21.Julio21
 femi15_21["v_ago_sep_21"] = femi15_21.Septiembre21 - femi15_21.Agosto21
-#femi15_21["v_sep_oct_21"] = femi15_21.Octubre21 - femi15_21.Septiembre21
-#femi15_21["v_oct_nov_21"] = femi15_21.Noviembre21 - femi15_21.Octubre21
-#femi15_21["v_nov_dic_21"] = femi15_21.Diciembre21 - femi15_21.Noviembre21
+femi15_21["v_sep_oct_21"] = femi15_21.Octubre21 - femi15_21.Septiembre21
+femi15_21["v_oct_nov_21"] = femi15_21.Noviembre21 - femi15_21.Octubre21
+femi15_21["v_nov_dic_21"] = femi15_21.Diciembre21 - femi15_21.Noviembre21
+
 #variacion Diciembre-Enero (si llegamos...)
 #femi15_21["v_dic_ene_21"] = femi15_21.Diciembre21 - femi15_21.Enero22
 
@@ -449,9 +464,22 @@ femi15_21["var_jun20_21_%"] = (femi15_21["var_jun20_21"]*100)/femi15_21.Junio21
 femi15_21["var_jul20_21_%"] = (femi15_21["var_jul20_21"]*100)/femi15_21.Julio21
 femi15_21["var_ago20_21_%"] = (femi15_21["var_ago20_21"]*100)/femi15_21.Agosto21
 femi15_21["var_sep20_21_%"] = (femi15_21["var_sep20_21"]*100)/femi15_21.Septiembre21
-#femi15_21["var_oct20_21_%"] = (femi15_21["var_oct20_21"]*100)/femi15_21.Octubre21
-#femi15_21["var_nov20_21_%"] = (femi15_21["var_nov20_21"]*100)/femi15_21.Noviembre21
-#femi15_21["var_dic20_21_%"] = (femi15_21["var_dic20_21"]*100)/femi15_21.Diciembre21
+femi15_21["var_oct20_21_%"] = (femi15_21["var_oct20_21"]*100)/femi15_21.Octubre21
+femi15_21["var_nov20_21_%"] = (femi15_21["var_nov20_21"]*100)/femi15_21.Noviembre21
+femi15_21["var_dic20_21_%"] = (femi15_21["var_dic20_21"]*100)/femi15_21.Diciembre21
+#femi15_21["var_ene20_22_%"] = (femi15_21["var_ene20_22"]*100)/femi15_21.Enero22
+#femi15_21["var_feb20_22_%"] = (femi15_21["var_feb20_22"]*100)/femi15_21.Febrero22
+#femi15_21["var_mrz20_22_%"] = (femi15_21["var_mrz20_22"]*100)/femi15_21.Marzo22
+#femi15_21["var_abr20_22_%"] = (femi15_21["var_abr20_22"]*100)/femi15_21.Abril22
+#femi15_21["var_may20_22_%"] = (femi15_21["var_may20_22"]*100)/femi15_21.Mayo22
+#femi15_21["var_jun20_22_%"] = (femi15_21["var_jun20_22"]*100)/femi15_21.Junio22
+#femi15_21["var_jul20_22_%"] = (femi15_21["var_jul20_22"]*100)/femi15_21.Julio22
+#femi15_21["var_ago20_22_%"] = (femi15_21["var_ago20_22"]*100)/femi15_21.Agosto22
+#femi15_21["var_sep20_22_%"] = (femi15_21["var_sep20_22"]*100)/femi15_21.Septiembre22
+#femi15_21["var_oct20_22_%"] = (femi15_21["var_oct20_22"]*100)/femi15_21.Octubre22
+#femi15_21["var_nov20_22_%"] = (femi15_21["var_nov20_22"]*100)/femi15_21.Noviembre22
+#femi15_21["var_dic20_22_%"] = (femi15_21["var_dic20_22"]*100)/femi15_21.Diciembre22
+#
 
 #                variaciones anuales by tipo de delito
 femi15_21["var_1516"] = femi15_21.Total2016 - femi15_21.Total2015
@@ -603,7 +631,8 @@ acumulado_meses = femi15_21[[
     'Enero18','Febrero18','Marzo18','Abril18','Mayo18','Junio18','Julio18','Agosto18','Septiembre18','Octubre18','Noviembre18','Diciembre18',
     'Enero19','Febrero19','Marzo19','Abril19','Mayo19','Junio19','Julio19','Agosto19','Septiembre19','Octubre19','Noviembre19','Diciembre19',
     'Enero20','Febrero20','Marzo20','Abril20','Mayo20','Junio20','Julio20','Agosto20','Septiembre20','Octubre20','Noviembre20','Diciembre20',
-    'Enero21','Febrero21','Marzo21','Abril21','Mayo21','Junio21', 'Julio21', 'Agosto21','Septiembre21']].stb.subtotal().tail(1).T.to_csv("0000procesoheadr.csv")
+    'Enero21','Febrero21','Marzo21','Abril21','Mayo21','Junio21', 'Julio21', 'Agosto21','Septiembre21','Octubre21',
+    'Noviembre21','Diciembre21',#'Enero22','Febrero22','Marzo22','Abril22','Mayo22','Junio22', 'Julio22', 'Agosto22','Septiembre22','Octubre22',]].stb.subtotal().tail(1).T.to_csv("0000procesoheadr.csv")
 
 names = ["Meses","Total"]
 acumulado_meses = pd.read_csv("0000procesoheadr.csv", names=names, skiprows=[0])
@@ -658,7 +687,7 @@ fig_meses.add_annotation(
 
 #####################################################################################
 #### _______________________________GRAFICA COMPARATIVA 2015/2020
-femi15_21_graf = femi15_21[["Tipo de delito", "tasa_acumulada", "Total2015","Total2020",
+femi15_21_graf = femi15_21[["Tipo de delito", "tasa_acumulada", "Total2015","Total2020","Total2021",
            "tasa_tot2015","tasa_tot2020", 
           "Variac_ABS2015_2021", 
            "Variac_tasa2015_2021" 
@@ -678,8 +707,8 @@ comparatot_2015_20.add_trace(go.Bar(
 ))
 comparatot_2015_20.add_trace(go.Bar(
     x=femi15_21_graf["Tipo de delito"],
-    y=femi15_21_graf["Total2020"],
-    name='2020',
+    y=femi15_21_graf["Total2021"],
+    name='2021',
     #fontsize=8,
     marker_color='orchid',
     orientation='v'
@@ -1282,7 +1311,8 @@ app.layout = html.Div([
     
     ######## TABLA RANKING
     ################################################################# PRIMERA COLUMNA
-    dbc.Button(([html.P("Tipo de delito", style={
+    dbc.Button(([html.P("Tipo de delito", 
+                        style={
                                "color": "black", 
                                "font-size": "14px",
                                "font-weight": "bold",         
