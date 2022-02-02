@@ -632,7 +632,8 @@ acumulado_meses = femi15_21[[
     'Enero19','Febrero19','Marzo19','Abril19','Mayo19','Junio19','Julio19','Agosto19','Septiembre19','Octubre19','Noviembre19','Diciembre19',
     'Enero20','Febrero20','Marzo20','Abril20','Mayo20','Junio20','Julio20','Agosto20','Septiembre20','Octubre20','Noviembre20','Diciembre20',
     'Enero21','Febrero21','Marzo21','Abril21','Mayo21','Junio21', 'Julio21', 'Agosto21','Septiembre21','Octubre21',
-    'Noviembre21','Diciembre21',#'Enero22','Febrero22','Marzo22','Abril22','Mayo22','Junio22', 'Julio22', 'Agosto22','Septiembre22','Octubre22',]].stb.subtotal().tail(1).T.to_csv("0000procesoheadr.csv")
+    'Noviembre21','Diciembre21',#'Enero22','Febrero22','Marzo22','Abril22','Mayo22','Junio22', 'Julio22', 'Agosto22','Septiembre22','Octubre22',
+]].stb.subtotal().tail(1).T.to_csv("0000procesoheadr.csv")
 
 names = ["Meses","Total"]
 acumulado_meses = pd.read_csv("0000procesoheadr.csv", names=names, skiprows=[0])
