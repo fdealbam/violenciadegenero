@@ -1,4 +1,3 @@
-
 # OEntrada violencia de genero
 
 import dash
@@ -30,8 +29,8 @@ yea = datetime.strftime(yesterday, '%Y%m%d')
 ################################################################ inicia tratamiento
 
 
-d_vg1 = pd.read_csv("https://raw.githubusercontent.com/fdealbam/violenciadegenero/main/delitosvg2015_2021_a.csv?raw=true")
-d_vg2 = pd.read_csv("https://raw.githubusercontent.com/fdealbam/violenciadegenero/main/delitosvg2015_2021_b.csv?raw=true")
+d_vg1 = pd.read_csv("https://raw.githubusercontent.com/fdealbam/violenciadegenero/main/delitosvg2015_2022_a.csv?raw=true")
+d_vg2 = pd.read_csv("https://raw.githubusercontent.com/fdealbam/violenciadegenero/main/delitosvg2015_2022_b.csv?raw=true")
 
 d_vg = pd.concat([d_vg1,d_vg2])
 
@@ -55,6 +54,7 @@ year18= fem[fem.Año == 2018]
 year19= fem[fem.Año == 2019]
 year20= fem[fem.Año == 2020]
 year21= fem[fem.Año == 2021]
+year22= fem[fem.Año == 2022]
 
 ############################################### Agregar suffix de años
 
@@ -86,6 +86,10 @@ y21= year21.add_suffix('21')
 y21.rename(columns ={'Año21': 'Año', 'Tipo de delito21': 'Tipo de delito','Unnamed: 021' : 'Unnamed: 0',
                             'Tipo de delito21': 'Tipo de delito'}, inplace = True)
 
+y22= year22.add_suffix('22')
+y22.rename(columns ={'Año22': 'Año', 'Tipo de delito22': 'Tipo de delito','Unnamed: 022' : 'Unnamed: 0',
+                            'Tipo de delito22': 'Tipo de delito'}, inplace = True)
+
 
 ############################################### Concat todos los años
 
@@ -95,8 +99,9 @@ fc = fb.merge(y18, on="Tipo de delito",  how="inner")
 fd = fc.merge(y19, on="Tipo de delito",  how="inner")
 fe = fd.merge(y20, on="Tipo de delito",  how="inner")
 ff = fe.merge(y21, on="Tipo de delito",  how="inner")
+fg = ff.merge(y22, on="Tipo de delito",  how="inner")
                       
-femi15_21 = ff[[
+femi15_21 = fg[[
  'Tipo de delito','Enero15','Febrero15','Marzo15','Abril15','Mayo15','Junio15',
  'Julio15','Agosto15','Septiembre15','Octubre15','Noviembre15','Diciembre15',
  
@@ -116,8 +121,10 @@ femi15_21 = ff[[
  'Agosto20','Septiembre20','Octubre20','Noviembre20','Diciembre20',
 
  'Enero21','Febrero21','Marzo21','Abril21','Mayo21','Junio21','Julio21',
- 'Agosto21',
-    'Septiembre21','Octubre21','Noviembre21','Diciembre21'
+ 'Agosto21','Septiembre21','Octubre21','Noviembre21','Diciembre21',
+    
+ 'Enero22',#'Febrero22','Marzo22','Abril22','Mayo22','Junio22','Julio22',
+ #'Agosto22','Septiembre22','Octubre22','Noviembre22','Diciembre22'
         ]]
 
 
@@ -125,11 +132,6 @@ femi15_21 = ff[[
 femi15_21['Total2015']= femi15_21[[ 'Enero15', 'Febrero15', 'Marzo15', 'Abril15', 'Mayo15',
                                'Junio15', 'Julio15', 'Agosto15', 'Septiembre15', 'Octubre15',
                                'Noviembre15', 'Diciembre15',]].sum(axis=1)
-
-#femi15_21['Total2015-21']= femi15_21[[ 'Enero15', 'Febrero15', 'Marzo15', 'Abril15', 'Mayo15',
-                              # 'Junio15', 'Julio15', 'Agosto15', 'Septiembre15', #'Octubre15',
-                              # 'Noviembre15', 'Diciembre15',#
-#                                     ]].sum(axis=1)
 
 femi15_21['Total2016']= femi15_21[[ 'Enero16', 'Febrero16', 'Marzo16', 'Abril16', 'Mayo16',
                                'Junio16', 'Julio16', 'Agosto16', 'Septiembre16', 'Octubre16',
@@ -148,10 +150,15 @@ femi15_21['Total2020']= femi15_21[[ 'Enero20', 'Febrero20', 'Marzo20', 'Abril20'
                                'Noviembre20', 'Diciembre20',]].sum(axis=1)
 femi15_21['Total2021']= femi15_21[[ 'Enero21', 'Febrero21', 'Marzo21', 'Abril21', 'Mayo21',
                                'Junio21', 'Julio21', 'Agosto21', 'Septiembre21', 'Octubre21',
-                               'Noviembre21', 'Diciembre21',
+                               'Noviembre21', 'Diciembre21',]].sum(axis=1)
+
+femi15_21['Total2022']= femi15_21[[ 'Enero22',#'Febrero22','Marzo22','Abril22','Mayo22',
+                                  #'Junio22','Julio22','Agosto22','Septiembre22','Octubre22',
+                                  #'Noviembre22','Diciembre22'
                                   ]].sum(axis=1)
+    
 femi15_21["GRAND TOTAL"]= femi15_21[["Total2015","Total2016","Total2017","Total2018","Total2019","Total2020",
-                                    "Total2021",]].sum(axis=1)
+                                    "Total2021","Total2022"]].sum(axis=1)
 
 totald = int(femi15_21["GRAND TOTAL"].sum())
 totaldvg = f"{totald:,}"
@@ -171,8 +178,9 @@ femi15_21["tasa_tot2018"] = ((femi15_21['Total2018']/125327797)*100000).round(1)
 femi15_21["tasa_tot2019"] = ((femi15_21['Total2019']/126577691)*100000).round(1)
 femi15_21["tasa_tot2020"] = ((femi15_21['Total2020']/127792286)*100000).round(1)
 femi15_21["tasa_tot2021"] = ((femi15_21['Total2021']/128972439)*100000).round(1)
-femi15_21["Variac_ABS2015_2021"] = (-(femi15_21["Total2015"]-femi15_21["Total2020"])).round(1)
-femi15_21["Variac_tasa2015_2021"]= (-(femi15_21["tasa_tot2015"]-femi15_21["tasa_tot2020"])).round(1)
+#femi15_21["tasa_tot2022"] = ((femi15_21['Total2022']/poblacionvalue)*100000).round(1)
+femi15_21["Variac_ABS2015_2021"] = (-(femi15_21["Total2015"]-femi15_21["Total2021"])).round(1)
+femi15_21["Variac_tasa2015_2021"]= (-(femi15_21["tasa_tot2015"]-femi15_21["tasa_tot2021"])).round(1)
 
 
 #                              variaciones abs mensuales by tipo de delito
@@ -261,18 +269,18 @@ femi15_21["var_nov20_21"] = femi15_21.Noviembre21 - femi15_21.Noviembre20
 femi15_21["var_dic20_21"] = femi15_21.Diciembre21 - femi15_21.Diciembre20
 
 # Variaciones 2021-2022
-#femi15_21["var_ene21_22"] = femi15_21.Enero22 - femi15_21.Enero22
-#femi15_21["var_feb21_22"] = femi15_21.Febrero22 - femi15_21.Febrero22
-#femi15_21["var_mrz21_22"] = femi15_21.Marzo22 - femi15_21.Marzo22
-#femi15_21["var_abr21_22"] = femi15_21.Abril22 - femi15_21.Abril22
-#femi15_21["var_may21_22"] = femi15_21.Mayo22 - femi15_21.Mayo22
-#femi15_21["var_jun21_22"] = femi15_21.Junio22 - femi15_21.Junio22
-#femi15_21["var_jul21_22"] = femi15_21.Julio22 - femi15_21.Julio22
-#femi15_21["var_ago21_22"] = femi15_21.Agosto22 - femi15_21.Agosto22
-#femi15_21["var_sep21_22"] = femi15_21.Septiembre22 - femi15_21.Septiembre22
-#femi15_21["var_oct21_22"] = femi15_21.Octubre22 - femi15_21.Octubre22
-#femi15_21["var_nov21_22"] = femi15_21.Noviembre22 - femi15_21.Noviembre22
-#femi15_21["var_dic21_22"] = femi15_21.Diciembre22 - femi15_21.Diciembre22
+femi15_21["var_ene21_22"] = femi15_21.Enero22 - femi15_21.Enero21
+#femi15_21["var_feb21_22"] = femi15_21.Febrero22 - femi15_21.Febrero21
+#femi15_21["var_mrz21_22"] = femi15_21.Marzo22 - femi15_21.Marzo21
+#femi15_21["var_abr21_22"] = femi15_21.Abril22 - femi15_21.Abril21
+#femi15_21["var_may21_22"] = femi15_21.Mayo22 - femi15_21.Mayo21
+#femi15_21["var_jun21_22"] = femi15_21.Junio22 - femi15_21.Junio21
+#femi15_21["var_jul21_22"] = femi15_21.Julio22 - femi15_21.Julio21
+#femi15_21["var_ago21_22"] = femi15_21.Agosto22 - femi15_21.Agosto21
+#femi15_21["var_sep21_22"] = femi15_21.Septiembre22 - femi15_21.Septiembre21
+#femi15_21["var_oct21_22"] = femi15_21.Octubre22 - femi15_21.Octubre21
+#femi15_21["var_nov21_22"] = femi15_21.Noviembre22 - femi15_21.Noviembre21
+#femi15_21["var_dic21_22"] = femi15_21.Diciembre22 - femi15_21.Diciembre21
 
 
 #                variaciones mensuales seriadas (mismo año) by tipo de delito
@@ -379,11 +387,27 @@ femi15_21["v_sep_oct_21"] = femi15_21.Octubre21 - femi15_21.Septiembre21
 femi15_21["v_oct_nov_21"] = femi15_21.Noviembre21 - femi15_21.Octubre21
 femi15_21["v_nov_dic_21"] = femi15_21.Diciembre21 - femi15_21.Noviembre21
 
-#variacion Diciembre-Enero (si llegamos...)
-#femi15_21["v_dic_ene_21"] = femi15_21.Diciembre21 - femi15_21.Enero22
+#variacion Diciembre-Enero (si llegamos...y si)
+femi15_21["v_dic_ene_21"] = femi15_21.Diciembre21 - femi15_21.Enero22
+
+## 2022
+#femi15_21["v_ene_feb_22"] = femi15_21.Febrero22 - femi15_21.Enero22
+#femi15_21["v_feb_mar_22"] = femi15_21.Marzo22 - femi15_21.Febrero22
+#femi15_21["v_mar_abr_22"] = femi15_21.Abril22 - femi15_21.Marzo22
+#femi15_21["v_abr_may_22"] = femi15_21.Mayo22 - femi15_21.Abril22
+#femi15_21["v_may_jun_22"] = femi15_21.Junio22 - femi15_21.Mayo22
+#femi15_21["v_jun_jul_22"] = femi15_21.Julio22 - femi15_21.Junio22
+#femi15_21["v_jul_ago_22"] = femi15_21.Agosto22 - femi15_21.Julio22
+#femi15_21["v_ago_sep_22"] = femi15_21.Septiembre22 - femi15_21.Agosto22
+#femi15_21["v_sep_oct_22"] = femi15_21.Octubre22 - femi15_21.Septiembre22
+#femi15_21["v_oct_nov_22"] = femi15_21.Noviembre22 - femi15_21.Octubre22
+#femi15_21["v_nov_dic_22"] = femi15_21.Diciembre22 - femi15_21.Noviembre22
+#
+##variacion Diciembre-Enero (si llegamos...)
+#femi15_21["v_dic_ene_22"] = femi15_21.Diciembre22 - femi15_21.Enero23
 
 
-#                               variaciones porcentuales mensuales by tipo de delito
+#variaciones porcentuales mensuales by tipo de delito
 # Variaciones 2015-2016
 femi15_21["var_ene15_16_%"] = (femi15_21["var_ene15_16"]*100)/femi15_21.Enero16
 femi15_21["var_feb15_16_%"] = (femi15_21["var_feb15_16"]*100)/femi15_21.Febrero16
@@ -467,18 +491,20 @@ femi15_21["var_sep20_21_%"] = (femi15_21["var_sep20_21"]*100)/femi15_21.Septiemb
 femi15_21["var_oct20_21_%"] = (femi15_21["var_oct20_21"]*100)/femi15_21.Octubre21
 femi15_21["var_nov20_21_%"] = (femi15_21["var_nov20_21"]*100)/femi15_21.Noviembre21
 femi15_21["var_dic20_21_%"] = (femi15_21["var_dic20_21"]*100)/femi15_21.Diciembre21
-#femi15_21["var_ene20_22_%"] = (femi15_21["var_ene20_22"]*100)/femi15_21.Enero22
-#femi15_21["var_feb20_22_%"] = (femi15_21["var_feb20_22"]*100)/femi15_21.Febrero22
-#femi15_21["var_mrz20_22_%"] = (femi15_21["var_mrz20_22"]*100)/femi15_21.Marzo22
-#femi15_21["var_abr20_22_%"] = (femi15_21["var_abr20_22"]*100)/femi15_21.Abril22
-#femi15_21["var_may20_22_%"] = (femi15_21["var_may20_22"]*100)/femi15_21.Mayo22
-#femi15_21["var_jun20_22_%"] = (femi15_21["var_jun20_22"]*100)/femi15_21.Junio22
-#femi15_21["var_jul20_22_%"] = (femi15_21["var_jul20_22"]*100)/femi15_21.Julio22
-#femi15_21["var_ago20_22_%"] = (femi15_21["var_ago20_22"]*100)/femi15_21.Agosto22
-#femi15_21["var_sep20_22_%"] = (femi15_21["var_sep20_22"]*100)/femi15_21.Septiembre22
-#femi15_21["var_oct20_22_%"] = (femi15_21["var_oct20_22"]*100)/femi15_21.Octubre22
-#femi15_21["var_nov20_22_%"] = (femi15_21["var_nov20_22"]*100)/femi15_21.Noviembre22
-#femi15_21["var_dic20_22_%"] = (femi15_21["var_dic20_22"]*100)/femi15_21.Diciembre22
+
+# Variaciones 2021-2022
+femi15_21["var_ene21_22_%"] = (femi15_21["var_ene21_22"]*100)/femi15_21.Enero22
+#femi15_21["var_feb21_22_%"] = (femi15_21["var_feb21_22"]*100)/femi15_21.Febrero22
+#femi15_21["var_mrz21_22_%"] = (femi15_21["var_mrz21_22"]*100)/femi15_21.Marzo22
+#femi15_21["var_abr21_22_%"] = (femi15_21["var_abr21_22"]*100)/femi15_21.Abril22
+#femi15_21["var_may21_22_%"] = (femi15_21["var_may21_22"]*100)/femi15_21.Mayo22
+#femi15_21["var_jun21_22_%"] = (femi15_21["var_jun21_22"]*100)/femi15_21.Junio22
+#femi15_21["var_jul21_22_%"] = (femi15_21["var_jul21_22"]*100)/femi15_21.Julio22
+#femi15_21["var_ago21_22_%"] = (femi15_21["var_ago21_22"]*100)/femi15_21.Agosto22
+#femi15_21["var_sep21_22_%"] = (femi15_21["var_sep21_22"]*100)/femi15_21.Septiembre22
+#femi15_21["var_oct21_22_%"] = (femi15_21["var_oct21_22"]*100)/femi15_21.Octubre22
+#femi15_21["var_nov21_22_%"] = (femi15_21["var_nov21_22"]*100)/femi15_21.Noviembre22
+#femi15_21["var_dic21_22_%"] = (femi15_21["var_dic21_22"]*100)/femi15_21.Diciembre22
 #
 
 #                variaciones anuales by tipo de delito
@@ -488,6 +514,7 @@ femi15_21["var_1718"] = femi15_21.Total2018 - femi15_21.Total2017
 femi15_21["var_1819"] = femi15_21.Total2019 - femi15_21.Total2018
 femi15_21["var_1920"] = femi15_21.Total2020 - femi15_21.Total2019
 femi15_21["var_2021"] = femi15_21.Total2021 - femi15_21.Total2020
+#femi15_21["var_2022"] = femi15_21.Total2022 - femi15_21.Total2021
 
 
 
@@ -532,7 +559,7 @@ tipodel13 = tabla1.iloc[12]["Tipo de delito"]
 tipodel14 = tabla1.iloc[13]["Tipo de delito"]
 tipodel15 = tabla1.iloc[14]["Tipo de delito"]
 tipodel16 = tabla1.iloc[15]["Tipo de delito"]
-tipodel17 = tabla1.iloc[16]["Tipo de delito"]
+#tipodel17 = tabla1.iloc[16]["Tipo de delito"]
 #tipodel18 = tabla1.iloc[17]["Tipo de delito"]
 
 #abs
@@ -552,7 +579,7 @@ totdel13 = tabla1.iloc[12]["GRAND TOTAL"]
 totdel14 = tabla1.iloc[13]["GRAND TOTAL"]
 totdel15 = tabla1.iloc[14]["GRAND TOTAL"]
 totdel16 = tabla1.iloc[15]["GRAND TOTAL"]
-totdel17 = tabla1.iloc[16]["GRAND TOTAL"]
+#totdel17 = tabla1.iloc[16]["GRAND TOTAL"]
 #totdel18 = tabla1.iloc[17]["GRAND TOTAL"]
 
 #tasa acumulada
@@ -573,7 +600,7 @@ tasatotdel13 = tabla1.iloc[12]["tasa_acumulada"]
 tasatotdel14 = tabla1.iloc[13]["tasa_acumulada"]
 tasatotdel15 = tabla1.iloc[14]["tasa_acumulada"]
 tasatotdel16 = tabla1.iloc[15]["tasa_acumulada"]
-tasatotdel17 = tabla1.iloc[16]["tasa_acumulada"]
+#tasatotdel17 = tabla1.iloc[16]["tasa_acumulada"]
 #tasatotdel18 = tabla1.iloc[17]["tasa_acumulada"]
 
 
@@ -595,7 +622,7 @@ urldel13 = tabla1.iloc[12]["url"]
 urldel14 = tabla1.iloc[13]["url"]
 urldel15 = tabla1.iloc[14]["url"]
 urldel16 = tabla1.iloc[15]["url"]
-urldel17 = tabla1.iloc[16]["url"]
+#urldel17 = tabla1.iloc[16]["url"]
 #urldel18 = tabla1.iloc[17]["url"]
 
 
@@ -618,7 +645,7 @@ iconodel13 = tabla1.iloc[12]["icono"]
 iconodel14 = tabla1.iloc[13]["icono"]
 iconodel15 = tabla1.iloc[14]["icono"]
 iconodel16 = tabla1.iloc[15]["icono"]
-iconodel17 = tabla1.iloc[16]["icono"]
+#iconodel17 = tabla1.iloc[16]["icono"]
 #iconodel18 = tabla1.iloc[17]["icono"]
 
 
@@ -631,8 +658,8 @@ acumulado_meses = femi15_21[[
     'Enero18','Febrero18','Marzo18','Abril18','Mayo18','Junio18','Julio18','Agosto18','Septiembre18','Octubre18','Noviembre18','Diciembre18',
     'Enero19','Febrero19','Marzo19','Abril19','Mayo19','Junio19','Julio19','Agosto19','Septiembre19','Octubre19','Noviembre19','Diciembre19',
     'Enero20','Febrero20','Marzo20','Abril20','Mayo20','Junio20','Julio20','Agosto20','Septiembre20','Octubre20','Noviembre20','Diciembre20',
-    'Enero21','Febrero21','Marzo21','Abril21','Mayo21','Junio21', 'Julio21', 'Agosto21','Septiembre21','Octubre21',
-    'Noviembre21','Diciembre21',#'Enero22','Febrero22','Marzo22','Abril22','Mayo22','Junio22', 'Julio22', 'Agosto22','Septiembre22','Octubre22',
+    'Enero21','Febrero21','Marzo21','Abril21','Mayo21','Junio21', 'Julio21', 'Agosto21','Septiembre21','Octubre21','Noviembre21','Diciembre21',
+    'Enero22',#'Febrero22','Marzo22','Abril22','Mayo22','Junio22', 'Julio22', 'Agosto22','Septiembre22','Octubre22',
 ]].stb.subtotal().tail(1).T.to_csv("0000procesoheadr.csv")
 
 names = ["Meses","Total"]
@@ -665,7 +692,7 @@ fig_meses.add_annotation(
         y=36600,    #posición dada (punta row)
         xref="x",
         yref="y",
-        text="Marzo, abril y mayo de 2021 registraron un aumento notorio",
+        text="Marzo, abril y enero de 2022 registraron un aumento notorio",
         showarrow=True,
         font=dict(
             family="Montserrat",
@@ -744,6 +771,136 @@ comparatot_2015_20.update_layout(paper_bgcolor= #"lightgray",
 
 #                                    ____________________________________________________________________________
 #                                     >>>>>>>>>>>>>>>>>>>>>>>>>>> POR ENTIDAD <<<<<<<<<<<<<<<<<<<<<<<<<<<<
+# PARA PÄRRAFO EMERGENTE AL MAPA ACUMULADO TOTAL
+d_vg.groupby(['Entidad'])['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio','Julio', 'Agosto', 'Septiembre', 'Octubre','Noviembre', 'Diciembre'].sum().to_csv("00a.csv", header=True)
+edossort= pd.read_csv("00a.csv")
+edossort['grandtotal'] = edossort[['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio','Julio', 'Agosto', 'Septiembre', 'Octubre','Noviembre', 'Diciembre']].sum(1)
+edossorta = edossort[['Entidad','grandtotal']].sort_values('grandtotal', ascending=False, ignore_index=True)
+
+#estados
+edos1 = edossorta.iloc[0]['Entidad']
+edos2 = edossorta.iloc[1]['Entidad']
+edos3 = edossorta.iloc[2]['Entidad']
+edos4 = edossorta.iloc[3]['Entidad']
+edos5 = edossorta.iloc[4]['Entidad']
+#valores
+edos1_v = f"{int(edossorta.iloc[0]['grandtotal']):,}"
+edos2_v = f"{int(edossorta.iloc[1]['grandtotal']):,}"
+edos3_v = f"{int(edossorta.iloc[2]['grandtotal']):,}"
+edos4_v = f"{int(edossorta.iloc[3]['grandtotal']):,}"
+edos5_v = f"{int(edossorta.iloc[4]['grandtotal']):,}"
+
+
+#DEMÄS PÄRRAFOS EMERGENTES
+d_vg.groupby(['Entidad','Año'])['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio','Julio', 'Agosto', 'Septiembre', 'Octubre','Noviembre', 'Diciembre'].sum().to_csv("00a.csv", header=True)
+edossort= pd.read_csv("00a.csv")
+edossort['grandtotal'] = edossort[['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio','Julio', 'Agosto', 'Septiembre', 'Octubre','Noviembre', 'Diciembre']].sum(1)
+
+edossorta15 = edossort[edossort.Año == 2015 ][['Entidad','grandtotal']].sort_values('grandtotal', ascending=False, ignore_index=True)
+edossorta16 = edossort[edossort.Año == 2016 ][['Entidad','grandtotal']].sort_values('grandtotal', ascending=False, ignore_index=True)
+edossorta17 = edossort[edossort.Año == 2017 ][['Entidad','grandtotal']].sort_values('grandtotal', ascending=False, ignore_index=True)
+edossorta18 = edossort[edossort.Año == 2018 ][['Entidad','grandtotal']].sort_values('grandtotal', ascending=False, ignore_index=True)
+edossorta19 = edossort[edossort.Año == 2019 ][['Entidad','grandtotal']].sort_values('grandtotal', ascending=False, ignore_index=True)
+edossorta20 = edossort[edossort.Año == 2020 ][['Entidad','grandtotal']].sort_values('grandtotal', ascending=False, ignore_index=True)
+edossorta21 = edossort[edossort.Año == 2021 ][['Entidad','grandtotal']].sort_values('grandtotal', ascending=False, ignore_index=True)
+edossorta22 = edossort[edossort.Año == 2022 ][['Entidad','grandtotal']].sort_values('grandtotal', ascending=False, ignore_index=True)
+
+#2015
+edos151 = edossorta15.iloc[0]['Entidad']
+edos152 = edossorta15.iloc[1]['Entidad']
+edos153 = edossorta15.iloc[2]['Entidad']
+edos154 = edossorta15.iloc[3]['Entidad']
+edos155 = edossorta15.iloc[4]['Entidad']
+edos151_v = f"{int(edossorta15.iloc[0]['grandtotal']):,}"
+edos152_v = f"{int(edossorta15.iloc[1]['grandtotal']):,}"
+edos153_v = f"{int(edossorta15.iloc[2]['grandtotal']):,}"
+edos154_v = f"{int(edossorta15.iloc[3]['grandtotal']):,}"
+edos155_v = f"{int(edossorta15.iloc[4]['grandtotal']):,}"
+
+#2016
+edos161 = edossorta16.iloc[0]['Entidad']
+edos162 = edossorta16.iloc[1]['Entidad']
+edos163 = edossorta16.iloc[2]['Entidad']
+edos164 = edossorta16.iloc[3]['Entidad']
+edos165 = edossorta16.iloc[4]['Entidad']
+edos161_v = f"{int(edossorta16.iloc[0]['grandtotal']):,}"
+edos162_v = f"{int(edossorta16.iloc[1]['grandtotal']):,}"
+edos163_v = f"{int(edossorta16.iloc[2]['grandtotal']):,}"
+edos164_v = f"{int(edossorta16.iloc[3]['grandtotal']):,}"
+edos165_v = f"{int(edossorta16.iloc[4]['grandtotal']):,}"
+
+#2017
+edos171 = edossorta17.iloc[0]['Entidad']
+edos172 = edossorta17.iloc[1]['Entidad']
+edos173 = edossorta17.iloc[2]['Entidad']
+edos174 = edossorta17.iloc[3]['Entidad']
+edos175 = edossorta17.iloc[4]['Entidad']
+edos171_v = f"{int(edossorta17.iloc[0]['grandtotal']):,}"
+edos172_v = f"{int(edossorta17.iloc[1]['grandtotal']):,}"
+edos173_v = f"{int(edossorta17.iloc[2]['grandtotal']):,}"
+edos174_v = f"{int(edossorta17.iloc[3]['grandtotal']):,}"
+edos175_v = f"{int(edossorta17.iloc[4]['grandtotal']):,}"
+
+#2018
+edos181 = edossorta18.iloc[0]['Entidad']
+edos182 = edossorta18.iloc[1]['Entidad']
+edos183 = edossorta18.iloc[2]['Entidad']
+edos184 = edossorta18.iloc[3]['Entidad']
+edos185 = edossorta18.iloc[4]['Entidad']
+edos181_v = f"{int(edossorta18.iloc[0]['grandtotal']):,}"
+edos182_v = f"{int(edossorta18.iloc[1]['grandtotal']):,}"
+edos183_v = f"{int(edossorta18.iloc[2]['grandtotal']):,}"
+edos184_v = f"{int(edossorta18.iloc[3]['grandtotal']):,}"
+edos185_v = f"{int(edossorta18.iloc[4]['grandtotal']):,}"
+
+#2019
+edos191 = edossorta19.iloc[0]['Entidad']
+edos192 = edossorta19.iloc[1]['Entidad']
+edos193 = edossorta19.iloc[2]['Entidad']
+edos194 = edossorta19.iloc[3]['Entidad']
+edos195 = edossorta19.iloc[4]['Entidad']
+edos191_v = f"{int(edossorta19.iloc[0]['grandtotal']):,}"
+edos192_v = f"{int(edossorta19.iloc[1]['grandtotal']):,}"
+edos193_v = f"{int(edossorta19.iloc[2]['grandtotal']):,}"
+edos194_v = f"{int(edossorta19.iloc[3]['grandtotal']):,}"
+edos195_v = f"{int(edossorta19.iloc[4]['grandtotal']):,}"
+
+#2020
+edos201 = edossorta20.iloc[0]['Entidad']
+edos202 = edossorta20.iloc[1]['Entidad']
+edos203 = edossorta20.iloc[2]['Entidad']
+edos204 = edossorta20.iloc[3]['Entidad']
+edos205 = edossorta20.iloc[4]['Entidad']
+edos201_v = f"{int(edossorta20.iloc[0]['grandtotal']):,}"
+edos202_v = f"{int(edossorta20.iloc[1]['grandtotal']):,}"
+edos203_v = f"{int(edossorta20.iloc[2]['grandtotal']):,}"
+edos204_v = f"{int(edossorta20.iloc[3]['grandtotal']):,}"
+edos205_v = f"{int(edossorta20.iloc[4]['grandtotal']):,}"
+
+#2021
+edos211 = edossorta21.iloc[0]['Entidad']
+edos212 = edossorta21.iloc[1]['Entidad']
+edos213 = edossorta21.iloc[2]['Entidad']
+edos214 = edossorta21.iloc[3]['Entidad']
+edos215 = edossorta21.iloc[4]['Entidad']
+edos211_v = f"{int(edossorta21.iloc[0]['grandtotal']):,}"
+edos212_v = f"{int(edossorta21.iloc[1]['grandtotal']):,}"
+edos213_v = f"{int(edossorta21.iloc[2]['grandtotal']):,}"
+edos214_v = f"{int(edossorta21.iloc[3]['grandtotal']):,}"
+edos215_v = f"{int(edossorta21.iloc[4]['grandtotal']):,}"
+
+#2022
+#edos221 = edossorta22.iloc[0]['Entidad']
+#edos222 = edossorta22.iloc[1]['Entidad']
+#edos223 = edossorta22.iloc[2]['Entidad']
+#edos224 = edossorta22.iloc[3]['Entidad']
+#edos225 = edossorta22.iloc[4]['Entidad']
+#edos221_v = f"{int(edossorta22.iloc[0]['grandtotal']):,}"
+#edos222_v = f"{int(edossorta22.iloc[1]['grandtotal']):,}"
+#edos223_v = f"{int(edossorta22.iloc[2]['grandtotal']):,}"
+#edos224_v = f"{int(edossorta22.iloc[3]['grandtotal']):,}"
+#edos225_v = f"{int(edossorta22.iloc[4]['grandtotal']):,}"
+
 
 #                               Tratamiento de la base de delitos de género (por estado)
 d_vg.groupby(['Año','Entidad'])['Enero', 
@@ -760,6 +917,7 @@ year18= fem[fem.Año == 2018]
 year19= fem[fem.Año == 2019]
 year20= fem[fem.Año == 2020]
 year21= fem[fem.Año == 2021]
+year22= fem[fem.Año == 2022]
 
 ############################################### Agregar suffix de años
 
@@ -791,6 +949,10 @@ y21= year21.add_suffix('21')
 y21.rename(columns ={'Año21': 'Año', 'Entidad21': 'Entidad','Unnamed: 021' : 'Unnamed: 0',
                             'Entidad21': 'Entidad'}, inplace = True)
 
+y22= year22.add_suffix('22')
+y22.rename(columns ={'Año22': 'Año', 'Entidad22': 'Entidad','Unnamed: 022' : 'Unnamed: 0',
+                            'Entidad22': 'Entidad'}, inplace = True)
+
 
 ############################################### Concat todos los años
 
@@ -800,8 +962,9 @@ fc = fb.merge(y18, on="Entidad",  how="inner")
 fd = fc.merge(y19, on="Entidad",  how="inner")
 fe = fd.merge(y20, on="Entidad",  how="inner")
 ff = fe.merge(y21, on="Entidad",  how="inner")
+fg = ff.merge(y22, on="Entidad",  how="inner")
                       
-femi15_21 = ff[[
+femi15_21 = fg[[
  'Entidad','Enero15','Febrero15','Marzo15','Abril15','Mayo15','Junio15',
  'Julio15','Agosto15','Septiembre15','Octubre15','Noviembre15','Diciembre15',
  
@@ -821,20 +984,17 @@ femi15_21 = ff[[
  'Agosto20','Septiembre20','Octubre20','Noviembre20','Diciembre20',
 
  'Enero21','Febrero21','Marzo21','Abril21','Mayo21','Junio21','Julio21',
- 'Agosto21',
-    'Septiembre21',#'Octubre21','Noviembre21','Diciembre21'
-        ]]
+ 'Agosto21','Septiembre21','Octubre21','Noviembre21','Diciembre21',
+    
+ 'Enero22',#'Febrero22','Marzo22','Abril22','Mayo22','Junio22','Julio22',
+ #'Agosto22','Septiembre22','Octubre22','Noviembre22','Diciembre22'
+ ]]
 
 
 ##                               CRear columna de TOTAL ANUAL 
 femi15_21['Total2015']= femi15_21[[ 'Enero15', 'Febrero15', 'Marzo15', 'Abril15', 'Mayo15',
                                'Junio15', 'Julio15', 'Agosto15', 'Septiembre15', 'Octubre15',
                                'Noviembre15', 'Diciembre15',]].sum(axis=1)
-
-#femi15_21['Total2015-21']= femi15_21[[ 'Enero15', 'Febrero15', 'Marzo15', 'Abril15', 'Mayo15',
-                               #'Junio15'#, 'Julio15', 'Agosto15', 'Septiembre15', 'Octubre15',
-                               #'Noviembre15', 'Diciembre15',#
-#                                     ]].sum(axis=1)
 
 femi15_21['Total2016']= femi15_21[[ 'Enero16', 'Febrero16', 'Marzo16', 'Abril16', 'Mayo16',
                                'Junio16', 'Julio16', 'Agosto16', 'Septiembre16', 'Octubre16',
@@ -852,11 +1012,15 @@ femi15_21['Total2020']= femi15_21[[ 'Enero20', 'Febrero20', 'Marzo20', 'Abril20'
                                'Junio20', 'Julio20', 'Agosto20', 'Septiembre20', 'Octubre20',
                                'Noviembre20', 'Diciembre20',]].sum(axis=1)
 femi15_21['Total2021']= femi15_21[[ 'Enero21', 'Febrero21', 'Marzo21', 'Abril21', 'Mayo21',
-                               'Junio21', 'Julio21', 'Agosto21','Septiembre21',# 'Octubre21',
-                               #'Noviembre21', 'Diciembre21',
+                               'Junio21', 'Julio21', 'Agosto21','Septiembre21', 'Octubre21',
+                                   'Noviembre21', 'Diciembre21',]].sum(axis=1)
+
+femi15_21['Total2022']= femi15_21[['Enero22',#'Febrero22','Marzo22','Abril22','Mayo22',
+                                   #'Junio22','Julio22','Agosto22','Septiembre22','Octubre22',
+                                  # 'Noviembre22','Diciembre22'
                                   ]].sum(axis=1)
 femi15_21["GRAND TOTAL"]= femi15_21[["Total2015","Total2016","Total2017","Total2018","Total2019","Total2020",
-                                    "Total2021",]].sum(axis=1)
+                                    "Total2021","Total2022"]].sum(axis=1)
 
 #                                tasa anuales (2015-2021)
 femi15_21["tasa_tot2015"] = ((femi15_21['Total2015']/121347800)*100000).round(1)
@@ -866,8 +1030,9 @@ femi15_21["tasa_tot2018"] = ((femi15_21['Total2018']/125327797)*100000).round(1)
 femi15_21["tasa_tot2019"] = ((femi15_21['Total2019']/126577691)*100000).round(1)
 femi15_21["tasa_tot2020"] = ((femi15_21['Total2020']/127792286)*100000).round(1)
 femi15_21["tasa_tot2021"] = ((femi15_21['Total2021']/128972439)*100000).round(1)
-femi15_21["Variac_ABS2015_2021"] = (-(femi15_21["Total2015"]-femi15_21["Total2020"])).round(1)
-femi15_21["Variac_tasa2015_2021"]= (-(femi15_21["tasa_tot2015"]-femi15_21["tasa_tot2020"])).round(1)
+#femi15_21["tasa_tot2022"] = ((femi15_21['Total2022']/poblacionvalue)*100000).round(1)
+femi15_21["Variac_ABS2015_2021"] = (-(femi15_21["Total2015"]-femi15_21["Total2021"])).round(1)
+femi15_21["Variac_tasa2015_2021"]= (-(femi15_21["tasa_tot2015"]-femi15_21["tasa_tot2021"])).round(1)
 
 
 #                                variaciones mensuales mes.año-mes.año abs by estado
@@ -951,12 +1116,26 @@ femi15_21["var_jun20_21"] = femi15_21.Junio21 - femi15_21.Junio20
 femi15_21["var_jul20_21"] = femi15_21.Julio21 - femi15_21.Julio20
 femi15_21["var_ago20_21"] = femi15_21.Agosto21 - femi15_21.Agosto20
 femi15_21["var_sep20_21"] = femi15_21.Septiembre21 - femi15_21.Septiembre20
-#femi15_21["var_oct20_21"] = femi15_21.Octubre21 - femi15_21.Octubre20
-#femi15_21["var_nov20_21"] = femi15_21.Noviembre21 - femi15_21.Noviembre20
-#femi15_21["var_dic20_21"] = femi15_21.Diciembre21 - femi15_21.Diciembre20
+femi15_21["var_oct20_21"] = femi15_21.Octubre21 - femi15_21.Octubre20
+femi15_21["var_nov20_21"] = femi15_21.Noviembre21 - femi15_21.Noviembre20
+femi15_21["var_dic20_21"] = femi15_21.Diciembre21 - femi15_21.Diciembre20
+
+# Variaciones 2021-2022
+femi15_21["var_ene21_22"] = femi15_21.Enero22 - femi15_21.Enero21
+#femi15_21["var_feb21_22"] = femi15_21.Febrero22 - femi15_21.Febrero21
+#femi15_21["var_mrz21_22"] = femi15_21.Marzo22 - femi15_21.Marzo21
+#femi15_21["var_abr21_22"] = femi15_21.Abril22 - femi15_21.Abril21
+#femi15_21["var_may21_22"] = femi15_21.Mayo22 - femi15_21.Mayo21
+#femi15_21["var_jun21_22"] = femi15_21.Junio22 - femi15_21.Junio21
+#femi15_21["var_jul21_22"] = femi15_21.Julio22 - femi15_21.Julio21
+#femi15_21["var_ago21_22"] = femi15_21.Agosto22 - femi15_21.Agosto21
+#femi15_21["var_sep21_22"] = femi15_21.Septiembre22 - femi15_21.Septiembre21
+#femi15_21["var_oct21_22"] = femi15_21.Octubre22 - femi15_21.Octubre21
+#femi15_21["var_nov21_22"] = femi15_21.Noviembre22 - femi15_21.Noviembre21
+#femi15_21["var_dic21_22"] = femi15_21.Diciembre22 - femi15_21.Diciembre21
 
 
-#                                 variaciones mensuales seriadas (mismo año) by estado
+#variaciones mensuales seriadas (mismo año) by estado
 # 2015
 femi15_21["v_ene_feb_15"] = femi15_21.Febrero15 - femi15_21.Enero15
 femi15_21["v_feb_mar_15"] = femi15_21.Marzo15 - femi15_21.Febrero15
@@ -1056,12 +1235,26 @@ femi15_21["v_may_jun_21"] = femi15_21.Junio21 - femi15_21.Mayo21
 femi15_21["v_jun_jul_21"] = femi15_21.Julio21 - femi15_21.Junio21
 femi15_21["v_jul_ago_21"] = femi15_21.Agosto21 - femi15_21.Julio21
 femi15_21["v_ago_sep_21"] = femi15_21.Septiembre21 - femi15_21.Agosto21
-#femi15_21["v_sep_oct_21"] = femi15_21.Octubre21 - femi15_21.Septiembre21
-#femi15_21["v_oct_nov_21"] = femi15_21.Noviembre21 - femi15_21.Octubre21
-#femi15_21["v_nov_dic_21"] = femi15_21.Diciembre21 - femi15_21.Noviembre21
-#variacion Diciembre-Enero (si llegamos...)
-#femi15_21["v_dic_ene_21"] = femi15_21.Diciembre21 - femi15_21.Enero22
+femi15_21["v_sep_oct_21"] = femi15_21.Octubre21 - femi15_21.Septiembre21
+femi15_21["v_oct_nov_21"] = femi15_21.Noviembre21 - femi15_21.Octubre21
+femi15_21["v_nov_dic_21"] = femi15_21.Diciembre21 - femi15_21.Noviembre21
+#variacion Diciembre-Enero 
+femi15_21["v_dic_ene_21"] = femi15_21.Diciembre21 - femi15_21.Enero22
 
+# 2022
+#femi15_21["v_ene_feb_22"] = femi15_21.Febrero22 - femi15_21.Enero22
+#femi15_21["v_feb_mar_22"] = femi15_21.Marzo22 - femi15_21.Febrero22
+#femi15_21["v_mar_abr_22"] = femi15_21.Abril22 - femi15_21.Marzo22
+#femi15_21["v_abr_may_22"] = femi15_21.Mayo22 - femi15_21.Abril22
+#femi15_21["v_may_jun_22"] = femi15_21.Junio22 - femi15_21.Mayo22
+#femi15_21["v_jun_jul_22"] = femi15_21.Julio22 - femi15_21.Junio22
+#femi15_21["v_jul_ago_22"] = femi15_21.Agosto22 - femi15_21.Julio22
+#femi15_21["v_ago_sep_22"] = femi15_21.Septiembre22 - femi15_21.Agosto22
+#femi15_21["v_sep_oct_22"] = femi15_21.Octubre22 - femi15_21.Septiembre22
+#femi15_21["v_oct_nov_22"] = femi15_21.Noviembre22 - femi15_21.Octubre22
+#femi15_21["v_nov_dic_22"] = femi15_21.Diciembre22 - femi15_21.Noviembre22
+##variacion Diciembre-Enero (si llegamos...)
+#femi15_21["v_dic_ene_22"] = femi15_21.Diciembre22 - femi15_21.Enero23
 
 #                                 variaciones anuales by estado
 femi15_21["var_1516"] = femi15_21.Total2016 - femi15_21.Total2015
@@ -1070,7 +1263,7 @@ femi15_21["var_1718"] = femi15_21.Total2018 - femi15_21.Total2017
 femi15_21["var_1819"] = femi15_21.Total2019 - femi15_21.Total2018
 femi15_21["var_1920"] = femi15_21.Total2020 - femi15_21.Total2019
 femi15_21["var_2021"] = femi15_21.Total2021 - femi15_21.Total2020
-
+#femi15_21["var_2022"] = femi15_21.Total2022 - femi15_21.Total2021
 
 #                                 variaciones porcentuales mensuales by estado
 # Variaciones 2015-2016
@@ -1153,18 +1346,23 @@ femi15_21["var_jun20_21_%"] = (femi15_21["var_jun20_21"]*100)/femi15_21.Junio21
 femi15_21["var_jul20_21_%"] = (femi15_21["var_jul20_21"]*100)/femi15_21.Julio21
 femi15_21["var_ago20_21_%"] = (femi15_21["var_ago20_21"]*100)/femi15_21.Agosto21
 femi15_21["var_sep20_21_%"] = (femi15_21["var_sep20_21"]*100)/femi15_21.Septiembre21
-#femi15_21["var_oct20_21_%"] = (femi15_21["var_oct20_21"]*100)/femi15_21.Octubre21
-#femi15_21["var_nov20_21_%"] = (femi15_21["var_nov20_21"]*100)/femi15_21.Noviembre21
-#femi15_21["var_dic20_21_%"] = (femi15_21["var_dic20_21"]*100)/femi15_21.Diciembre21
+femi15_21["var_oct20_21_%"] = (femi15_21["var_oct20_21"]*100)/femi15_21.Octubre21
+femi15_21["var_nov20_21_%"] = (femi15_21["var_nov20_21"]*100)/femi15_21.Noviembre21
+femi15_21["var_dic20_21_%"] = (femi15_21["var_dic20_21"]*100)/femi15_21.Diciembre21
 
-
-
-
-
-
-
-
-
+# Variaciones 2021-2022
+femi15_21["var_ene20_22_%"] = (femi15_21["var_ene21_22"]*100)/femi15_21.Enero22
+#femi15_21["var_feb20_22_%"] = (femi15_21["var_feb21_22"]*100)/femi15_21.Febrero22
+#femi15_21["var_mrz20_22_%"] = (femi15_21["var_mrz21_22"]*100)/femi15_21.Marzo22
+#femi15_21["var_abr20_22_%"] = (femi15_21["var_abr21_22"]*100)/femi15_21.Abril22
+#femi15_21["var_may20_22_%"] = (femi15_21["var_may21_22"]*100)/femi15_21.Mayo22
+#femi15_21["var_jun20_22_%"] = (femi15_21["var_jun21_22"]*100)/femi15_21.Junio22
+#femi15_21["var_jul20_22_%"] = (femi15_21["var_jul21_22"]*100)/femi15_21.Julio22
+#femi15_21["var_ago20_22_%"] = (femi15_21["var_ago21_22"]*100)/femi15_21.Agosto22
+#femi15_21["var_sep20_22_%"] = (femi15_21["var_sep21_22"]*100)/femi15_21.Septiembre22
+#femi15_21["var_oct20_22_%"] = (femi15_21["var_oct21_22"]*100)/femi15_21.Octubre22
+#femi15_21["var_nov20_22_%"] = (femi15_21["var_nov21_22"]*100)/femi15_21.Noviembre22
+#femi15_21["var_dic20_22_%"] = (femi15_21["var_dic21_22"]*100)/femi15_21.Diciembre22
 
 
 
@@ -1269,9 +1467,9 @@ app.layout = html.Div([
                              "font-family": "Arial",
                            "color": "purple", 
                           "text-shadow": "10px 20px 30px black",}),
-                  html.P(["17 delitos vinculados con la violencia de género reunieron "+ totaldvg +" incidencias " 
-                          " entre 2015 y 2021."
-                          " Es decir, un retrato que representa 15.5%  del total de la incidencia"
+                  html.P(["16 delitos vinculados con la violencia de género reunieron "+ totaldvg +" incidencias " 
+                          " entre 2015 y 2022."
+                          " Es decir, un retrato que representa 15.8%  del total de la incidencia"
                           " nacional. Aquí presentamos un análisis pormenorizado"
                           " de este fenómeno, que requiere de la mayor atención posible. Esta información se actualiza "
                           "mensualmente, de igual forma que nuestra fuente, el Secretariado Ejecutivo del Sistema Nacional de "
@@ -1454,14 +1652,14 @@ app.layout = html.Div([
                             "text-align": "right",
                             "line-height":"70%"
                         }),
-                 html.P(tipodel17,#f"{int(num_zm):,}",  
-                        style={
-                               "color": "black", 
-                               "font-size": "14px",
-                               "font-family": "Arial",
-                               "text-align": "right",
-                            "line-height":"70%"
-                        }),
+#                 html.P(tipodel17,#f"{int(num_zm):,}",  
+#                        style={
+#                               "color": "black", 
+#                               "font-size": "14px",
+#                               "font-family": "Arial",
+#                               "text-align": "right",
+#                            "line-height":"70%"
+#                        }),
  #                html.P(tipodel18,#f"{int(num_zm):,}",  
  #                       style={
  #                              "color": "black", 
@@ -1638,15 +1836,15 @@ app.layout = html.Div([
                                "widht":"100px",
                             "line-height":"70%"
                         }),
-                 html.P(f"{int(totdel17):,}",  
-                        style={
-                               "color": "black", 
-                               "font-size": "14px",
-                               "font-family": "Arial",
-                               "text-align": "right",
-                               "widht":"100px",
-                            "line-height":"70%"
-                        }),
+#                 html.P(f"{int(totdel17):,}",  
+#                        style={
+#                               "color": "black", 
+#                               "font-size": "14px",
+#                               "font-family": "Arial",
+#                               "text-align": "right",
+#                               "widht":"100px",
+#                            "line-height":"70%"
+#                        }),
   #               html.P(f"{int(totdel18):,}",  
   #                      style={
   #                             "color": "black", 
@@ -1806,14 +2004,14 @@ app.layout = html.Div([
                                "text-align": "right",
                             "line-height":"70%"                            
                         }),
-                 html.P(f"{int(tasatotdel17):,}",  
-                        style={
-                               "color": "black", 
-                               "font-size": "14px",
-                               "font-family": "Arial",
-                               "text-align": "right",
-                            "line-height":"70%"                            
-                        }),
+#                 html.P(f"{int(tasatotdel17):,}",  
+#                        style={
+#                               "color": "black", 
+#                               "font-size": "14px",
+#                               "font-family": "Arial",
+#                               "text-align": "right",
+#                            "line-height":"70%"                            
+#                        }),
  #                html.P(f"{int(tasatotdel18):,}",  
  #                       style={
  #                              "color": "black", 
@@ -1876,7 +2074,7 @@ app.layout = html.Div([
     
   dbc.Row(
            [
-               dbc.Col(html.P(["17 tableros analíticos" ],
+               dbc.Col(html.P(["16 tableros analíticos" ],
                       style={"color": "Purple", 
                                #"font-weight": 'bold',
                                "font-size": "32px",
@@ -1892,14 +2090,15 @@ app.layout = html.Div([
     
  dbc.Row(
            [
-  dbc.Col(html.P(["Enseguida se puede acceder a 17 tableros analíticos, organizados  de mayor a menor tasa"
+  dbc.Col(html.P(["Enseguida se puede acceder a 16 tableros analíticos, organizados  de mayor a menor tasa"
                   " de incidencia por cada 100 mil habitantes. En la primera línea se encuentra   "
                   " la incidencia con tasas de "
-                 + str(tasatotdel1)+ " a " + str (tasatotdel6)+" delitos (100k/hab). En la segunda línea"
+                 + str(tasatotdel1)+ " a " + str (tasatotdel6)+" delitos. En la segunda línea"
                   " se encuentra la incidencia con tasas de " 
-                  +str(tasatotdel7)+ " a " + str (tasatotdel12)+" delitos (100k/hab). Finalmente, en la"
-                  " tercera línea se encuentra la incidencia con tasas de "
-                  +str(tasatotdel13)+ " a " + str (tasatotdel17)+ " delitos.",
+                  +str(tasatotdel7)+ " a " + str (tasatotdel12)+" delitos. Finalmente, en la"
+                  " tercera línea se encuentra la incidencia con tasas menores a "
+                  +str(tasatotdel13)+ " a "# + str ("dato17"#tasatotdel17)
+                  + " delitos.",
                  ],style={'textAlign': 'justify',
                              "font-size": "18px",
                              "font-family": "Arial",
@@ -2595,47 +2794,47 @@ html.Br(),
                
                
        ################################# POR DEFINIR 3
-                           dbc.Col(
-       dbc.Button(([
-            dbc.Nav([
-                   dbc.NavLink(dbc.NavLink(tipodel17,  style={"font-size": 5, 
-                                                  "line-height":"120%", 
-                                                  "font-family": "Arial",
-                                                  "width": "200px",
-                                                  "font-size": 12,  
-                                                  "text-align":"center",
-                                                   "margin-left": "-50px",
-                                                   "margin-right": "-50px",  
-                                                   "margin-top": "-40px"
-                                                 },
-                                           href=urldel17,
-                      #  href="https://delitocorrupciondemenores.herokuapp.com/",
-                        active="exact"), 
-                        style={#'size': 2, 
-                          #     "margin-left": "-30px",  
-                               "font-family": "Arial",
-                               'float' : 'center' ,
-                               "font-size": 15, 
-                               "color": "lightsalmon",
-                              "text-shadow": "10px 20px 30px gray",})]),
-            
-        html.A([
-        html.Img(src=iconodel17,
-                        style={#'height' : '150px',
-                    'width' : '50px',
-                    #'float' : 'center' ,
-                   # "margin-left":"-30px"
-                              })],
-                 # href="https://delitocorrupciondemenores.herokuapp.com/",
-            href=urldel17,
-                  ),
-    
-                      ]),style={ "background-color": "light",
-                  "box-shadow": "10px 20px 30px gray",
-                 # 'margin-left': '105px',
-                                "width":"180px", 
-                                "height":"140px"
-                 } ,disabled=True)),
+#                           dbc.Col(
+#       dbc.Button(([
+#            dbc.Nav([
+#                   dbc.NavLink(dbc.NavLink(tipodel17,  style={"font-size": 5, 
+#                                                  "line-height":"120%", 
+#                                                  "font-family": "Arial",
+#                                                  "width": "200px",
+#                                                  "font-size": 12,  
+#                                                  "text-align":"center",
+#                                                   "margin-left": "-50px",
+#                                                   "margin-right": "-50px",  
+#                                                   "margin-top": "-40px"
+#                                                 },
+#                                           href=urldel17,
+#                      #  href="https://delitocorrupciondemenores.herokuapp.com/",
+#                        active="exact"), 
+#                        style={#'size': 2, 
+#                          #     "margin-left": "-30px",  
+#                               "font-family": "Arial",
+#                               'float' : 'center' ,
+#                               "font-size": 15, 
+#                               "color": "lightsalmon",
+#                              "text-shadow": "10px 20px 30px gray",})]),
+#            
+#        html.A([
+#        html.Img(src=iconodel17,
+#                        style={#'height' : '150px',
+#                    'width' : '50px',
+#                    #'float' : 'center' ,
+#                   # "margin-left":"-30px"
+#                              })],
+#                 # href="https://delitocorrupciondemenores.herokuapp.com/",
+#            href=urldel17,
+#                  ),
+#    
+#                      ]),style={ "background-color": "light",
+#                  "box-shadow": "10px 20px 30px gray",
+#                 # 'margin-left': '105px',
+#                                "width":"180px", 
+#                                "height":"140px"
+#                 } ,disabled=True)),
                
                
 #       ################################# POR DEFINIR 4
@@ -2709,7 +2908,7 @@ dbc.Row(
   dbc.Row(
            [
                dbc.Col(html.P(["A continuación se presenta un primer mapa que contiene las cifras acumuladas "
-                               "de  delitos de género en el periodo 2015-2021 por entidad. Enseguida, abajo,"
+                               "de  delitos de género en el periodo 2015-2022 por entidad. Enseguida, abajo,"
                                " hay siete mapas con los acumulados anuales, destacando los cinco estados con mayor "
                                "incidencia."
    ],
@@ -2738,10 +2937,13 @@ dbc.Row(
                     style={#"textDecoration": "underline",
                         "cursor": "pointer",
                           "font-size": 18,"color": "black","background-color": "lightgray"},),
-          
-        dbc.Tooltip("En el acumulado de 2015 a 2020, los estados con mayor incidencia son: Ciudad de México con 189,681 casos, "
-            "seguido de Nuevo León con 177,235 casos,  México con 137,266 casos, Chihuahua con 110,304 casos, finalmente,"
-            " Baja California con 102,634 casos.",
+        #texto emergente  
+        dbc.Tooltip("En el acumulado de 2015 a 2022, los cinco estados con mayor incidencia son: "+
+                     str(edos1) +" con "+ str(edos1_v) +" casos, seguido de "+
+                     str(edos2) +" con "+ str(edos2_v) +" casos, "+
+                     str(edos3) +" con "+ str(edos3_v) +" casos, "+
+                     str(edos4) +" con "+ str(edos4_v) +" casos, finalmente,"+
+                     str(edos5) +" con "+ str(edos5_v) +" casos.",
             target="tooltip-target-acumulado",
         ),
                dbc.CardImg(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/Mapa%20Acumulado.png?raw=true",
@@ -2766,8 +2968,12 @@ dbc.Row(
                           "font-size": 18,"color": "black","background-color": "lightgray"},),
           
         dbc.Tooltip(
-            "Los cinco estados con mayor incidencia en 2015 son: Nuevo León con 25,506 casos, seguido de Ciudad de México"
-            " con 21,451 casos,  Chihuahua con 17,616 casos, Baja California con 15,108 casos, finalmente, México con 13,825 casos.",
+            "Los cinco estados con mayor incidencia en 2015 son: "+
+            str(edos151)+" con "+ str(edos151_v) +" casos, seguido de "+
+            str(edos152)+" con "+ str(edos152_v) +" casos,  "+
+            str(edos153)+" con "+ str(edos153_v) +" casos, "+
+            str(edos154)+" con "+ str(edos154_v) +" casos, finalmente, "+
+            str(edos155)+" con "+ str(edos155_v) +" casos.",
             target="tooltip-target-15",
         ),
             dbc.CardImg(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/Mapa%20v-g%20Total2015.png?raw=true",
@@ -2789,8 +2995,12 @@ dbc.Row(
                           "font-size": 18,"color": "black","background-color": "lightgray"},),
           
         dbc.Tooltip(
-            "Los cinco estados con mayor incidencia en 2016 son: Nuevo León con 26,870 casos, seguido de Ciudad de México"
-            " con 24,047 casos,  Jalisco con 17,624 casos, Chihuahua con 16,704 casos, finalmente, México con 16,051 casos.",
+            "Los cinco estados con mayor incidencia en 2016 son: "+
+            str(edos161)+" con "+ str(edos161_v) +" casos, seguido de "+
+            str(edos162)+" con "+ str(edos162_v) +" casos,  "+
+            str(edos163)+" con "+ str(edos163_v) +" casos, "+
+            str(edos164)+" con "+ str(edos164_v) +" casos, finalmente, "+
+            str(edos165)+" con "+ str(edos165_v) +" casos.",
             target="tooltip-target-16",
         ),
             dbc.CardImg(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/Mapa%20v-g%20Total2016.png?raw=true",
@@ -2812,8 +3022,12 @@ dbc.Row(
                           "font-size": 18,"color": "black","background-color": "lightgray"},),
           
         dbc.Tooltip(
-            "Los cinco estados con mayor incidencia en 2017 son: Nuevo León con 26,721 casos, seguido de Ciudad de"
-            " México con 23,112 casos,  México con 17,812 casos, Chihuahua con 16,956 casos, finalmente, Jalisco con 15,170 casos.",
+            "Los cinco estados con mayor incidencia en 2017 son: "+
+            str(edos171)+" con "+ str(edos171_v) +" casos, seguido de "+
+            str(edos172)+" con "+ str(edos172_v) +" casos,  "+
+            str(edos173)+" con "+ str(edos173_v) +" casos, "+
+            str(edos174)+" con "+ str(edos174_v) +" casos, finalmente, "+
+            str(edos175)+" con "+ str(edos175_v) +" casos.",
             target="tooltip-target-17",
         ),
             dbc.CardImg(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/Mapa%20v-g%20Total2017.png?raw=true",
@@ -2842,8 +3056,12 @@ dbc.Row(
                           "font-size": 18,"color": "black","background-color": "lightgray"},),
           
         dbc.Tooltip(
-          "Los cinco estados con mayor incidencia en 2018 son: Ciudad de México con 27980 casos, seguido de Nuevo León"
-          " con 26,800 casos,  México con 17,979 casos, Chihuahua con 17,139 casos, finalmente, Baja California con 15,972 casos.",
+          "Los cinco estados con mayor incidencia en 2018 son: "+
+            str(edos181)+" con "+ str(edos181_v) +" casos, seguido de "+
+            str(edos182)+" con "+ str(edos182_v) +" casos,  "+
+            str(edos183)+" con "+ str(edos183_v) +" casos, "+
+            str(edos184)+" con "+ str(edos184_v) +" casos, finalmente, "+
+            str(edos185)+" con "+ str(edos185_v) +" casos.",
           target="tooltip-target-18",
       ),
           dbc.CardImg(src="https://github.com/fdealbam/violenciadegenero/blob/main/application/static/Mapa%20v-g%20Total2018.png?raw=true",
@@ -2865,9 +3083,12 @@ dbc.Row(
                           "font-size": 18,"color": "black","background-color": "lightgray"},),
           
         dbc.Tooltip(
-          "Los cinco estados con mayor incidencia en 2019 son: Ciudad de México con 36,134 casos, "
-          "seguido de Nuevo León con 27,228 casos,  México con 23,236 casos, Veracruz de Ignacio de la Llave"
-          "con 19,125 casos, finalmente, Baja California con 17,117 casos.",
+          "Los cinco estados con mayor incidencia en 2019 son: "+
+            str(edos191)+" con "+ str(edos191_v) +" casos, seguido de "+
+            str(edos192)+" con "+ str(edos192_v) +" casos,  "+
+            str(edos193)+" con "+ str(edos193_v) +" casos, "+
+            str(edos194)+" con "+ str(edos194_v) +" casos, finalmente, "+
+            str(edos195)+" con "+ str(edos195_v) +" casos.",
           target="tooltip-target-19",
       ),
                                          
@@ -2891,9 +3112,12 @@ dbc.Row(
                           "font-size": 18,"color": "black","background-color": "lightgray"},),
           
        dbc.Tooltip(
-          "Los cinco estados con mayor incidencia en 2020 son: Ciudad de México con 37,217 casos,"
-          " seguido de México con 31,435 casos,  Nuevo León con 30,116 casos, Veracruz de Ignacio de la Llave "
-          "con 18,152 casos, finalmente, Baja California con 18,044 casos.",
+          "Los cinco estados con mayor incidencia en 2020 son: "+
+            str(edos201)+" con "+ str(edos201_v) +" casos, seguido de "+
+            str(edos202)+" con "+ str(edos202_v) +" casos,  "+
+            str(edos203)+" con "+ str(edos203_v) +" casos, "+
+            str(edos204)+" con "+ str(edos204_v) +" casos, finalmente, "+
+            str(edos205)+" con "+ str(edos205_v) +" casos.",
 
           target="tooltip-target-20",
       ),
@@ -2916,9 +3140,12 @@ dbc.Row(
                          "font-size": 18,"color": "black","background-color": "lightgray"},),
          
        dbc.Tooltip(
-           "Los cinco estados con mayor incidencia en 2021 son: Ciudad de México con 19,740 casos, seguido de México con 16,928 casos,"
-           "  Nuevo León con 13,994 casos, Veracruz de Ignacio de la Llave con 8,815 casos, finalmente,"
-           " Jalisco con 8,164 casos.",
+           "Los cinco estados con mayor incidencia en 2021 son: "+
+            str(edos211)+" con "+ str(edos211_v) +" casos, seguido de "+
+            str(edos212)+" con "+ str(edos212_v) +" casos,  "+
+            str(edos213)+" con "+ str(edos213_v) +" casos, "+
+            str(edos214)+" con "+ str(edos214_v) +" casos, finalmente, "+
+            str(edos215)+" con "+ str(edos215_v) +" casos.",
            target="tooltip-target-21",
        ),
                                               
@@ -2930,14 +3157,10 @@ dbc.Row(
                         # 'margin-top': '-200px',
                         #'margin-left': '500px',
                        'width': '300px'
-                        },# disabled=True
-                     ),),
+                        },),),
          ]),
        
 
-          
-
- 
     html.Br(),
      html.Br(),
     html.Br(),
@@ -2959,10 +3182,8 @@ dbc.Row(
                             "background-color": "lightgray"}),
                        width={'size': 20, "offset":1 },
                       )],justify="start",),
-    
-    
      
-    dbc.Row([dbc.Col(html.P("Los delitos de género representan 18%  de la incidencia delictiva acumulada entre 2015 y 2021.", 
+    dbc.Row([dbc.Col(html.P("Los delitos de género representan 15.5%  de la incidencia delictiva acumulada entre 2015 y 2021.", 
                        style={'textAlign': 'justify',
                             #  "left": "50%",
                              "font-size": "18px",
@@ -2970,24 +3191,18 @@ dbc.Row(
                            "color": "black",
                             "line-height":"120%",                            
                             "margin-left": "100px",
-                            "margin-right": "100px",
-                          }
-                      )),
-        
+                            "margin-right": "100px",})),
             ]),
   dbc.Row([
-        dbc.Col(dcc.Graph(figure=fig_meses, ))
-    ]),
+        dbc.Col(dcc.Graph(figure=fig_meses, ))]),
     
-      html.Br(),
+    html.Br(),
      html.Br(),
      html.Br(),
      html.Br(),
      html.Br(),
    
-    
-    
-    
+
          dbc.Row([
         dbc.Col(html.P("Comparativo de variación de cada delito", 
                         style={"color": "purple", 
@@ -2997,10 +3212,9 @@ dbc.Row(
                             "background-color": "lightgray"}),
                        width={'size': 20, "offset":1 },
                       )],justify="start",),
- dbc.Row([
-        dbc.Col(html.P(
+ dbc.Row([dbc.Col(html.P(
             "El delito de inasistencia familiar es el único que muestra disminución," 
-            " si se comparan las sumas anuales de 2015 respecto a las de 2020. "
+            " si se comparan las sumas anuales de 2015 respecto a las de 2021. "
             "En cambio, los delitos de abuso sexual y contra la seguridad corporal registraron los mayores incrementos (cifra 1 y cifra 2, respectivamente).", 
                        style={'textAlign': 'justify',
                               "left": "50%",
@@ -3009,15 +3223,11 @@ dbc.Row(
                            "font-color": "purple",
                            "line-height":"120%",
                                "margin-left": "100px",
-                            "margin-right": "100px",
-                          
-                          },
+                            "margin-right": "100px",},
             
         )),]),
   dbc.Row([
-        dbc.Col(dcc.Graph(figure=comparatot_2015_20, ))
-    
-        
+        dbc.Col(dcc.Graph(figure=comparatot_2015_20, ))       
     ]),
    
     html.Br(),
@@ -3042,8 +3252,8 @@ dbc.Row(
                       )],justify="start",),
      dbc.Row(
            [
-                   html.P("En este tablero presentamos 17 delitos que reflejan la gravedad de la violencia de género en el país,"
-                          " analizando las cifras desde el año 2015 hasta los datos más recientes, mayo de 2021. Con este instrumento"
+                   html.P("En este tablero presentamos 16 delitos que reflejan la gravedad de la violencia de género en el país,"
+                          " analizando las cifras desde el año 2015 hasta los datos más recientes, enero de 2021. Con este instrumento"
                           " proporcionamos a las diputadas y diputados información basada en la evidencia, de un fenómeno con alcance "
                           " nacional. Este análisis evoca la necesidad insoslayable de profundizar las políticas de equidad de género," 
                           " de acciones sustantivas de equidad; acciones que nos hagan más conscientes, más vigilantes respecto a sus"
@@ -3059,14 +3269,11 @@ dbc.Row(
                           #"text-shadow": "10px 20px 30px black",
                       )],justify="start",),
     
-    
-    
      html.Br(),
      html.Br(),
      html.Br(),
      html.Br(),
      html.Br(),
-   
     
     #Logo
      dbc.Row([dbc.Col(
@@ -3075,14 +3282,10 @@ dbc.Row(
          dbc.Col(html.H6(" Centro de Estudios Sociales y de Opinión Pública," 
                            " Cámara de Diputados"
                            " México, 2021 "),
-                  width={'size': 3, 'offset': 0, "font-family": "Arial",}),
-               ], justify="start",),
+                 width={'size': 3, 'offset': 0, "font-family": "Arial",}),], justify="start",),
     html.Br(),
   
-    
     #Estilo de fondo
- 
-     
     ],style={
             'margin-top': '0px',
             'margin-left': '10px',
@@ -3090,8 +3293,6 @@ dbc.Row(
            # 'height': '1413px',
       'backgroundColor': 'lightgray'
          })
-
-
 
 if __name__ == '__main__':
     app.run_server()
