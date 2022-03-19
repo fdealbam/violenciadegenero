@@ -1447,7 +1447,7 @@ app.layout = html.Div([
      dbc.Row([
             dbc.Col(
          dbc.CardImg(src="https://github.com/fdealbam/0entrada/blob/main/application/static/CELIG.JPG?raw=true"),
-                        width=5, md={'size': 2,#  "offset": 4, 
+                        width=5, md={'size': 1,#  "offset": 4, 
                                     }),
          dbc.Col(
          dbc.CardImg(src="https://github.com/fdealbam/0entrada/blob/main/application/static/logo%20cesopycamara1.PNG?raw=true"),
@@ -3286,7 +3286,7 @@ dbc.Row(
      dbc.Row([
          dbc.Col(
          dbc.CardImg(src="https://github.com/fdealbam/0entrada/blob/main/application/static/CELIG.JPG?raw=true"),
-                        width=5, md={'size': 2,#  "offset": 4, 
+                        width=5, md={'size': 1,#  "offset": 4, 
                                     }),
          
          dbc.Col(
