@@ -1444,13 +1444,20 @@ app = dash.Dash(__name__, external_stylesheets=[dbc.themes.
 
 app.layout = html.Div([
     #Logo
-     dbc.Row([dbc.Col(
+     dbc.Row([
+            dbc.Col(
+         dbc.CardImg(src="https://github.com/fdealbam/0entrada/blob/main/application/static/CELIG.JPG?raw=true"),
+                        width=5, md={'size': 2,#  "offset": 4, 
+                                    }),
+         dbc.Col(
          dbc.CardImg(src="https://github.com/fdealbam/0entrada/blob/main/application/static/logo%20cesopycamara1.PNG?raw=true"),
-                        width=5, md={'size': 3,  "offset": 6, }),
+                        width=5, md={'size': 3, # "offset": 6, 
+                                    }),
          dbc.Col(html.H6(" Centro de Estudios Sociales y de Opinión Pública," 
                            " Cámara de Diputados"
                            " México, 2021 "),
-                  width={'size': 3, 'offset': 0, "font-family": "Arial",}),
+                  width={'size': 3, #'offset': 0, 
+                         "font-family": "Arial",}),
                ], justify="start",),
     html.Br(),
     html.Br(),
