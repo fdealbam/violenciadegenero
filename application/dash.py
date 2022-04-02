@@ -1446,7 +1446,7 @@ app.layout = html.Div([
     #Logo
      dbc.Row([
             dbc.Col(
-         dbc.CardImg(src="https://github.com/fdealbam/0entrada/blob/main/application/static/CELIG.JPG?raw=true"),
+         dbc.CardImg(src="https://github.com/fdealbam/0entrada/blob/main/application/static/CELIG.PNG?raw=true"),
                         width=5, md={'size': 1,#  "offset": 4, 
                                     }),
          dbc.Col(
